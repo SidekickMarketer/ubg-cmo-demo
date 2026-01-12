@@ -45,27 +45,13 @@ export default function Home() {
             </div>
 
             {/* Right - Photo */}
-            <div className="hidden lg:block relative">
-              <div className="relative">
-                {/* Main photo */}
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="/kyle.jpeg"
-                    alt="Kyle Naughtrip"
-                    className="w-full h-auto"
-                  />
-                </div>
-
-                {/* Floating accent card */}
-                <div className="absolute -bottom-6 -left-6 bg-[#1a2744] text-white rounded-xl p-5 shadow-xl">
-                  <div className="text-3xl font-bold text-[#c9a227]">86%</div>
-                  <div className="text-sm text-gray-300">find counsel via referrals</div>
-                </div>
-
-                {/* Floating badge */}
-                <Link href="/tool" className="absolute -top-4 -right-4 bg-[#c9a227] text-white rounded-full px-4 py-2 text-sm font-bold shadow-lg hover:bg-[#b8922a] transition-colors cursor-pointer">
-                  Try the Tools →
-                </Link>
+            <div className="hidden lg:block">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/kyle.jpeg"
+                  alt="Kyle Naughtrip"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </div>
