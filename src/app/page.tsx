@@ -75,7 +75,7 @@ export default function Home() {
             <div className="text-center md:text-left">
               <div className="text-6xl md:text-7xl font-bold text-white mb-2">6%</div>
               <div className="text-[#c9a227] font-semibold text-lg mb-2">Recommend Based on Price</div>
-              <p className="text-gray-400 text-sm">70% cite service quality. Only 6% cite cost.</p>
+              <p className="text-gray-400 text-sm">70% cite service quality as why they recommend a firm.</p>
             </div>
           </div>
           <p className="text-center text-xs text-gray-500 mt-10">
