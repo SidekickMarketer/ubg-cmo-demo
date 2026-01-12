@@ -7,8 +7,7 @@ A demonstration project by Kyle Naughtrip for the Chief Marketing Officer positi
 1. **Homepage** - Overview of the strategic vision and key opportunities
 2. **AI Tool Demo** - Working attorney thought leadership generator
 3. **90-Day Roadmap** - Strategic plan tailored to UB Greensfelder
-4. **Research Findings** - Deep analysis of firm positioning and opportunities
-5. **About Kyle** - How my experience maps to UB Greensfelder's needs
+4. **About Kyle** - How my experience maps to UB Greensfelder's needs
 
 ## Quick Deploy to Vercel
 
@@ -55,7 +54,6 @@ ubg-cmo-demo/
 │   │   ├── page.tsx          # Homepage
 │   │   ├── tool/page.tsx     # AI Tool Demo
 │   │   ├── roadmap/page.tsx  # 90-Day Roadmap
-│   │   ├── research/page.tsx # Research Findings
 │   │   ├── about/page.tsx    # About Kyle
 │   │   ├── layout.tsx        # Root layout with navigation
 │   │   └── globals.css       # Global styles
@@ -76,7 +74,7 @@ ubg-cmo-demo/
 
 This project was built to demonstrate:
 
-1. **Strategic Thinking** - Deep research on UB Greensfelder, the merger, competitive landscape
+1. **Strategic Thinking** - Tailored roadmap informed by market understanding
 2. **Technical Capability** - Working AI tool prototype, not just a concept
 3. **Execution Speed** - From idea to deployed solution
 4. **Modern Marketing** - Leveraging AI for content creation at scale

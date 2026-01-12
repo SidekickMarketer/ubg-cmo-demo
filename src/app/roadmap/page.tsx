@@ -354,8 +354,8 @@ export default function RoadmapPage() {
             This roadmap adapts to priorities identified during the discovery phase.
             It&apos;s a framework, not a rigid plan.
           </p>
-          <a href="/research" className="btn-primary px-8 py-3 rounded-lg font-semibold inline-block">
-            See the Research Behind This Plan
+          <a href="/about" className="btn-primary px-8 py-3 rounded-lg font-semibold inline-block">
+            Learn About Kyle&apos;s Experience
           </a>
         </div>
       </div>

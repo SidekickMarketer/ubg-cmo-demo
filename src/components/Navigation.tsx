@@ -7,7 +7,6 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/tool", label: "AI Tool Demo" },
   { href: "/roadmap", label: "90-Day Roadmap" },
-  { href: "/research", label: "Research" },
   { href: "/about", label: "About Kyle" },
 ];
 
