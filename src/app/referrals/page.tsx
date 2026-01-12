@@ -3,177 +3,286 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// Mock data for demonstration
-const mockReferralSources = [
-  { id: 1, name: "Thompson & Associates", type: "Law Firm", referrals: 12, lastReferral: "2024-01", attorneys: ["Sarah Chen", "Mike Rodriguez"] },
-  { id: 2, name: "Midwest Manufacturing Alliance", type: "Industry Group", referrals: 8, lastReferral: "2024-02", attorneys: ["James Wilson", "Lisa Park"] },
-  { id: 3, name: "Robert Hartley (Former Client)", type: "Individual", referrals: 6, lastReferral: "2023-11", attorneys: ["Sarah Chen"] },
-  { id: 4, name: "STL Business Journal", type: "Media/Event", referrals: 5, lastReferral: "2024-01", attorneys: ["Mike Rodriguez", "James Wilson"] },
-  { id: 5, name: "Healthcare Compliance Forum", type: "Industry Group", referrals: 4, lastReferral: "2023-12", attorneys: ["Lisa Park"] },
+/* ─────────────────────────────────────────────
+   TYPE DEFINITIONS
+───────────────────────────────────────────── */
+type ReferrerType = "Law Firm" | "Industry Group" | "Individual" | "Media/Event";
+
+interface ReferralSource {
+  id: number;
+  name: string;
+  type: ReferrerType;
+  referrals: number;
+  lastReferral: string;
+  attorneys: string[];
+  estimatedRevenue: number;
+}
+
+interface CrossSellRow {
+  client: string;
+  currentPractice: string;
+  opportunity: string;
+  contact: string;
+  readiness: "High" | "Medium" | "Low";
+  potentialRevenue: number;
+}
+
+interface AttorneyNetworkRow {
+  name: string;
+  practice: string;
+  referralsSent: number;
+  referralsReceived: number;
+  topSource: string;
+}
+
+/* ─────────────────────────────────────────────
+   DEMO DATA
+───────────────────────────────────────────── */
+const referralSources: ReferralSource[] = [
+  { id: 1, name: "Thompson & Associates", type: "Law Firm", referrals: 12, lastReferral: "Jan 2026", attorneys: ["S. Chen", "M. Rodriguez"], estimatedRevenue: 720000 },
+  { id: 2, name: "Midwest Manufacturing Alliance", type: "Industry Group", referrals: 8, lastReferral: "Feb 2026", attorneys: ["J. Wilson", "L. Park"], estimatedRevenue: 480000 },
+  { id: 3, name: "Robert Hartley (Former Client)", type: "Individual", referrals: 6, lastReferral: "Nov 2025", attorneys: ["S. Chen"], estimatedRevenue: 360000 },
+  { id: 4, name: "STL Business Journal", type: "Media/Event", referrals: 5, lastReferral: "Jan 2026", attorneys: ["M. Rodriguez", "J. Wilson"], estimatedRevenue: 300000 },
+  { id: 5, name: "Healthcare Compliance Forum", type: "Industry Group", referrals: 4, lastReferral: "Dec 2025", attorneys: ["L. Park"], estimatedRevenue: 240000 },
 ];
 
-const mockCrossSellOpportunities = [
-  { client: "Acme Manufacturing", currentPractice: "Corporate", opportunity: "Labor & Employment", contact: "Sarah Chen", readiness: "High" },
-  { client: "Regional Health System", currentPractice: "Healthcare", opportunity: "Real Estate", contact: "Lisa Park", readiness: "Medium" },
-  { client: "Midwest Distributors", currentPractice: "Litigation", opportunity: "Corporate", contact: "James Wilson", readiness: "High" },
-  { client: "Tech Startup Co", currentPractice: "IP", opportunity: "Corporate", contact: "Mike Rodriguez", readiness: "Low" },
+const crossSellOpportunities: CrossSellRow[] = [
+  { client: "Acme Manufacturing", currentPractice: "Corporate", opportunity: "Labor & Employment", contact: "S. Chen", readiness: "High", potentialRevenue: 275000 },
+  { client: "Regional Health System", currentPractice: "Healthcare", opportunity: "Real Estate", contact: "L. Park", readiness: "Medium", potentialRevenue: 190000 },
+  { client: "Midwest Distributors", currentPractice: "Litigation", opportunity: "Corporate", contact: "J. Wilson", readiness: "High", potentialRevenue: 310000 },
+  { client: "Tech Startup Co", currentPractice: "IP", opportunity: "Corporate", contact: "M. Rodriguez", readiness: "Low", potentialRevenue: 75000 },
 ];
 
-const mockAttorneyNetwork = [
-  { name: "Sarah Chen", practice: "Corporate", referralsSent: 8, referralsReceived: 15, topSource: "Thompson & Associates" },
-  { name: "Mike Rodriguez", practice: "Litigation", referralsSent: 5, referralsReceived: 12, topSource: "STL Business Journal" },
-  { name: "James Wilson", practice: "Real Estate", referralsSent: 12, referralsReceived: 9, topSource: "Midwest Manufacturing Alliance" },
-  { name: "Lisa Park", practice: "Healthcare", referralsSent: 3, referralsReceived: 11, topSource: "Healthcare Compliance Forum" },
+const attorneyNetwork: AttorneyNetworkRow[] = [
+  { name: "S. Chen", practice: "Corporate", referralsSent: 8, referralsReceived: 15, topSource: "Thompson & Associates" },
+  { name: "M. Rodriguez", practice: "Litigation", referralsSent: 5, referralsReceived: 12, topSource: "STL Business Journal" },
+  { name: "J. Wilson", practice: "Real Estate", referralsSent: 12, referralsReceived: 9, topSource: "Midwest Manufacturing Alliance" },
+  { name: "L. Park", practice: "Healthcare", referralsSent: 3, referralsReceived: 11, topSource: "Healthcare Compliance Forum" },
 ];
 
+/* ─────────────────────────────────────────────
+   LAYOUT HELPERS (mirror homepage)
+───────────────────────────────────────────── */
+function Container({ children }: { children: React.ReactNode }) {
+  return <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>;
+}
+
+function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <section className={`py-14 sm:py-16 lg:py-24 ${className}`}>{children}</section>;
+}
+
+function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[var(--shadow-soft)] ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+function Pill({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-1 text-xs font-medium text-[color:var(--muted)] ${className}`}>
+      {children}
+    </span>
+  );
+}
+
+function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex items-center justify-center rounded-full bg-[color:var(--navy)] px-5 py-3 text-sm font-medium text-white shadow-[var(--shadow-soft)] transition hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function SecondaryButton({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-5 py-3 text-sm font-medium text-[color:var(--navy)] transition hover:bg-[color:var(--surface-2)] focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
+    >
+      {children}
+    </Link>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   PAGE-SPECIFIC COMPONENTS
+───────────────────────────────────────────── */
+function TabButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`rounded-full px-5 py-2 text-sm font-medium transition ${
+        active
+          ? "bg-[color:var(--navy)] text-white shadow-[var(--shadow-soft)]"
+          : "text-[color:var(--muted)] hover:bg-[color:var(--surface-2)]"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function Kpi({ value, label, accent = false }: { value: string; label: string; accent?: boolean }) {
+  return (
+    <div className="flex flex-col gap-1">
+      <div className={`text-2xl font-bold tracking-tight ${accent ? "text-[color:var(--gold)]" : "text-[color:var(--navy)]"}`}>
+        {value}
+      </div>
+      <div className="text-xs text-[color:var(--muted)]">{label}</div>
+    </div>
+  );
+}
+
+function TableShell({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
+  return (
+    <Card className="overflow-hidden">
+      <div className="border-b border-[color:var(--border)] px-6 py-4">
+        <div className="text-sm font-semibold text-[color:var(--navy)]">{title}</div>
+        <div className="text-xs text-[color:var(--muted)]">{subtitle}</div>
+      </div>
+      <div className="overflow-x-auto">{children}</div>
+    </Card>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   COMPUTED INSIGHTS (simulate analytics)
+───────────────────────────────────────────── */
+const totalReferrals = referralSources.reduce((s, r) => s + r.referrals, 0);
+const totalReferredRevenue = referralSources.reduce((s, r) => s + r.estimatedRevenue, 0);
+const totalCrossSellPotential = crossSellOpportunities.reduce((s, c) => s + c.potentialRevenue, 0);
+const highReadiness = crossSellOpportunities.filter((c) => c.readiness === "High").length;
+const totalSent = attorneyNetwork.reduce((s, a) => s + a.referralsSent, 0);
+const totalReceived = attorneyNetwork.reduce((s, a) => s + a.referralsReceived, 0);
+
+function RevenueMap() {
+  return (
+    <Card className="p-6">
+      <div className="mb-4 flex items-center justify-between">
+        <div className="text-sm font-semibold text-[color:var(--navy)]">Revenue-Source Map</div>
+        <Pill>Demo Visualization</Pill>
+      </div>
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {referralSources.slice(0, 4).map((src) => (
+          <div key={src.id} className="rounded-xl bg-[color:var(--surface-2)] p-4 text-center">
+            <div className="text-lg font-bold text-[color:var(--navy)]">${(src.estimatedRevenue / 1000).toFixed(0)}K</div>
+            <div className="mt-1 text-xs text-[color:var(--muted)] line-clamp-1">{src.name}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 text-xs text-[color:var(--muted)]">
+        This visualization would connect to live data in a production build.
+      </div>
+    </Card>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   MAIN PAGE
+───────────────────────────────────────────── */
 export default function ReferralsPage() {
-  const [activeTab, setActiveTab] = useState<"sources" | "crosssell" | "network">("sources");
+  const [tab, setTab] = useState<"sources" | "crosssell" | "network">("sources");
 
   return (
-    <div className="min-h-screen py-12 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-block bg-[#1a2744] text-white text-sm px-4 py-2 rounded-full mb-4">
-            Tool Demo #2
-          </div>
-          <h1 className="text-4xl font-bold mb-4 gradient-text">
-            Referral Intelligence Dashboard
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            86% of general counsel find outside counsel through peer referrals.
-            This tool helps track, strengthen, and grow those relationships.
-          </p>
-        </div>
+    <div className="bg-[color:var(--background)] text-[color:var(--foreground)]">
+      {/* HERO */}
+      <div className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, rgba(17,31,58,0.12) 0%, rgba(247,249,252,1) 70%)",
+          }}
+        />
+        <Container>
+          <Section className="relative">
+            <Pill>
+              <span className="h-2 w-2 rounded-full bg-[color:var(--gold)]" aria-hidden="true" />
+              Tool Demo • Referral Intelligence
+            </Pill>
 
-        {/* Context Banner */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            <h1 className="mt-5 text-3xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-4xl lg:text-5xl">
+              Client & Referral Visibility
+            </h1>
+
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-[color:var(--foreground)]/85">
+              86% of general-counsel relationships begin with peer referrals. This tool concept shows how to track, strengthen, and grow those relationships — and connect referral activity to revenue.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              <TabButton active={tab === "sources"} onClick={() => setTab("sources")}>
+                Referral Sources
+              </TabButton>
+              <TabButton active={tab === "crosssell"} onClick={() => setTab("crosssell")}>
+                Cross-Sell Pipeline
+              </TabButton>
+              <TabButton active={tab === "network"} onClick={() => setTab("network")}>
+                Attorney Network
+              </TabButton>
             </div>
-            <div>
-              <h3 className="font-semibold text-blue-900 mb-1">Why This Matters</h3>
-              <p className="text-sm text-blue-800">
-                Most law firms don&apos;t systematically track where their work comes from. They know referrals
-                matter, but can&apos;t answer: &quot;Who are our top 10 referral sources?&quot; or &quot;Which relationships
-                are we underinvesting in?&quot; This tool concept shows how to answer those questions.
-              </p>
-            </div>
-          </div>
-        </div>
+          </Section>
+        </Container>
+      </div>
 
-        {/* Tab Navigation */}
-        <div className="flex gap-2 mb-8 bg-gray-100 p-1 rounded-lg w-fit">
-          <button
-            onClick={() => setActiveTab("sources")}
-            className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-              activeTab === "sources"
-                ? "bg-white text-[#1a2744] shadow-sm"
-                : "text-gray-600 hover:text-[#1a2744]"
-            }`}
-          >
-            Referral Sources
-          </button>
-          <button
-            onClick={() => setActiveTab("crosssell")}
-            className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-              activeTab === "crosssell"
-                ? "bg-white text-[#1a2744] shadow-sm"
-                : "text-gray-600 hover:text-[#1a2744]"
-            }`}
-          >
-            Cross-Sell Pipeline
-          </button>
-          <button
-            onClick={() => setActiveTab("network")}
-            className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-              activeTab === "network"
-                ? "bg-white text-[#1a2744] shadow-sm"
-                : "text-gray-600 hover:text-[#1a2744]"
-            }`}
-          >
-            Attorney Network
-          </button>
-        </div>
-
-        {/* Tab Content */}
-        {activeTab === "sources" && (
-          <div>
-            {/* Summary Stats */}
-            <div className="grid md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#1a2744]">35</div>
-                <div className="text-sm text-gray-600">Total Referrals (12 mo)</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#c9a227]">5</div>
-                <div className="text-sm text-gray-600">Active Referral Sources</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#4a6fa5]">7.0</div>
-                <div className="text-sm text-gray-600">Avg Referrals/Source</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-green-600">$2.1M</div>
-                <div className="text-sm text-gray-600">Referred Revenue</div>
-              </div>
+      {/* TAB: SOURCES */}
+      {tab === "sources" && (
+        <Container>
+          <Section className="pt-0">
+            {/* KPIs */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <Card className="p-5">
+                <Kpi value={String(totalReferrals)} label="Referrals (12 mo)" />
+              </Card>
+              <Card className="p-5">
+                <Kpi value={String(referralSources.length)} label="Active Sources" />
+              </Card>
+              <Card className="p-5">
+                <Kpi value={(totalReferrals / referralSources.length).toFixed(1)} label="Avg / Source" />
+              </Card>
+              <Card className="p-5">
+                <Kpi value={`$${(totalReferredRevenue / 1e6).toFixed(1)}M`} label="Referred Revenue" accent />
+              </Card>
             </div>
 
-            {/* Referral Sources Table */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-6 border-b border-gray-200">
-                <h3 className="text-lg font-bold text-[#1a2744]">Top Referral Sources</h3>
-                <p className="text-sm text-gray-500">Ranked by referral volume over the past 12 months</p>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
+            {/* Table */}
+            <div className="mt-8">
+              <TableShell title="Top Referral Sources" subtitle="Ranked by referral volume over 12 months">
+                <table className="w-full text-left text-sm">
+                  <thead className="border-b border-[color:var(--border)] bg-[color:var(--surface-2)] text-xs uppercase tracking-wide text-[color:var(--muted)]">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Source</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Type</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Referrals</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Last Referral</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Connected Attorneys</th>
+                      <th className="px-6 py-3">Source</th>
+                      <th className="px-6 py-3">Type</th>
+                      <th className="px-6 py-3">Referrals</th>
+                      <th className="px-6 py-3">Last</th>
+                      <th className="px-6 py-3">Attorneys</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {mockReferralSources.map((source) => (
-                      <tr key={source.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="font-medium text-[#1a2744]">{source.name}</div>
+                  <tbody className="divide-y divide-[color:var(--border)]">
+                    {referralSources.map((src) => (
+                      <tr key={src.id} className="hover:bg-[color:var(--surface-2)]">
+                        <td className="px-6 py-4 font-medium text-[color:var(--navy)]">{src.name}</td>
+                        <td className="px-6 py-4">
+                          <Pill>{src.type}</Pill>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 py-1 text-xs rounded-full ${
-                            source.type === "Law Firm" ? "bg-blue-100 text-blue-800" :
-                            source.type === "Industry Group" ? "bg-green-100 text-green-800" :
-                            source.type === "Individual" ? "bg-purple-100 text-purple-800" :
-                            "bg-yellow-100 text-yellow-800"
-                          }`}>
-                            {source.type}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="text-lg font-semibold text-[#1a2744]">{source.referrals}</div>
-                            <div className="ml-2 w-16 bg-gray-200 rounded-full h-2">
-                              <div
-                                className="bg-[#c9a227] rounded-full h-2"
-                                style={{ width: `${(source.referrals / 12) * 100}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {source.lastReferral}
-                        </td>
+                        <td className="px-6 py-4 font-semibold">{src.referrals}</td>
+                        <td className="px-6 py-4 text-[color:var(--muted)]">{src.lastReferral}</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-wrap gap-1">
-                            {source.attorneys.map((attorney, i) => (
-                              <span key={i} className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">
-                                {attorney}
+                            {src.attorneys.map((a) => (
+                              <span key={a} className="rounded bg-[color:var(--surface-2)] px-2 py-0.5 text-xs">
+                                {a}
                               </span>
                             ))}
                           </div>
@@ -182,239 +291,217 @@ export default function ReferralsPage() {
                     ))}
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "crosssell" && (
-          <div>
-            {/* Summary Stats */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#1a2744]">4</div>
-                <div className="text-sm text-gray-600">Active Opportunities</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-green-600">2</div>
-                <div className="text-sm text-gray-600">High Readiness</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#c9a227]">$850K</div>
-                <div className="text-sm text-gray-600">Potential Revenue</div>
-              </div>
+              </TableShell>
             </div>
 
-            {/* Cross-Sell Pipeline */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-6 border-b border-gray-200">
-                <h3 className="text-lg font-bold text-[#1a2744]">Cross-Sell Opportunities</h3>
-                <p className="text-sm text-gray-500">Clients using one practice area who could benefit from others</p>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
+            {/* Revenue Map */}
+            <div className="mt-8">
+              <RevenueMap />
+            </div>
+          </Section>
+        </Container>
+      )}
+
+      {/* TAB: CROSS-SELL */}
+      {tab === "crosssell" && (
+        <Container>
+          <Section className="pt-0">
+            {/* KPIs */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              <Card className="p-5">
+                <Kpi value={String(crossSellOpportunities.length)} label="Active Opportunities" />
+              </Card>
+              <Card className="p-5">
+                <Kpi value={String(highReadiness)} label="High Readiness" />
+              </Card>
+              <Card className="p-5 sm:col-span-1 col-span-2">
+                <Kpi value={`$${(totalCrossSellPotential / 1e3).toFixed(0)}K`} label="Potential Revenue" accent />
+              </Card>
+            </div>
+
+            {/* Table */}
+            <div className="mt-8">
+              <TableShell title="Cross-Sell Opportunities" subtitle="Clients using one practice who could benefit from others">
+                <table className="w-full text-left text-sm">
+                  <thead className="border-b border-[color:var(--border)] bg-[color:var(--surface-2)] text-xs uppercase tracking-wide text-[color:var(--muted)]">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Client</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Current Practice</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Opportunity</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Primary Contact</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Readiness</th>
+                      <th className="px-6 py-3">Client</th>
+                      <th className="px-6 py-3">Current</th>
+                      <th className="px-6 py-3">Opportunity</th>
+                      <th className="px-6 py-3">Contact</th>
+                      <th className="px-6 py-3">Readiness</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {mockCrossSellOpportunities.map((opp, i) => (
-                      <tr key={i} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="font-medium text-[#1a2744]">{opp.client}</div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {opp.currentPractice}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="text-[#c9a227] font-medium">{opp.opportunity}</span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {opp.contact}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 py-1 text-xs rounded-full ${
-                            opp.readiness === "High" ? "bg-green-100 text-green-800" :
-                            opp.readiness === "Medium" ? "bg-yellow-100 text-yellow-800" :
-                            "bg-gray-100 text-gray-800"
-                          }`}>
-                            {opp.readiness}
+                  <tbody className="divide-y divide-[color:var(--border)]">
+                    {crossSellOpportunities.map((row) => (
+                      <tr key={row.client} className="hover:bg-[color:var(--surface-2)]">
+                        <td className="px-6 py-4 font-medium text-[color:var(--navy)]">{row.client}</td>
+                        <td className="px-6 py-4 text-[color:var(--muted)]">{row.currentPractice}</td>
+                        <td className="px-6 py-4 font-semibold text-[color:var(--gold)]">{row.opportunity}</td>
+                        <td className="px-6 py-4">{row.contact}</td>
+                        <td className="px-6 py-4">
+                          <span
+                            className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                              row.readiness === "High"
+                                ? "bg-green-100 text-green-800"
+                                : row.readiness === "Medium"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-gray-100 text-gray-800"
+                            }`}
+                          >
+                            {row.readiness}
                           </span>
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-              </div>
+              </TableShell>
             </div>
 
-            {/* Action Items */}
-            <div className="mt-8 bg-gray-50 rounded-xl p-6">
-              <h4 className="font-bold text-[#1a2744] mb-4">Suggested Actions</h4>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-green-600 text-sm">1</span>
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-800">Schedule intro: Sarah Chen → Labor attorney for Acme Manufacturing</div>
-                    <div className="text-sm text-gray-500">High readiness opportunity, strong existing relationship</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-green-600 text-sm">2</span>
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-800">Schedule intro: James Wilson → Corporate attorney for Midwest Distributors</div>
-                    <div className="text-sm text-gray-500">High readiness, client expanding operations</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+            {/* Suggested Actions */}
+            <Card className="mt-8 p-6">
+              <div className="text-sm font-semibold text-[color:var(--navy)]">Suggested Actions</div>
+              <ul className="mt-4 space-y-3 text-sm text-[color:var(--foreground)]">
+                <li className="flex items-start gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">
+                    1
+                  </span>
+                  <span>
+                    Schedule intro: <strong>S. Chen → Labor attorney</strong> for Acme Manufacturing
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">
+                    2
+                  </span>
+                  <span>
+                    Schedule intro: <strong>J. Wilson → Corporate attorney</strong> for Midwest Distributors
+                  </span>
+                </li>
+              </ul>
+            </Card>
+          </Section>
+        </Container>
+      )}
 
-        {activeTab === "network" && (
-          <div>
-            {/* Summary Stats */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#1a2744]">47</div>
-                <div className="text-sm text-gray-600">Total Referrals Received</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-[#4a6fa5]">28</div>
-                <div className="text-sm text-gray-600">Referrals Sent</div>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-3xl font-bold text-green-600">1.7x</div>
-                <div className="text-sm text-gray-600">Receive:Send Ratio</div>
-              </div>
+      {/* TAB: NETWORK */}
+      {tab === "network" && (
+        <Container>
+          <Section className="pt-0">
+            {/* KPIs */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              <Card className="p-5">
+                <Kpi value={String(totalReceived)} label="Referrals Received" />
+              </Card>
+              <Card className="p-5">
+                <Kpi value={String(totalSent)} label="Referrals Sent" />
+              </Card>
+              <Card className="p-5 sm:col-span-1 col-span-2">
+                <Kpi value={`${(totalReceived / totalSent).toFixed(1)}x`} label="Receive:Send Ratio" accent />
+              </Card>
             </div>
 
-            {/* Attorney Network Table */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-6 border-b border-gray-200">
-                <h3 className="text-lg font-bold text-[#1a2744]">Attorney Referral Activity</h3>
-                <p className="text-sm text-gray-500">Track referral flow by attorney to identify network strengths</p>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
+            {/* Table */}
+            <div className="mt-8">
+              <TableShell title="Attorney Referral Activity" subtitle="Track referral flow by attorney">
+                <table className="w-full text-left text-sm">
+                  <thead className="border-b border-[color:var(--border)] bg-[color:var(--surface-2)] text-xs uppercase tracking-wide text-[color:var(--muted)]">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Attorney</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Practice</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Sent</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Received</th>
-                      <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Top Source</th>
+                      <th className="px-6 py-3">Attorney</th>
+                      <th className="px-6 py-3">Practice</th>
+                      <th className="px-6 py-3">Sent</th>
+                      <th className="px-6 py-3">Received</th>
+                      <th className="px-6 py-3">Top Source</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {mockAttorneyNetwork.map((attorney, i) => (
-                      <tr key={i} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="font-medium text-[#1a2744]">{attorney.name}</div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {attorney.practice}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[#4a6fa5] font-semibold">{attorney.referralsSent}</span>
-                            <svg className="w-4 h-4 text-[#4a6fa5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                            </svg>
-                            <span className="text-green-600 font-semibold">{attorney.referralsReceived}</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {attorney.topSource}
-                        </td>
+                  <tbody className="divide-y divide-[color:var(--border)]">
+                    {attorneyNetwork.map((a) => (
+                      <tr key={a.name} className="hover:bg-[color:var(--surface-2)]">
+                        <td className="px-6 py-4 font-medium text-[color:var(--navy)]">{a.name}</td>
+                        <td className="px-6 py-4 text-[color:var(--muted)]">{a.practice}</td>
+                        <td className="px-6 py-4 text-[color:var(--teal)]">{a.referralsSent}</td>
+                        <td className="px-6 py-4 font-semibold text-green-700">{a.referralsReceived}</td>
+                        <td className="px-6 py-4 text-[color:var(--muted)]">{a.topSource}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-              </div>
+              </TableShell>
             </div>
 
             {/* Insights */}
-            <div className="mt-8 grid md:grid-cols-2 gap-6">
-              <div className="bg-green-50 rounded-xl p-6">
-                <h4 className="font-bold text-green-800 mb-3">Network Strengths</h4>
-                <ul className="text-sm text-green-700 space-y-2">
-                  <li>• Sarah Chen&apos;s relationship with Thompson & Associates is highly productive</li>
-                  <li>• James Wilson is a strong internal referrer (12 sent to colleagues)</li>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <Card className="bg-green-50 p-6">
+                <div className="text-sm font-semibold text-green-800">Network Strengths</div>
+                <ul className="mt-3 space-y-1 text-sm text-green-700">
+                  <li>• S. Chen&apos;s relationship with Thompson & Associates is highly productive</li>
+                  <li>• J. Wilson is a strong internal referrer (12 sent to colleagues)</li>
                   <li>• Industry group memberships generating consistent referrals</li>
                 </ul>
-              </div>
-              <div className="bg-yellow-50 rounded-xl p-6">
-                <h4 className="font-bold text-yellow-800 mb-3">Opportunities to Strengthen</h4>
-                <ul className="text-sm text-yellow-700 space-y-2">
-                  <li>• Lisa Park&apos;s network has high receive rate but low send rate—opportunity to reciprocate</li>
-                  <li>• Media/event referrals underutilized—consider speaker program expansion</li>
+              </Card>
+              <Card className="bg-yellow-50 p-6">
+                <div className="text-sm font-semibold text-yellow-800">Opportunities to Strengthen</div>
+                <ul className="mt-3 space-y-1 text-sm text-yellow-700">
+                  <li>• L. Park has high receive rate but low send rate — opportunity to reciprocate</li>
+                  <li>• Media/event referrals underutilized — consider speaker expansion</li>
                   <li>• No active referral relationships in Denver or Dallas offices</li>
                 </ul>
+              </Card>
+            </div>
+          </Section>
+        </Container>
+      )}
+
+      {/* WHAT THIS DEMONSTRATES */}
+      <Container>
+        <Section>
+          <div className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow)] sm:p-10">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-5">
+                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  What this tool demonstrates
+                </h2>
+                <p className="mt-3 text-white/75">
+                  Most firms track marketing activities. The right question is: &quot;What&apos;s actually generating work?&quot; This concept connects referral and cross-sell visibility to revenue — so leadership can invest in what matters.
+                </p>
+              </div>
+              <div className="lg:col-span-7">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <div className="text-sm font-semibold text-[color:var(--gold)]">Track Sources</div>
+                    <p className="mt-2 text-sm text-white/75">
+                      Know who refers work — and strengthen those relationships
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <div className="text-sm font-semibold text-[color:var(--gold)]">Find Cross-Sells</div>
+                    <p className="mt-2 text-sm text-white/75">
+                      Identify clients who could use more of the firm
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <div className="text-sm font-semibold text-[color:var(--gold)]">Map Networks</div>
+                    <p className="mt-2 text-sm text-white/75">
+                      Understand each attorney&apos;s referral ecosystem
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        )}
+        </Section>
+      </Container>
 
-        {/* Demo Note */}
-        <div className="mt-12 bg-[#1a2744] rounded-xl p-8">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#c9a227] rounded-lg flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">What This Tool Demonstrates</h3>
-              <p className="text-gray-300 mb-4">
-                This isn&apos;t just a mock-up—it shows the thinking behind revenue-connected marketing.
-                Most firms track marketing activities (content published, events attended).
-                The right question is: &quot;What&apos;s actually generating work?&quot;
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-[#c9a227] font-semibold mb-1">Track Sources</div>
-                  <div className="text-gray-300">Know who refers work and strengthen those relationships</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-[#c9a227] font-semibold mb-1">Find Cross-Sells</div>
-                  <div className="text-gray-300">Identify clients who could use more of the firm</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-[#c9a227] font-semibold mb-1">Map Networks</div>
-                  <div className="text-gray-300">Understand each attorney&apos;s referral ecosystem</div>
-                </div>
-              </div>
-            </div>
+      {/* NAVIGATION */}
+      <Container>
+        <Section className="pt-0">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+            <SecondaryButton href="/tool">← Thought Leadership Tool</SecondaryButton>
+            <PrimaryButton href="/roadmap">View 90-Day Plan →</PrimaryButton>
           </div>
-        </div>
-
-        {/* Navigation */}
-        <div className="mt-8 flex justify-center gap-4">
-          <Link href="/tool" className="btn-secondary px-6 py-3 rounded-lg font-semibold">
-            ← AI Content Tool
-          </Link>
-          <Link href="/roadmap" className="btn-primary px-6 py-3 rounded-lg font-semibold">
-            View 90-Day Plan →
-          </Link>
-        </div>
-      </div>
+        </Section>
+      </Container>
     </div>
   );
 }
