@@ -1,12 +1,29 @@
 @import "tailwindcss";
 
 :root {
+  /* Brand colors */
   --ubg-navy: #1a2744;
   --ubg-gold: #c9a227;
   --ubg-light-blue: #4a6fa5;
   --ubg-gray: #6b7280;
+
+  /* Design system tokens */
+  --navy: #1a2744;
+  --gold: #c9a227;
+  --teal: #4a6fa5;
+  --muted: #6b7280;
+
+  /* Surfaces */
   --background: #f8fafc;
   --foreground: #1a2744;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+
+  /* Effects */
+  --shadow: 0 4px 24px rgba(26, 39, 68, 0.12);
+  --shadow-soft: 0 2px 12px rgba(26, 39, 68, 0.08);
+  --ring: rgba(26, 39, 68, 0.15);
 }
 
 body {
