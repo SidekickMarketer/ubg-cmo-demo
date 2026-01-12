@@ -44,49 +44,27 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right - Visual */}
+            {/* Right - Photo */}
             <div className="hidden lg:block relative">
               <div className="relative">
-                {/* Main card - Referral stat */}
-                <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 animate-float">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-[#1a2744] rounded-xl flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="text-sm text-gray-500 font-medium">Referral Source Tracking</div>
-                      <div className="text-lg font-bold text-[#1a2744]">Q4 Performance</div>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Thompson & Associates</span>
-                      <span className="font-bold text-[#1a2744]">12 referrals</span>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded-full h-2">
-                      <div className="bg-[#c9a227] h-2 rounded-full" style={{width: '85%'}}></div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Midwest Mfg Alliance</span>
-                      <span className="font-bold text-[#1a2744]">8 referrals</span>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded-full h-2">
-                      <div className="bg-[#4a6fa5] h-2 rounded-full" style={{width: '60%'}}></div>
-                    </div>
-                  </div>
+                {/* Main photo */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/kyle.jpeg"
+                    alt="Kyle Naughtrip"
+                    className="w-full h-auto"
+                  />
                 </div>
 
                 {/* Floating accent card */}
-                <div className="absolute -bottom-6 -left-6 bg-[#1a2744] text-white rounded-xl p-5 shadow-xl animate-float-reverse">
+                <div className="absolute -bottom-6 -left-6 bg-[#1a2744] text-white rounded-xl p-5 shadow-xl">
                   <div className="text-3xl font-bold text-[#c9a227]">86%</div>
                   <div className="text-sm text-gray-300">find counsel via referrals</div>
                 </div>
 
                 {/* Floating badge */}
-                <Link href="/referrals" className="absolute -top-4 -right-4 bg-[#c9a227] text-white rounded-full px-4 py-2 text-sm font-bold shadow-lg hover:bg-[#b8922a] transition-colors cursor-pointer">
-                  Live Demo →
+                <Link href="/tool" className="absolute -top-4 -right-4 bg-[#c9a227] text-white rounded-full px-4 py-2 text-sm font-bold shadow-lg hover:bg-[#b8922a] transition-colors cursor-pointer">
+                  Try the Tools →
                 </Link>
               </div>
             </div>
