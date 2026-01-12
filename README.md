@@ -63,12 +63,12 @@ ubg-cmo-demo/
 │   │   ├── about/page.tsx        # About Kyle
 │   │   ├── layout.tsx            # Root layout with navigation
 │   │   └── globals.css           # Global styles
-│   └── components/
-│       └── Navigation.tsx        # Site navigation
-├── docs/
-│   ├── CONTENT.md                # All page text content
-│   ├── STRATEGY.md               # Research insights and approach
-│   └── PROJECT-SUMMARY.md        # Development session summary
+│   ├── components/
+│   │   └── Navigation.tsx        # Site navigation
+│   └── docs/
+│       ├── CONTENT.md            # All page text content
+│       ├── STRATEGY.md           # Research insights and approach
+│       └── PROJECT-SUMMARY.md    # Development session summary
 ├── package.json
 └── README.md
 ```
@@ -83,11 +83,11 @@ ubg-cmo-demo/
 
 ## Documentation
 
-See the `/docs` folder for detailed documentation:
+See the `/src/docs` folder for detailed documentation:
 
-- **[CONTENT.md](docs/CONTENT.md)** - Complete text content from all pages
-- **[STRATEGY.md](docs/STRATEGY.md)** - Research insights and strategic approach
-- **[PROJECT-SUMMARY.md](docs/PROJECT-SUMMARY.md)** - Development session summary
+- **[CONTENT.md](src/docs/CONTENT.md)** - Complete text content from all pages
+- **[STRATEGY.md](src/docs/STRATEGY.md)** - Research insights and strategic approach
+- **[PROJECT-SUMMARY.md](src/docs/PROJECT-SUMMARY.md)** - Development session summary
 
 ## What This Demonstration Proves
 
