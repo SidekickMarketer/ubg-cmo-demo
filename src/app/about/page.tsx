@@ -107,8 +107,8 @@ export default function AboutPage() {
                     <div className="p-4 bg-gray-50 rounded-lg">
                       <h4 className="font-bold text-sm text-[#c9a227] mb-1">How It Applies</h4>
                       <p className="text-sm text-gray-600">
-                        With 85% of lawyers using AI, UB Greensfelder needs a CMO who
-                        can leverage AI for competitive advantage. This demo proves I can.
+                        Modern marketing requires AI fluency. This demonstration—built with AI—
+                        proves I can leverage technology to scale attorney visibility efficiently.
                       </p>
                     </div>
                   </div>
@@ -224,29 +224,29 @@ export default function AboutPage() {
             <div className="phase-card bg-white rounded-xl p-6 shadow-lg">
               <h3 className="font-bold text-lg mb-3 text-[#1a2744]">1. Listen First</h3>
               <p className="text-sm text-gray-600">
-                Meet with leadership, practice group heads, and marketing team to understand
-                the real priorities and pain points—not just what&apos;s in the job description.
+                Meet with leadership, practice group heads, and marketing team. Understand
+                where referrals actually come from. Learn what&apos;s working and what&apos;s not.
               </p>
             </div>
             <div className="phase-card bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">2. Quick Wins Matter</h3>
+              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">2. Map the Revenue Path</h3>
               <p className="text-sm text-gray-600">
-                Demonstrate value in the first 30 days. Launch targeted initiatives that
-                show immediate results while building toward larger strategic goals.
+                Understand how clients find the firm, who refers work, and where the
+                cross-sell opportunities are. Marketing follows the business.
               </p>
             </div>
             <div className="phase-card bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">3. Attorney Enablement</h3>
+              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">3. Low-Friction Wins</h3>
               <p className="text-sm text-gray-600">
-                Make it easy for attorneys to participate in marketing. Lower barriers,
-                provide tools, respect their time. Marketing serves business development.
+                Launch initiatives that don&apos;t require significant attorney time but show
+                visible results. Build credibility before asking for more.
               </p>
             </div>
             <div className="phase-card bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">4. Measurable Outcomes</h3>
+              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">4. Connect to Revenue</h3>
               <p className="text-sm text-gray-600">
-                Establish clear metrics from day one. Track what matters, report regularly,
-                and be transparent about what&apos;s working and what isn&apos;t.
+                Every initiative should have a clear connection to business development.
+                Referral sources, cross-sells, client retention—track what matters.
               </p>
             </div>
           </div>
