@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CMO Vision for UB Greensfelder
 
-## Getting Started
+A demonstration project by Kyle Naughtrip for the Chief Marketing Officer position at UB Greensfelder LLP.
 
-First, run the development server:
+## What's Included
+
+1. **Homepage** - Overview of the strategic vision and key opportunities
+2. **AI Tool Demo** - Working attorney thought leadership generator
+3. **90-Day Roadmap** - Strategic plan tailored to UB Greensfelder
+4. **Research Findings** - Deep analysis of firm positioning and opportunities
+5. **About Kyle** - How my experience maps to UB Greensfelder's needs
+
+## Quick Deploy to Vercel
+
+### Option 1: One-Click Deploy (Recommended)
+
+1. Push this folder to a GitHub repository
+2. Go to [vercel.com](https://vercel.com)
+3. Click "Add New Project"
+4. Import your GitHub repository
+5. Click "Deploy"
+
+That's it! Vercel will automatically detect Next.js and deploy.
+
+### Option 2: Deploy via Vercel CLI
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install Vercel CLI if you don't have it
+npm install -g vercel
+
+# Deploy (from this directory)
+vercel
+
+# Follow the prompts - accept defaults
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Option 3: Run Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Run development server
+npm run dev
 
-## Learn More
+# Open http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+ubg-cmo-demo/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx          # Homepage
+│   │   ├── tool/page.tsx     # AI Tool Demo
+│   │   ├── roadmap/page.tsx  # 90-Day Roadmap
+│   │   ├── research/page.tsx # Research Findings
+│   │   ├── about/page.tsx    # About Kyle
+│   │   ├── layout.tsx        # Root layout with navigation
+│   │   └── globals.css       # Global styles
+│   └── components/
+│       └── Navigation.tsx    # Site navigation
+├── package.json
+└── README.md
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technology Stack
 
-## Deploy on Vercel
+- **Framework**: Next.js 16 with App Router
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Deployment**: Vercel (recommended)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## About This Demonstration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was built to demonstrate:
+
+1. **Strategic Thinking** - Deep research on UB Greensfelder, the merger, competitive landscape
+2. **Technical Capability** - Working AI tool prototype, not just a concept
+3. **Execution Speed** - From idea to deployed solution
+4. **Modern Marketing** - Leveraging AI for content creation at scale
+
+## Contact
+
+Kyle Naughtrip
+
+---
+
+*This is a portfolio demonstration piece for the CMO position at UB Greensfelder LLP*
