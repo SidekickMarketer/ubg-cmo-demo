@@ -14,20 +14,21 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Content */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#1a2744] text-white text-sm px-4 py-2 rounded-full mb-8">
-                <span className="w-2 h-2 bg-[#c9a227] rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 bg-[#1a2744]/10 text-[#1a2744] text-sm px-4 py-2 rounded-full mb-6">
+                <span className="w-2 h-2 bg-[#c9a227] rounded-full" />
                 CMO Application for UB Greensfelder
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">
-                <span className="text-[#1a2744]">Marketing that</span>
-                <br />
-                <span className="gradient-text">actually drives revenue.</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1]">
+                <span className="text-[#1a2744]">I&apos;m Kyle Naughtrip.</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">
-                Law firms grow through referrals, attorney visibility, and relationships—not
-                content volume or LinkedIn followers.
+              <p className="text-2xl md:text-3xl text-[#1a2744] font-medium mb-6">
+                I want to be your next CMO—so I built this to show you how I think.
+              </p>
+
+              <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+                The tools, the strategy, the 90-day plan. Everything here is what I&apos;d actually do.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
