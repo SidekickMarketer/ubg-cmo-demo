@@ -4,39 +4,90 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Asymmetric, bold */}
-      <section className="relative py-24 px-6 overflow-hidden">
-        {/* Background accent */}
+      <section className="relative py-20 md:py-28 px-6 overflow-hidden">
+        {/* Background elements */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#1a2744]/5 to-transparent -z-10" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#c9a227]/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-20 right-20 w-72 h-72 bg-[#4a6fa5]/10 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-6xl mx-auto">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#1a2744] text-white text-sm px-4 py-2 rounded-full mb-8">
-              <span className="w-2 h-2 bg-[#c9a227] rounded-full animate-pulse" />
-              CMO Application for UB Greensfelder
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left - Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-[#1a2744] text-white text-sm px-4 py-2 rounded-full mb-8">
+                <span className="w-2 h-2 bg-[#c9a227] rounded-full animate-pulse" />
+                CMO Application for UB Greensfelder
+              </div>
+
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]">
+                <span className="text-[#1a2744]">Marketing that</span>
+                <br />
+                <span className="gradient-text">actually drives revenue.</span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">
+                Law firms grow through referrals, attorney visibility, and relationships—not
+                content volume or LinkedIn followers.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/roadmap" className="btn-primary px-8 py-4 rounded-lg font-semibold text-lg inline-flex items-center justify-center gap-2 group">
+                  See the 90-Day Plan
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link href="/tool" className="btn-secondary px-8 py-4 rounded-lg font-semibold text-lg">
+                  Try the AI Tools
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1]">
-              <span className="text-[#1a2744]">Marketing that</span>
-              <br />
-              <span className="gradient-text">actually drives revenue.</span>
-            </h1>
+            {/* Right - Visual */}
+            <div className="hidden lg:block relative">
+              <div className="relative">
+                {/* Main card - Referral stat */}
+                <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 animate-float">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-[#1a2744] rounded-xl flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-500 font-medium">Referral Source Tracking</div>
+                      <div className="text-lg font-bold text-[#1a2744]">Q4 Performance</div>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">Thompson & Associates</span>
+                      <span className="font-bold text-[#1a2744]">12 referrals</span>
+                    </div>
+                    <div className="w-full bg-gray-100 rounded-full h-2">
+                      <div className="bg-[#c9a227] h-2 rounded-full" style={{width: '85%'}}></div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">Midwest Mfg Alliance</span>
+                      <span className="font-bold text-[#1a2744]">8 referrals</span>
+                    </div>
+                    <div className="w-full bg-gray-100 rounded-full h-2">
+                      <div className="bg-[#4a6fa5] h-2 rounded-full" style={{width: '60%'}}></div>
+                    </div>
+                  </div>
+                </div>
 
-            <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
-              Law firms grow through referrals, attorney visibility, and relationships—not
-              content volume or LinkedIn followers. I built tools to prove I know the difference.
-            </p>
+                {/* Floating accent card */}
+                <div className="absolute -bottom-6 -left-6 bg-[#1a2744] text-white rounded-xl p-5 shadow-xl animate-float-reverse">
+                  <div className="text-3xl font-bold text-[#c9a227]">86%</div>
+                  <div className="text-sm text-gray-300">find counsel via referrals</div>
+                </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/roadmap" className="btn-primary px-8 py-4 rounded-lg font-semibold text-lg inline-flex items-center justify-center gap-2 group">
-                See the 90-Day Plan
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link href="/tool" className="btn-secondary px-8 py-4 rounded-lg font-semibold text-lg">
-                Try the AI Tools
-              </Link>
+                {/* Floating badge */}
+                <Link href="/referrals" className="absolute -top-4 -right-4 bg-[#c9a227] text-white rounded-full px-4 py-2 text-sm font-bold shadow-lg hover:bg-[#b8922a] transition-colors cursor-pointer">
+                  Live Demo →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
