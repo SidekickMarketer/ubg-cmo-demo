@@ -12,12 +12,14 @@ function Container({ children }: { children: React.ReactNode }) {
 function Section({
   children,
   className = "",
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
-    <section className={`py-14 sm:py-16 lg:py-24 ${className}`}>
+    <section id={id} className={`py-14 sm:py-16 lg:py-24 ${className}`}>
       {children}
     </section>
   );
