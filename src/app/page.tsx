@@ -69,13 +69,13 @@ export default function Home() {
             </div>
             <div className="text-center md:text-left">
               <div className="text-6xl md:text-7xl font-bold text-white mb-2">70%</div>
-              <div className="text-[#c9a227] font-semibold text-lg mb-2">Choose the Lawyer, Not Firm</div>
-              <p className="text-gray-400 text-sm">Individual reputation drives the decision.</p>
+              <div className="text-[#c9a227] font-semibold text-lg mb-2">Hire the Lawyer, Not the Firm</div>
+              <p className="text-gray-400 text-sm">Individual reputation matters more than firm brand.</p>
             </div>
             <div className="text-center md:text-left">
               <div className="text-6xl md:text-7xl font-bold text-white mb-2">70%</div>
-              <div className="text-[#c9a227] font-semibold text-lg mb-2">Recommend on Service</div>
-              <p className="text-gray-400 text-sm">Only 6% recommend based on lower cost.</p>
+              <div className="text-[#c9a227] font-semibold text-lg mb-2">Recommend for Service, Not Price</div>
+              <p className="text-gray-400 text-sm">Only 6% cite lower cost as the reason.</p>
             </div>
           </div>
           <p className="text-center text-xs text-gray-500 mt-10">
