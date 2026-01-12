@@ -42,11 +42,11 @@ export default function ResearchPage() {
           <div className="bg-white rounded-xl p-8 shadow-lg">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-bold text-lg mb-4 text-[#1a2744]">February 1, 2024: A Strategic Combination</h3>
+                <h3 className="font-bold text-lg mb-4 text-[#1a2744]">Nearly Two Years as One Firm</h3>
                 <p className="text-gray-600 mb-4">
-                  Ulmer & Berne (Cleveland-based, 125+ years) merged with Greensfelder, Hemker & Gale
-                  (St. Louis-based, 125+ years) to create a regional powerhouse spanning the Midwest
-                  and beyond.
+                  The February 2024 merger of Ulmer & Berne (Cleveland-based, 125+ years) and
+                  Greensfelder, Hemker & Gale (St. Louis-based, 125+ years) created a regional
+                  powerhouse. Now fully integrated, the firm is positioned for growth.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li className="flex items-start">
@@ -59,7 +59,7 @@ export default function ResearchPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-[#c9a227] mr-2">•</span>
-                    Integration still ongoing—marketing can accelerate unity
+                    Ready to amplify the unified brand to the market
                   </li>
                 </ul>
               </div>

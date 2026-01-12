@@ -61,7 +61,7 @@ export default function RoadmapPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#c9a227] mr-2">→</span>
-                  Create unified post-merger messaging framework
+                  Refresh brand messaging and value propositions
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#c9a227] mr-2">→</span>
@@ -71,7 +71,7 @@ export default function RoadmapPage() {
             </div>
 
             <div className="phase-card bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">Merger Integration Focus</h3>
+              <h3 className="font-bold text-lg mb-3 text-[#1a2744]">Brand Elevation</h3>
               <ul className="text-sm text-gray-600 space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#c9a227] mr-2">→</span>
@@ -79,11 +79,11 @@ export default function RoadmapPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#c9a227] mr-2">→</span>
-                  Identify cross-selling narratives between legacy practices
+                  Identify cross-selling narratives between practice groups
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#c9a227] mr-2">→</span>
-                  Develop &quot;Stronger Together&quot; internal communications
+                  Develop internal communications highlighting firm wins
                 </li>
               </ul>
             </div>

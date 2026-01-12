@@ -54,14 +54,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="phase-card bg-gray-50 rounded-xl p-8">
-              <h3 className="text-xl font-bold mb-4 text-[#1a2744]">Post-Merger Brand Integration</h3>
+              <h3 className="text-xl font-bold mb-4 text-[#1a2744]">Amplifying the Unified Brand</h3>
               <p className="text-gray-600 mb-4">
-                The February 2024 merger created a powerhouse firm, but the combined brand story
-                needs strategic amplification. There&apos;s an opportunity to unify messaging across
-                legacy Ulmer & Greensfelder cultures.
+                Nearly two years after the merger, UB Greensfelder has a strong unified foundation.
+                Now it&apos;s time to amplify that brand story and maximize market presence
+                across all nine offices.
               </p>
               <ul className="text-sm text-gray-500 space-y-2">
-                <li>• Consistent positioning across 9 markets</li>
+                <li>• Elevate positioning across 9 markets</li>
                 <li>• Practice group cross-selling narratives</li>
                 <li>• Attorney thought leadership program</li>
               </ul>
