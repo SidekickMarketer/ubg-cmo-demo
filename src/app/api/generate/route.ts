@@ -30,12 +30,14 @@ const CONTENT_TYPE_PROMPTS: Record<string, string> = {
 - 3-4 key takeaways attendees will gain
 - Why this topic is timely/relevant`,
 
-  podcast: `Create panel/podcast talking points for an attorney guest appearance. Include:
-- An attention-grabbing opening hook
-- 3 main discussion points with supporting details
-- A practical takeaway or "first 30 days" playbook
-- A memorable closing thought
-- Questions the host might ask`,
+  newsletter: `Write an email newsletter segment for a law firm's client outreach. The newsletter should:
+- Have a clear, engaging subject line suggestion
+- Open with a brief, relevant hook (1-2 sentences)
+- Cover 1-2 key developments or insights in the practice area
+- Include practical implications for clients
+- End with a soft call-to-action (reach out to discuss, etc.)
+- Be 200-300 words total
+- Sound helpful and informative, not salesy`,
 };
 
 export async function POST(request: NextRequest) {
