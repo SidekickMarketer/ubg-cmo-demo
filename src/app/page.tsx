@@ -259,9 +259,9 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <BentoTile
                 number="2"
-                eyebrow="Prototype"
+                eyebrow="AI Dashboard"
                 title="Referral Intelligence"
-                desc="A working dashboard that shows where your revenue relationships actually come from."
+                desc="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention—no extra system to manage."
                 href="/referrals"
                 tone="light"
               />
@@ -270,7 +270,7 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <BentoTile
                 number="3"
-                eyebrow="Prototype"
+                eyebrow="AI Tool"
                 title="Attorney Visibility Tool"
                 desc="AI-powered content workflow. Turns attorney expertise into polished drafts they just approve."
                 href="/tool"
