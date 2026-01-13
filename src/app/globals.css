@@ -1,224 +1,63 @@
 @import "tailwindcss";
 
+/* --------
+   Premium theme tokens
+   -------- */
 :root {
-  /* Brand colors */
-  --ubg-navy: #1a2744;
-  --ubg-gold: #c9a227;
-  --ubg-light-blue: #4a6fa5;
-  --ubg-gray: #6b7280;
-
-  /* Design system tokens */
-  --navy: #1a2744;
-  --gold: #c9a227;
-  --teal: #4a6fa5;
-  --muted: #6b7280;
-
-  /* Surfaces */
-  --background: #f8fafc;
-  --foreground: #1a2744;
+  /* Core */
+  --navy: #0b1220;          /* deeper, more premium than the current navy */
+  --ink: #0f172a;           /* slate-like for text */
+  --teal: #14b8a6;          /* modern accent */
+  --muted: #64748b;         /* slate-500 */
+  --background: #f8fafc;    /* slate-50 */
   --surface: #ffffff;
-  --surface-2: #f1f5f9;
-  --border: #e2e8f0;
+  --surface-2: #f1f5f9;     /* slate-100 */
+  --border: rgba(15, 23, 42, 0.10);
+  --ring: rgba(20, 184, 166, 0.35);
 
-  /* Effects */
-  --shadow: 0 4px 24px rgba(26, 39, 68, 0.12);
-  --shadow-soft: 0 2px 12px rgba(26, 39, 68, 0.08);
-  --ring: rgba(26, 39, 68, 0.15);
+  /* If you still want gold anywhere, keep it subtle, but don't use as primary accent */
+  --gold: #caa44d;
+
+  /* Shadows + radius */
+  --shadow-soft: 0 10px 30px rgba(2, 6, 23, 0.06);
+  --shadow: 0 18px 60px rgba(2, 6, 23, 0.10);
+  --radius: 20px;
 }
 
+html, body {
+  background: var(--background);
+  color: var(--ink);
+}
+
+/* Typography smoothing */
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  min-height: 100vh;
-  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, var(--ubg-navy), var(--ubg-light-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Subtle selection polish */
+::selection {
+  background: rgba(20, 184, 166, 0.22);
 }
 
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(26, 39, 68, 0.15);
-}
-
-.nav-link {
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--ubg-gold);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.tool-input {
-  background: white;
-  border: 2px solid #e2e8f0;
-  transition: all 0.2s ease;
-}
-
-.tool-input:focus {
-  border-color: var(--ubg-navy);
-  box-shadow: 0 0 0 4px rgba(26, 39, 68, 0.1);
+/* Optional: nicer focus outline */
+:focus-visible {
   outline: none;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--ubg-navy), #2d3e5f);
-  color: white;
-  transition: all 0.3s ease;
+/* A couple tasteful helpers (you can keep using Tailwind classes too) */
+.premium-border {
+  border: 1px solid var(--border);
 }
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(26, 39, 68, 0.3);
+.premium-surface {
+  background: var(--surface);
 }
-
-.btn-secondary {
-  background: white;
-  border: 2px solid var(--ubg-navy);
-  color: var(--ubg-navy);
-  transition: all 0.3s ease;
+.premium-surface-2 {
+  background: var(--surface-2);
 }
-
-.btn-secondary:hover {
-  background: var(--ubg-navy);
-  color: white;
+.premium-shadow {
+  box-shadow: var(--shadow);
 }
-
-.phase-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.phase-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--ubg-gold);
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--ubg-navy), var(--ubg-light-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.output-box {
-  background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%);
-  border: 1px solid #e2e8f0;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(2deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
-}
-
-@keyframes floatReverse {
-  0%, 100% { transform: translateY(0px) rotate(-3deg); }
-  50% { transform: translateY(-8px) rotate(-3deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease forwards;
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: floatReverse 5s ease-in-out infinite;
-}
-
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
-
-/* Gradient border effect */
-.gradient-border {
-  position: relative;
-  background: white;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(135deg, var(--ubg-gold), var(--ubg-navy), var(--ubg-light-blue));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-/* Subtle grain texture overlay */
-.grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection color */
-::selection {
-  background: var(--ubg-gold);
-  color: white;
+.premium-shadow-soft {
+  box-shadow: var(--shadow-soft);
 }
