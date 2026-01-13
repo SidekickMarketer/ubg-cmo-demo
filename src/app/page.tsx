@@ -168,27 +168,29 @@ export default function HomePage() {
         <Section className="pb-8">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex items-center gap-5">
                 <Image
                   src="/kyle.jpeg"
                   alt="Kyle Naughtrip"
-                  width={96}
-                  height={96}
-                  className="h-24 w-24 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
+                  width={144}
+                  height={144}
+                  className="h-36 w-36 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
                 />
-                <Pill>Private CMO Application</Pill>
+                <div>
+                  <Pill>CMO Application</Pill>
+                  <div className="mt-2 text-xl font-semibold text-[color:var(--navy)]">Kyle Naughtrip</div>
+                </div>
               </div>
 
-              <h1 className="h1 mt-10 text-[color:var(--navy)]">
-                I built a working preview of how I&apos;d lead growth at UB&nbsp;Greensfelder.
+              <h1 className="h1 mt-8 text-[color:var(--navy)]">
+                Strategy in action, not&nbsp;slides.
               </h1>
 
-              <p className="mt-6 text-lg leading-relaxed text-[color:var(--muted)]">
-                This isn&apos;t a deck. It&apos;s an operating model: a 90-day roadmap plus two working demos
-                that make revenue relationships visible and reduce attorney friction.
+              <p className="mt-5 text-lg leading-relaxed text-[color:var(--muted)]">
+                A 90-day roadmap plus two working demos that show how I&apos;d drive growth at UB&nbsp;Greensfelder.
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <PrimaryButton href="/roadmap">Start with the 90-Day Plan</PrimaryButton>
                 <SecondaryButton href="#explore">See what&apos;s inside</SecondaryButton>
               </div>
