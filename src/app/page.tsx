@@ -173,7 +173,7 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-5 text-xl leading-relaxed text-[color:var(--muted)]">
-                I&apos;m applying to lead marketing at UBG. Instead of a pitch deck, I built what I&apos;d actually deliver — a 90-day plan and two working prototypes.
+                I want to lead marketing at UBG. Instead of a pitch deck, I built what I&apos;d actually deliver — a 90-day plan and two working prototypes.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
