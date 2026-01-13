@@ -137,9 +137,12 @@ export default function ToolPage() {
               </svg>
               Interactive Demo
             </div>
-            <h1 className="h1 mt-6 text-[color:var(--navy)]">AI Content Studio</h1>
+            <h1 className="h1 mt-6 text-[color:var(--navy)]">Be the expert they think of first.</h1>
             <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
-              Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve or post.
+              When someone needs help, you want your attorneys to be the name they think of and the one they trust to handle it. Clients hire attorneys they&apos;ve seen and trust. This helps your attorneys be seen.
+            </p>
+            <p className="mt-4 text-lg text-[color:var(--muted)] leading-relaxed">
+              But attorneys don&apos;t have time to write. This enables them to stay visible. 5 minutes from them, AI drafts, they approve and post.
             </p>
 
             <p className="mt-6 text-sm text-[color:var(--muted)]">
@@ -411,18 +414,17 @@ export default function ToolPage() {
             </div>
 
             <div className="mt-12 rounded-2xl bg-[color:var(--surface-2)] p-6 border border-[color:var(--border)]">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">The Business Case</div>
+              <div className="text-sm font-semibold text-[color:var(--navy)]">What This Enables</div>
               <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { label: "Scale", value: "275+", desc: "attorneys supported without proportional staff increase" },
-                  { label: "Consistency", value: "100%", desc: "brand voice maintained across all practices" },
-                  { label: "Speed", value: "10x", desc: "faster content creation vs traditional process" },
-                  { label: "Buy-In", value: "5 min", desc: "attorney time commitment per piece" },
-                ].map((stat) => (
-                  <div key={stat.label} className="rounded-xl bg-[color:var(--surface)] p-4 border border-[color:var(--border)]">
-                    <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">{stat.label}</div>
-                    <div className="mt-2 text-2xl font-bold text-[color:var(--teal)]">{stat.value}</div>
-                    <div className="mt-1 text-xs text-[color:var(--muted)]">{stat.desc}</div>
+                  { label: "Scale", desc: "More attorneys participating without adding headcount" },
+                  { label: "Consistency", desc: "On-brand content across every practice area" },
+                  { label: "Speed", desc: "Days to publish, not weeks" },
+                  { label: "Buy-In", desc: "Low time commitment means higher participation" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-xl bg-[color:var(--surface)] p-4 border border-[color:var(--border)]">
+                    <div className="text-sm font-semibold text-[color:var(--navy)]">{item.label}</div>
+                    <div className="mt-2 text-sm text-[color:var(--muted)]">{item.desc}</div>
                   </div>
                 ))}
               </div>
