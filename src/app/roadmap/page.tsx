@@ -137,11 +137,11 @@ function Phase({
               <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-2)] p-5">
                 <div className="flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--navy)] text-white text-xs font-bold">
-                    F
+                    L
                   </div>
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">Foundation</div>
+                  <div className="text-sm font-semibold text-[color:var(--navy)]">What I'll Learn</div>
                 </div>
-                <p className="mt-1 text-xs text-[color:var(--muted)]">Building blocks and discovery</p>
+                <p className="mt-1 text-xs text-[color:var(--muted)]">Discovery and context</p>
                 <ul className="mt-4 space-y-2.5">
                   {foundation.map((x) => (
                     <li key={x} className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
@@ -155,11 +155,11 @@ function Phase({
               <div className="rounded-2xl border border-[color:var(--teal)]/30 bg-gradient-to-br from-[color:var(--teal-light)] to-[color:var(--surface)] p-5">
                 <div className="flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--teal)] text-white text-xs font-bold">
-                    E
+                    D
                   </div>
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">Elevation</div>
+                  <div className="text-sm font-semibold text-[color:var(--navy)]">What I'll Deliver</div>
                 </div>
-                <p className="mt-1 text-xs text-[color:var(--muted)]">High-impact outcomes</p>
+                <p className="mt-1 text-xs text-[color:var(--muted)]">Concrete outputs</p>
                 <ul className="mt-4 space-y-2.5">
                   {elevation.map((x) => (
                     <li key={x} className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
@@ -290,23 +290,23 @@ export default function RoadmapPage() {
             <Phase
               number={1}
               label="PHASE 1 — Days 1–30"
-              title="Revenue Reality + Internal Trust"
-              subtitle="Understand how relationships and revenue actually move before prescribing solutions."
+              title="Learn the Business"
+              subtitle="Understand how relationships and revenue actually work before proposing changes."
               foundation={[
-                "Stakeholder mapping (COO, MP, practice leaders, BD leads)",
-                "BD/marketing capacity audit (what exists, what's missing, what's noise)",
-                "Data/CRM reality check (what's used vs what's claimed)",
-                "Attorney friction audit (what slows visibility + BD execution)",
+                "Meet the key stakeholders across leadership and practices",
+                "Understand what marketing and BD actually do today",
+                "See what data exists and what people actually use",
+                "Find out what slows attorneys down",
               ]}
               elevation={[
-                "Top referrers ranked by $ and matters (people, not channels)",
-                "Top 25 cross-sell targets (single-practice concentration)",
-                "Pilot shortlist: 15–20 attorneys (opt-in, high impact)",
+                "Identify who actually sends you work (people, not channels)",
+                "Find clients using only one practice area",
+                "Pick 15-20 attorneys for the pilot",
               ]}
               deliverables={[
-                { name: "Revenue Reality Brief", desc: "What drives matters, where risk sits, where upside exists." },
-                { name: "Referral Map", desc: "Top referrers, owners, practice impact, and a care plan outline." },
-                { name: "Pilot Plan", desc: "Who participates, what they do, and how governance works." },
+                { name: "Revenue Brief", desc: "Where work comes from, where risk sits, where upside exists." },
+                { name: "Referral Map", desc: "Top referrers and who owns each relationship." },
+                { name: "Pilot Plan", desc: "Who's in, what they do, how we measure it." },
               ]}
             />
 
@@ -315,22 +315,22 @@ export default function RoadmapPage() {
             <Phase
               number={2}
               label="PHASE 2 — Days 31–60"
-              title="Remove Friction + Prove Leverage"
-              subtitle="Run small pilots that make attorneys more effective without adding work."
+              title="Run Small Pilots"
+              subtitle="Test what works with a small group before scaling."
               foundation={[
-                "Faster pitch/proposal support (reduce cycle time)",
-                "Practice-specific proof points (case studies, bios, credibility assets)",
-                "Operationalize intake + attribution (lightweight, not busywork)",
+                "Speed up pitch and proposal turnaround",
+                "Create case studies and bios that actually get used",
+                "Track where work comes from without creating busywork",
               ]}
               elevation={[
-                "Attorney visibility pilot (10–15 attorneys; marketing does 90% of work)",
-                "Referral relationship ops pilot (protect/deepen/replicate top sources)",
-                "Cross-sell activation (10 warm introductions, tracked)",
+                "Run a visibility pilot with 10-15 attorneys",
+                "Start nurturing top referral relationships",
+                "Make 10 warm introductions to new practice areas",
               ]}
               deliverables={[
-                { name: "Pilot Results Snapshot", desc: "Participation, output, and early downstream indicators." },
-                { name: "Top Referrer Care Plan", desc: "Owners, cadence, events, and introductions." },
-                { name: "Cross-Sell Pipeline", desc: "Introductions made + next actions leadership can see." },
+                { name: "Pilot Results", desc: "What worked, what didn't, what to scale." },
+                { name: "Referrer Care Plan", desc: "Who owns each relationship and how we nurture it." },
+                { name: "Cross-Sell Pipeline", desc: "Introductions made and next steps." },
               ]}
             />
 
@@ -339,22 +339,22 @@ export default function RoadmapPage() {
             <Phase
               number={3}
               label="PHASE 3 — Days 61–90"
-              title="Make Revenue Visible + Lock the Engine"
-              subtitle="Scale what works and create leadership reporting that ties activity to outcomes."
+              title="Scale What Works"
+              subtitle="Expand the pilots and build reporting that ties activity to revenue."
               foundation={[
-                "Standardize governance (quality, approvals, brand consistency)",
-                "Formalize operating rhythms (monthly reporting, quarterly priorities)",
-                "Rankings + reputation plan tied to priority practices",
+                "Set up approval workflows and brand standards",
+                "Establish monthly reporting",
+                "Create a plan for rankings and reputation",
               ]}
               elevation={[
-                "Expand the attorney program based on pilot winners",
-                "Leadership dashboard (referrals, cross-sell, participation, throughput)",
-                "Publish the next 180-day plan with evidence-based resourcing",
+                "Expand the attorney program based on what worked",
+                "Build a dashboard leadership can actually use",
+                "Publish the next 6-month plan with budget requests",
               ]}
               deliverables={[
-                { name: "Leadership Dashboard", desc: "A view leadership can operate: sources, pipeline, activity." },
-                { name: "90-Day Executive Readout", desc: "What worked, what didn't, what we scale next." },
-                { name: "180-Day Roadmap", desc: "Budget + hires + priorities tied to revenue outcomes." },
+                { name: "Leadership Dashboard", desc: "Referrals, pipeline, and attorney activity in one view." },
+                { name: "90-Day Readout", desc: "What worked, what didn't, what we scale next." },
+                { name: "6-Month Roadmap", desc: "Priorities, budget, and hires tied to results." },
               ]}
             />
           </div>
