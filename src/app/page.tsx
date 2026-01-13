@@ -166,27 +166,29 @@ export default function HomePage() {
       {/* HERO */}
       <Container>
         <Section className="pb-8">
-          <div className="max-w-3xl">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-xl">
+              <h1 className="h1 text-[color:var(--navy)]">
+                Hi, I&apos;m Kyle Naughtrip.
+              </h1>
+
+              <p className="mt-5 text-xl leading-relaxed text-[color:var(--muted)]">
+                I&apos;d like to lead marketing at UBG — so instead of telling you how I&apos;d approach it, I built what I&apos;d actually deliver. A 90-day plan and two working prototypes.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <PrimaryButton href="/roadmap">See the 90-Day Plan</PrimaryButton>
+                <SecondaryButton href="#explore">What&apos;s inside</SecondaryButton>
+              </div>
+            </div>
+
             <Image
               src="/kyle.jpeg"
               alt="Kyle Naughtrip"
-              width={240}
-              height={240}
-              className="h-56 w-56 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
+              width={320}
+              height={320}
+              className="h-72 w-72 lg:h-80 lg:w-80 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)] shrink-0"
             />
-
-            <h1 className="h1 mt-8 text-[color:var(--navy)]">
-              Hi, I&apos;m Kyle Naughtrip.
-            </h1>
-
-            <p className="mt-4 text-xl leading-relaxed text-[color:var(--muted)]">
-              I&apos;d like to lead marketing at UBG — so instead of telling you how I&apos;d approach it, I built what I&apos;d actually deliver. A 90-day plan and two working prototypes.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <PrimaryButton href="/roadmap">See the 90-Day Plan</PrimaryButton>
-              <SecondaryButton href="#explore">What&apos;s inside</SecondaryButton>
-            </div>
           </div>
         </Section>
       </Container>
