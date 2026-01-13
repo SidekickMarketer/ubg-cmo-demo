@@ -217,7 +217,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
               <MiniStat label="Referrals drive selection" value="86%" sub="of general counsel find outside counsel through peer referrals" />
-              <MiniStat label="They hire the attorney" value="70%" sub="choose based on the individual lawyer, not the firm's reputation" />
+              <MiniStat label="Clients choose the lawyer" value="70%" sub="choose based on the individual lawyer, not the firm's reputation" />
               <MiniStat label="Price is rarely the driver" value="6%" sub="say price is their primary factor when choosing counsel" />
             </div>
 
@@ -272,7 +272,7 @@ export default function HomePage() {
                 number="3"
                 eyebrow="Prototype"
                 title="Attorney Visibility Tool"
-                desc="Marketing drafts the content. Attorneys just approve. Less friction, more output."
+                desc="AI-powered content workflow. Turns attorney expertise into polished drafts they just approve."
                 href="/tool"
                 tone="light"
               />
