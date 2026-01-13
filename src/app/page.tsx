@@ -168,7 +168,7 @@ export default function HomePage() {
         <Section className="pb-8">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-6">
                 <Image
                   src="/kyle.jpeg"
                   alt="Kyle Naughtrip"
@@ -176,23 +176,20 @@ export default function HomePage() {
                   height={144}
                   className="h-36 w-36 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
                 />
-                <div>
-                  <Pill>CMO Application</Pill>
-                  <div className="mt-2 text-xl font-semibold text-[color:var(--navy)]">Kyle Naughtrip</div>
-                </div>
+                <Pill>CMO Application</Pill>
               </div>
 
               <h1 className="h1 mt-8 text-[color:var(--navy)]">
-                Strategy in action, not&nbsp;slides.
+                Hi — I&apos;m Kyle Naughtrip.
               </h1>
 
               <p className="mt-5 text-lg leading-relaxed text-[color:var(--muted)]">
-                A 90-day roadmap plus two working demos that show how I&apos;d drive growth at UB&nbsp;Greensfelder.
+                I&apos;m applying for your CMO role. Instead of a deck, I built what I&apos;d actually deliver: a 90-day plan and two working prototypes. Take a look around.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <PrimaryButton href="/roadmap">Start with the 90-Day Plan</PrimaryButton>
-                <SecondaryButton href="#explore">See what&apos;s inside</SecondaryButton>
+                <PrimaryButton href="/roadmap">See the 90-Day Plan</PrimaryButton>
+                <SecondaryButton href="#explore">What&apos;s inside</SecondaryButton>
               </div>
             </div>
 
