@@ -225,8 +225,7 @@ export default function RoadmapPage() {
           <Pill>Strategic Roadmap</Pill>
           <h1 className="h1 mt-6 text-[color:var(--navy)]">90-Day Growth Roadmap</h1>
           <p className="lede mt-5 max-w-3xl">
-            Listen → Prove → Scale. No firmwide mandates in the first 90 days. High-impact pilots that remove
-            attorney friction and make revenue relationships visible.
+            Listen → Prove → Scale. No firmwide mandates in the first 90 days. Small pilots that prove the model before scaling.
           </p>
 
           <TimelineMini />
@@ -250,7 +249,7 @@ export default function RoadmapPage() {
         <Container>
           <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
             <div className="kicker text-white/70">EXECUTIVE SUMMARY</div>
-            <h2 className="h2 mt-3 text-white">What leadership gets by Day 90</h2>
+            <h2 className="h2 mt-3 text-white">By Day 90</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
                 <div className="flex items-center gap-2">
@@ -260,7 +259,7 @@ export default function RoadmapPage() {
                   </svg>
                   <div className="text-sm font-semibold">Revenue reality</div>
                 </div>
-                <p className="mt-2 text-sm text-white/75">Top referrers by dollars + practices impacted.</p>
+                <p className="mt-2 text-sm text-white/75">Know exactly where your work comes from.</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
                 <div className="flex items-center gap-2">
@@ -269,7 +268,7 @@ export default function RoadmapPage() {
                   </svg>
                   <div className="text-sm font-semibold">Cross-sell pipeline</div>
                 </div>
-                <p className="mt-2 text-sm text-white/75">Warm introductions + credible next-practice targets.</p>
+                <p className="mt-2 text-sm text-white/75">Active opportunities to expand client relationships.</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
                 <div className="flex items-center gap-2">
@@ -278,7 +277,7 @@ export default function RoadmapPage() {
                   </svg>
                   <div className="text-sm font-semibold">A working engine</div>
                 </div>
-                <p className="mt-2 text-sm text-white/75">Attorney visibility + BD throughput with governance.</p>
+                <p className="mt-2 text-sm text-white/75">Attorneys visible, referrals tracked, results measured.</p>
               </div>
             </div>
           </div>
@@ -367,9 +366,9 @@ export default function RoadmapPage() {
           <Card featured className="p-8 sm:p-10">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="h2 text-[color:var(--navy)]">Want to see the systems behind the plan?</h2>
+                <h2 className="h2 text-[color:var(--navy)]">See the systems behind the plan.</h2>
                 <p className="mt-2 text-sm text-[color:var(--muted)]">
-                  Referral intelligence + attorney visibility show how this becomes operational.
+                  Working prototypes that show how this becomes real.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
