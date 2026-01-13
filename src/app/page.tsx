@@ -231,9 +231,14 @@ export default function HomePage() {
       {/* WHAT'S INSIDE BENTO */}
       <Container>
         <Section id="explore">
-          <p className="text-center text-lg text-[color:var(--muted)] max-w-xl mx-auto mb-10">
-            Start with the plan, explore the prototypes, then get the backstory.
-          </p>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="h2 text-[color:var(--navy)]">
+              Here&apos;s what I built.
+            </h2>
+            <p className="mt-3 text-lg text-[color:var(--muted)]">
+              A strategy, two working prototypes, and the context on me.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
             <div className="lg:col-span-7">
