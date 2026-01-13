@@ -204,7 +204,7 @@ function BentoTile({
           {desc}
         </p>
 
-        <div className={["mt-6 flex items-center gap-2 text-sm font-semibold", dark ? "text-white" : "text-[color:var(--teal)]"].join(" ")}>
+        <div className={["mt-6 flex items-center gap-2 text-sm font-semibold transition-colors", dark ? "text-white group-hover:text-[color:var(--teal-light)]" : "text-[color:var(--teal)]"].join(" ")}>
           <span>Explore</span>
           <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -315,7 +315,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <Link href="/roadmap" className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--teal-light)] transition-colors shrink-0 group">
+                <Link href="/roadmap" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--teal-light)] hover:text-white transition-colors shrink-0 group bg-white/5 px-5 py-2.5 rounded-full hover:bg-white/10">
                   <span>See the roadmap</span>
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
