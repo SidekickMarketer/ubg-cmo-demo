@@ -173,7 +173,7 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-5 text-xl leading-relaxed text-[color:var(--muted)]">
-                I want to lead marketing at UBG. Instead of a pitch deck, I built what I&apos;d actually deliver — a 90-day plan and two working prototypes.
+                I want to lead marketing at UBG. Instead of a pitch deck, I built what I&apos;d actually deliver: a 90-day plan and two working prototypes.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -201,7 +201,7 @@ export default function HomePage() {
               <div className="max-w-2xl">
                 <div className="text-xs font-semibold uppercase tracking-wider text-white/60">The Strategic Thesis</div>
                 <h2 className="h2 mt-4 text-white">
-                  Firms like UBG grow through referrals, attorney visibility, and client retention — not campaigns.
+                  Firms like UBG grow through referrals, attorney visibility, and client retention. Not campaigns.
                 </h2>
                 <p className="mt-4 text-base text-white/70 leading-relaxed">
                   The plan is built around these three realities.
@@ -250,7 +250,7 @@ export default function HomePage() {
                 number="1"
                 eyebrow="Strategy"
                 title="90-Day Plan"
-                desc="What I'd do in the first 90 days — and what you'd have to show for it."
+                desc="What I'd do in the first 90 days, and what you'd have to show for it."
                 href="/roadmap"
                 tone="dark"
               />
@@ -303,7 +303,7 @@ export default function HomePage() {
                   I&apos;d earn trust before pushing change.
                 </h2>
                 <p className="mt-5 text-[color:var(--muted)] leading-relaxed">
-                  The first 30 days are about listening — learning how your clients actually buy and how the firm actually works. Then I&apos;d ship small wins that reduce friction and prove the approach.
+                  The first 30 days are about listening. Learning how your clients actually buy and how the firm actually works. Then I&apos;d ship small wins that reduce friction and prove the approach.
                 </p>
                 <Link
                   href="/about"
