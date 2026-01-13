@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 function Container({ children }: { children: React.ReactNode }) {
@@ -143,7 +144,16 @@ export default function HomePage() {
         <Section className="pb-10">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
-              <Pill>Private CMO Application • Jan 2026</Pill>
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/kyle.jpeg"
+                  alt="Kyle Naughtrip"
+                  width={72}
+                  height={72}
+                  className="rounded-full object-cover border-2 border-white shadow-[var(--shadow-soft)]"
+                />
+                <Pill>Private CMO Application • Jan 2026</Pill>
+              </div>
 
               <h1 className="mt-8 text-[color:var(--navy)]">
                 I'm Kyle. I built a working preview of how I'd lead growth at UB Greensfelder.
