@@ -109,6 +109,10 @@ function Phase({
   foundation,
   elevation,
   deliverables,
+  leftLabel = "What I'll Learn",
+  leftSub = "Discovery and context",
+  rightLabel = "What I'll Deliver",
+  rightSub = "Concrete outputs",
 }: {
   number: number;
   label: string;
@@ -117,12 +121,16 @@ function Phase({
   foundation: string[];
   elevation: string[];
   deliverables: { name: string; desc: string }[];
+  leftLabel?: string;
+  leftSub?: string;
+  rightLabel?: string;
+  rightSub?: string;
 }) {
   return (
     <div className="relative">
       <Card className="p-7 lg:p-8">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6">
-          <PhaseNumber number={number} active={number === 1} />
+          <PhaseNumber number={number} active />
 
           <div className="flex-1">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -137,11 +145,11 @@ function Phase({
               <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-2)] p-5">
                 <div className="flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--navy)] text-white text-xs font-bold">
-                    L
+                    {leftLabel.charAt(leftLabel.lastIndexOf(" ") + 1)}
                   </div>
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">What I'll Learn</div>
+                  <div className="text-sm font-semibold text-[color:var(--navy)]">{leftLabel}</div>
                 </div>
-                <p className="mt-1 text-xs text-[color:var(--muted)]">Discovery and context</p>
+                <p className="mt-1 text-xs text-[color:var(--muted)]">{leftSub}</p>
                 <ul className="mt-4 space-y-2.5">
                   {foundation.map((x) => (
                     <li key={x} className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
@@ -155,11 +163,11 @@ function Phase({
               <div className="rounded-2xl border border-[color:var(--teal)]/30 bg-gradient-to-br from-[color:var(--teal-light)] to-[color:var(--surface)] p-5">
                 <div className="flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--teal)] text-white text-xs font-bold">
-                    D
+                    {rightLabel.charAt(rightLabel.lastIndexOf(" ") + 1)}
                   </div>
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">What I'll Deliver</div>
+                  <div className="text-sm font-semibold text-[color:var(--navy)]">{rightLabel}</div>
                 </div>
-                <p className="mt-1 text-xs text-[color:var(--muted)]">Concrete outputs</p>
+                <p className="mt-1 text-xs text-[color:var(--muted)]">{rightSub}</p>
                 <ul className="mt-4 space-y-2.5">
                   {elevation.map((x) => (
                     <li key={x} className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
@@ -207,11 +215,11 @@ function TimelineMini() {
         <div className="w-12 h-0.5 bg-[color:var(--teal)]" />
       </div>
       <div className="flex items-center gap-1">
-        <div className="h-8 w-8 rounded-full bg-[color:var(--navy)] text-white text-sm font-bold flex items-center justify-center">2</div>
-        <div className="w-12 h-0.5 bg-[color:var(--navy)]" />
+        <div className="h-8 w-8 rounded-full bg-[color:var(--teal)] text-white text-sm font-bold flex items-center justify-center">2</div>
+        <div className="w-12 h-0.5 bg-[color:var(--teal)]" />
       </div>
       <div className="flex items-center gap-1">
-        <div className="h-8 w-8 rounded-full bg-[color:var(--gold)] text-white text-sm font-bold flex items-center justify-center">3</div>
+        <div className="h-8 w-8 rounded-full bg-[color:var(--teal)] text-white text-sm font-bold flex items-center justify-center">3</div>
       </div>
     </div>
   );
@@ -222,25 +230,15 @@ export default function RoadmapPage() {
     <div>
       <Container>
         <Section className="pb-10">
-          <Pill>Strategic Roadmap</Pill>
-          <h1 className="h1 mt-6 text-[color:var(--navy)]">90-Day Growth Roadmap</h1>
+          <h1 className="h1 text-[color:var(--navy)]">90-Day Growth Roadmap</h1>
           <p className="lede mt-5 max-w-3xl">
-            Listen → Prove → Scale. No firmwide mandates in the first 90 days. Small pilots that prove the model before scaling.
+            Listen, prove, scale. No firmwide mandates in the first 90 days. Small pilots that prove the model before scaling.
           </p>
 
           <TimelineMini />
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <PrimaryButton href="#phase-1">
-              Jump to Phase 1
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </PrimaryButton>
+          <div className="mt-6">
             <SecondaryButton href="/referrals">See Referral Intelligence</SecondaryButton>
-            <Link href="/about" className="text-sm font-medium text-[color:var(--teal)] hover:underline">
-              Why Kyle →
-            </Link>
           </div>
         </Section>
       </Container>
@@ -292,6 +290,10 @@ export default function RoadmapPage() {
               label="PHASE 1 — Days 1–30"
               title="Learn the Business"
               subtitle="Understand how relationships and revenue actually work before proposing changes."
+              leftLabel="What I'll Learn"
+              leftSub="Discovery and context"
+              rightLabel="What I'll Identify"
+              rightSub="Key findings"
               foundation={[
                 "Meet the key stakeholders across leadership and practices",
                 "Understand what marketing and BD actually do today",
@@ -317,6 +319,10 @@ export default function RoadmapPage() {
               label="PHASE 2 — Days 31–60"
               title="Run Small Pilots"
               subtitle="Test what works with a small group before scaling."
+              leftLabel="What I'll Build"
+              leftSub="Systems and processes"
+              rightLabel="What I'll Launch"
+              rightSub="Active programs"
               foundation={[
                 "Speed up pitch and proposal turnaround",
                 "Create case studies and bios that actually get used",
@@ -324,12 +330,12 @@ export default function RoadmapPage() {
               ]}
               elevation={[
                 "Run a visibility pilot with 10-15 attorneys",
-                "Start nurturing top referral relationships",
-                "Make 10 warm introductions to new practice areas",
+                "Create a referrer appreciation program",
+                "Support 10 cross-sell introductions",
               ]}
               deliverables={[
                 { name: "Pilot Results", desc: "What worked, what didn't, what to scale." },
-                { name: "Referrer Care Plan", desc: "Who owns each relationship and how we nurture it." },
+                { name: "Referrer Program", desc: "How we recognize and engage top referrers." },
                 { name: "Cross-Sell Pipeline", desc: "Introductions made and next steps." },
               ]}
             />
@@ -341,6 +347,10 @@ export default function RoadmapPage() {
               label="PHASE 3 — Days 61–90"
               title="Scale What Works"
               subtitle="Expand the pilots and build reporting that ties activity to revenue."
+              leftLabel="What I'll Formalize"
+              leftSub="Standards and systems"
+              rightLabel="What I'll Deliver"
+              rightSub="Concrete outputs"
               foundation={[
                 "Set up approval workflows and brand standards",
                 "Establish monthly reporting",
