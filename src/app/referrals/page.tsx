@@ -231,7 +231,7 @@ export default function ReferralsPage() {
               </svg>
               Interactive Dashboard
             </div>
-            <h1 className="h1 mt-6">Referral Intelligence</h1>
+            <h1 className="h1 mt-6 text-[color:var(--navy)]">Referral Intelligence</h1>
             <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
               Track referral sources, surface cross-sell opportunities, and map attorney networks — all connected to revenue.
             </p>

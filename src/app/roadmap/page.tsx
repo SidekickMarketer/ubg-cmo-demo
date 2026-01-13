@@ -128,7 +128,7 @@ function Phase({
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <div className="kicker text-[color:var(--teal)]">{label}</div>
-                <h2 className="h2 mt-1">{title}</h2>
+                <h2 className="h2 mt-1 text-[color:var(--navy)]">{title}</h2>
                 <p className="mt-2 text-sm text-[color:var(--muted)] max-w-xl">{subtitle}</p>
               </div>
             </div>
@@ -223,7 +223,7 @@ export default function RoadmapPage() {
       <Container>
         <Section className="pb-10">
           <Pill>Strategic Roadmap</Pill>
-          <h1 className="h1 mt-6">90-Day Growth Roadmap</h1>
+          <h1 className="h1 mt-6 text-[color:var(--navy)]">90-Day Growth Roadmap</h1>
           <p className="lede mt-5 max-w-3xl">
             Listen → Prove → Scale. No firmwide mandates in the first 90 days. High-impact pilots that remove
             attorney friction and make revenue relationships visible.
@@ -367,7 +367,7 @@ export default function RoadmapPage() {
           <Card featured className="p-8 sm:p-10">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="h2">Want to see the systems behind the plan?</h2>
+                <h2 className="h2 text-[color:var(--navy)]">Want to see the systems behind the plan?</h2>
                 <p className="mt-2 text-sm text-[color:var(--muted)]">
                   Referral intelligence + attorney visibility show how this becomes operational.
                 </p>

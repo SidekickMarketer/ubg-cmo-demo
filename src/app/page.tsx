@@ -179,7 +179,7 @@ export default function HomePage() {
                 <Pill>Private CMO Application</Pill>
               </div>
 
-              <h1 className="h1 mt-10">
+              <h1 className="h1 mt-10 text-[color:var(--navy)]">
                 I built a working preview of how I&apos;d lead growth at UB&nbsp;Greensfelder.
               </h1>
 
@@ -267,7 +267,7 @@ export default function HomePage() {
         <Section id="explore">
           <div className="text-center max-w-2xl mx-auto">
             <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">What&apos;s Inside</div>
-            <h2 className="h2 mt-4">
+            <h2 className="h2 mt-4 text-[color:var(--navy)]">
               A clear path in under 60 seconds
             </h2>
             <p className="mt-4 text-[color:var(--muted)] leading-relaxed">
@@ -333,7 +333,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-7">
                 <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">How I Would Show Up</div>
-                <h2 className="h2 mt-4">
+                <h2 className="h2 mt-4 text-[color:var(--navy)]">
                   Consultative, partnership-safe, and evidence-driven.
                 </h2>
                 <p className="mt-5 text-[color:var(--muted)] leading-relaxed">

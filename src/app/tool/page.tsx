@@ -372,7 +372,7 @@ export default function ToolPage() {
               </svg>
               Interactive Demo
             </div>
-            <h1 className="h1 mt-6">Attorney Visibility Engine</h1>
+            <h1 className="h1 mt-6 text-[color:var(--navy)]">Attorney Visibility Engine</h1>
             <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
               An AI-powered tool that transforms attorney expertise into compelling content.
               Marketing drafts. Attorneys approve. Friction removed.
@@ -602,7 +602,7 @@ export default function ToolPage() {
         <Section>
           <Card className="p-8 sm:p-10 lg:p-12" featured>
             <div className="text-center max-w-2xl mx-auto">
-              <h2 className="h2">How This Would Work in Production</h2>
+              <h2 className="h2 text-[color:var(--navy)]">How This Would Work in Production</h2>
               <p className="mt-4 text-[color:var(--muted)]">
                 A three-step process that reduces attorney time from hours to minutes.
               </p>

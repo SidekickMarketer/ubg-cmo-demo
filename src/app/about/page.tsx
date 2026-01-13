@@ -146,7 +146,7 @@ export default function AboutPage() {
       <Container>
         <Section className="pb-10">
           <Pill>About</Pill>
-          <h1 className="h1 mt-6">Why Kyle</h1>
+          <h1 className="h1 mt-6 text-[color:var(--navy)]">Why Kyle</h1>
           <p className="lede mt-5 max-w-3xl">
             I've led marketing in complex, high-stakes environments where stakeholders are opinionated, timelines are
             tight, and results have to show up in revenue—not vanity metrics.
@@ -358,7 +358,7 @@ export default function AboutPage() {
           <Card featured className="p-8 sm:p-10">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="h2">Start with the plan, then the proof.</h2>
+                <h2 className="h2 text-[color:var(--navy)]">Start with the plan, then the proof.</h2>
                 <p className="mt-2 text-sm text-[color:var(--muted)]">
                   Roadmap → Referral Intelligence → Attorney Visibility.
                 </p>
