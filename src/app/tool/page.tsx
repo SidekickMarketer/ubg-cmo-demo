@@ -139,10 +139,7 @@ export default function ToolPage() {
             </div>
             <h1 className="h1 mt-6 text-[color:var(--navy)]">AI Content Studio</h1>
             <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
-              When someone needs help, you want your attorneys to be the name they think of and the one they trust to handle it. Clients hire attorneys they&apos;ve seen and trust. This helps your attorneys be seen.
-            </p>
-            <p className="mt-4 text-lg text-[color:var(--muted)] leading-relaxed">
-              But attorneys don&apos;t have time to write. This enables them to stay visible. 5 minutes from them, AI drafts, they approve and post.
+              Turn attorney expertise into ready-to-publish content. Pick a topic, AI writes the draft, they review and post.
             </p>
 
             <p className="mt-6 text-sm text-[color:var(--muted)]">
@@ -401,7 +398,7 @@ export default function ToolPage() {
                 {
                   step: "1",
                   title: "Attorney Input",
-                  desc: "Attorneys share recent matters, insights, or topics they want to address. Takes 5 minutes of their time.",
+                  desc: "Attorneys share recent matters, insights, or topics they want to address.",
                   color: "navy",
                 },
                 {
