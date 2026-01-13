@@ -378,10 +378,9 @@ export default function ToolPage() {
               Marketing drafts. Attorneys approve. Friction removed.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <PrimaryButton href="/roadmap">90-Day Plan</PrimaryButton>
-              <SecondaryButton href="/referrals">Referral Intelligence</SecondaryButton>
-            </div>
+            <p className="mt-6 text-sm text-[color:var(--muted)]">
+              Try the demo below to see how it works.
+            </p>
           </div>
         </Section>
       </Container>
@@ -662,6 +661,39 @@ export default function ToolPage() {
               </div>
             </div>
           </Card>
+        </Section>
+      </Container>
+
+      {/* CTA */}
+      <Container>
+        <Section className="pb-8">
+          <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow-lg)] sm:p-10 lg:p-12">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-xl">
+                <h2 className="h2 text-white">See the full strategy.</h2>
+                <p className="mt-3 text-base text-white/70 leading-relaxed">
+                  This tool is one piece of a larger plan. Check out the 90-day roadmap or explore the referral intelligence prototype.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row shrink-0">
+                <Link
+                  href="/roadmap"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[color:var(--navy)] shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow)] hover:-translate-y-0.5"
+                >
+                  90-Day Plan
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/referrals"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
+                >
+                  Referral Intelligence
+                </Link>
+              </div>
+            </div>
+          </div>
         </Section>
       </Container>
     </div>
