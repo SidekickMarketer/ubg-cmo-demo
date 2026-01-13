@@ -292,7 +292,7 @@ export default function AboutPage() {
                   </li>
                   <li className="flex items-start gap-2 text-sm text-[color:var(--navy)] font-medium">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--navy)] flex-shrink-0" />
-                    Why it matters for UBG: partnership dynamics + multi-office coordination.
+                    Why it matters for UB Greensfelder: partnership dynamics + multi-office coordination.
                   </li>
                 </ul>
               </ExperienceAccordion>
@@ -318,7 +318,7 @@ export default function AboutPage() {
                   </li>
                   <li className="flex items-start gap-2 text-sm text-[color:var(--navy)] font-medium">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--navy)] flex-shrink-0" />
-                    Why it matters for UBG: measurable BD enablement and leadership reporting.
+                    Why it matters for UB Greensfelder: measurable BD enablement and leadership reporting.
                   </li>
                 </ul>
               </ExperienceAccordion>
@@ -344,7 +344,7 @@ export default function AboutPage() {
                   </li>
                   <li className="flex items-start gap-2 text-sm text-[color:var(--navy)] font-medium">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--navy)] flex-shrink-0" />
-                    Why it matters for UBG: leverage marketing team capacity without sacrificing standards.
+                    Why it matters for UB Greensfelder: leverage marketing team capacity without sacrificing standards.
                   </li>
                 </ul>
               </ExperienceAccordion>
