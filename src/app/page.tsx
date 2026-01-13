@@ -1,12 +1,9 @@
-// src/app/page.tsx
+"use client";
+
 import Link from "next/link";
 
 function Container({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
-      {children}
-    </div>
-  );
+  return <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>;
 }
 
 function Section({
@@ -28,42 +25,37 @@ function Section({
 function Card({
   children,
   className = "",
+  hover = true,
 }: {
   children: React.ReactNode;
   className?: string;
+  hover?: boolean;
 }) {
   return (
     <div
-      className={`rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[var(--shadow-soft)] ${className}`}
+      className={[
+        "rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[var(--shadow-soft)]",
+        hover
+          ? "transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow)]"
+          : "",
+        className,
+      ].join(" ")}
     >
       {children}
     </div>
   );
 }
 
-function Pill({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-1 text-xs font-medium text-[color:var(--muted)] ${className}`}
-    >
+    <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-white/70 px-3 py-1 text-xs font-medium text-[color:var(--muted)] backdrop-blur">
+      <span className="h-2 w-2 rounded-full bg-[color:var(--teal)]" />
       {children}
     </span>
   );
 }
 
-function PrimaryButton({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
+function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
@@ -74,13 +66,7 @@ function PrimaryButton({
   );
 }
 
-function SecondaryButton({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
+function SecondaryButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
@@ -91,354 +77,257 @@ function SecondaryButton({
   );
 }
 
-function Stat({
-  value,
+function MiniStat({
   label,
+  value,
+  sub,
 }: {
-  value: string;
   label: string;
+  value: string;
+  sub: string;
 }) {
   return (
-    <div className="flex flex-col gap-1">
-      <div className="text-3xl font-bold tracking-tight text-white">
-        {value}
-      </div>
-      <div className="text-sm text-white/80">{label}</div>
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+      <div className="text-xs font-semibold text-white/65">{label}</div>
+      <div className="mt-2 text-3xl font-semibold tracking-tight text-white">{value}</div>
+      <div className="mt-2 text-sm text-white/70">{sub}</div>
     </div>
+  );
+}
+
+function BentoTile({
+  eyebrow,
+  title,
+  desc,
+  href,
+  tone = "light",
+}: {
+  eyebrow: string;
+  title: string;
+  desc: string;
+  href: string;
+  tone?: "light" | "dark";
+}) {
+  const dark = tone === "dark";
+  return (
+    <Link href={href} className="group block">
+      <div
+        className={[
+          "h-full rounded-2xl border p-6 shadow-[var(--shadow-soft)] transition-transform duration-200 group-hover:-translate-y-0.5",
+          dark
+            ? "border-white/10 bg-[color:var(--navy)] text-white"
+            : "border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--navy)]",
+        ].join(" ")}
+      >
+        <div className={dark ? "text-xs font-semibold text-white/65" : "text-xs font-semibold text-[color:var(--muted)]"}>
+          {eyebrow}
+        </div>
+        <div className="mt-3 text-xl font-semibold tracking-tight">{title}</div>
+        <p className={["mt-2 text-sm leading-relaxed", dark ? "text-white/75" : "text-[color:var(--muted)]"].join(" ")}>
+          {desc}
+        </p>
+
+        <div className={["mt-5 text-sm font-medium", dark ? "text-white" : "text-[color:var(--teal)]"].join(" ")}>
+          Open →
+        </div>
+      </div>
+    </Link>
   );
 }
 
 export default function HomePage() {
   return (
-    <div className="bg-[color:var(--background)] text-[color:var(--foreground)]">
-      {/* HERO */}
-      <div className="relative overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(17,31,58,0.12) 0%, rgba(247,249,252,1) 70%)",
-          }}
-        />
-        <Container>
-          <Section className="relative">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
-              <div className="lg:col-span-7">
-                <Pill>
-                  <span
-                    className="h-2 w-2 rounded-full bg-[color:var(--gold)]"
-                    aria-hidden="true"
-                  />
-                  CMO Application • UB Greensfelder
-                </Pill>
+    <div>
+      <Container>
+        {/* HERO */}
+        <Section className="pb-10">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-2xl">
+              <Pill>Private CMO Application • Jan 2026</Pill>
 
-                <h1 className="mt-5 text-4xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-5xl lg:text-6xl">
-                  Kyle Naughtrip
-                </h1>
+              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-5xl">
+                I'm Kyle. I built a working preview of how I'd lead growth at UB Greensfelder.
+              </h1>
 
-                <p className="mt-3 text-lg text-[color:var(--muted)]">
-                  Candidate for Chief Marketing Officer
-                </p>
+              <p className="mt-5 text-lg leading-relaxed text-[color:var(--muted)]">
+                This isn't a deck. It's an operating model: a 90-day roadmap plus two working demos that make
+                revenue relationships visible and reduce attorney friction.
+              </p>
 
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-[color:var(--foreground)]/85">
-                  I built this private site to show how I would lead marketing
-                  and business development at UB Greensfelder — including a
-                  90-day plan, working systems, and a revenue-connected approach
-                  tailored to how law firms actually grow.
-                </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <PrimaryButton href="/roadmap">Start with the 90-Day Plan</PrimaryButton>
+                <SecondaryButton href="#start-here">See what's inside (30 sec)</SecondaryButton>
+                <Link href="/about" className="text-sm font-medium text-[color:var(--teal)] hover:underline">
+                  Why me →
+                </Link>
+              </div>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <PrimaryButton href="/roadmap">View the 90-Day Plan</PrimaryButton>
-                  <SecondaryButton href="#how-it-works">See How This Works</SecondaryButton>
-                  <Link
-                    href="/about"
-                    className="text-sm font-medium text-[color:var(--teal)] hover:underline"
-                  >
-                    About Kyle →
-                  </Link>
+              <div className="mt-8 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 text-sm text-[color:var(--muted)] shadow-[var(--shadow-soft)]">
+                <span className="font-semibold text-[color:var(--navy)]">What you're looking at:</span>{" "}
+                a CMO-level "show, don't tell" application designed for partners/leadership to skim in minutes.
+              </div>
+            </div>
+
+            {/* Right-side "executive proof" card */}
+            <Card className="w-full lg:max-w-md" hover={false}>
+              <div className="rounded-2xl bg-[color:var(--navy)] p-7 text-white">
+                <div className="text-xs font-semibold tracking-wide text-white/70">DECISION ANCHORS</div>
+                <div className="mt-4 space-y-3 text-sm text-white/75">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-sm font-semibold text-white">Start here</div>
+                    <div className="mt-1 text-white/70">The 90-day plan shows how I'd earn trust and ship wins.</div>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-sm font-semibold text-white">Proof</div>
+                    <div className="mt-1 text-white/70">Two demos show how strategy becomes operational.</div>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-sm font-semibold text-white">Fit</div>
+                    <div className="mt-1 text-white/70">Background + leadership style mapped to role needs.</div>
+                  </div>
                 </div>
               </div>
-
-              <div className="lg:col-span-5">
-                <Card className="p-4 sm:p-5">
-                  <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[color:var(--surface-2)]">
-                    <img src="/kyle.jpeg" alt="Kyle Naughtrip" className="h-full w-full object-cover" />
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between">
-                    <div className="text-sm font-medium text-[color:var(--navy)]">
-                      Executive application site
-                    </div>
-                    <div className="text-xs text-[color:var(--muted)]">
-                      Updated Jan 2026
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            </div>
-          </Section>
-        </Container>
-      </div>
-
-      {/* DECISION ANCHORS */}
-      <Container>
-        <Section>
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-3xl">
-              How firms like yours actually grow
-            </h2>
-            <p className="mt-3 text-[color:var(--muted)]">
-              Not through campaigns — through relationships, attorney visibility,
-              and client retention.
-            </p>
-          </div>
-
-          <div className="mt-8 rounded-3xl bg-[color:var(--navy)] px-6 py-8 shadow-[var(--shadow)] sm:px-8">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-              <Stat value="86%" label="of GCs find outside counsel through peer referrals" />
-              <Stat value="70%" label="select based on the individual lawyer, not the firm brand" />
-              <Stat value="6%" label="recommend firms primarily based on price" />
-            </div>
-            <div className="mt-6 text-xs text-white/60">
-              Sources: compiled legal-buyer research (BTI/ACC/LMA synthesis in your appendix).
-            </div>
+            </Card>
           </div>
         </Section>
       </Container>
 
-      {/* THE MODEL */}
+      {/* STAT STRIP (tasteful, not shouty) */}
       <Container>
-        <Section>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-3xl">
-                Marketing activity isn't the goal.
-              </h2>
-              <p className="mt-3 text-[color:var(--muted)]">
-                The goal is a growth engine that partners trust — and leadership
-                can measure.
-              </p>
-            </div>
-
-            <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <Card className="p-6">
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">
-                    Typical Approach
-                  </div>
-                  <ul className="mt-4 space-y-2 text-sm text-[color:var(--muted)]">
-                    <li>• Activity-first reporting</li>
-                    <li>• Disconnected campaigns</li>
-                    <li>• Content volume without adoption</li>
-                    <li>• "Marketing" sits outside revenue</li>
-                  </ul>
-                </Card>
-
-                <div className="rounded-2xl bg-[color:var(--navy)] p-6 shadow-[var(--shadow-soft)]">
-                  <div className="text-sm font-semibold text-white">
-                    Revenue-Connected Growth
-                  </div>
-                  <ul className="mt-4 space-y-2 text-sm text-white/80">
-                    <li>• Referral and relationship visibility</li>
-                    <li>• Attorney enablement systems</li>
-                    <li>• Cross-sell activation</li>
-                    <li>• Measurement tied to revenue outcomes</li>
-                  </ul>
+        <Section className="pt-0">
+          <div className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow)] sm:p-10">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <div className="text-xs font-semibold tracking-wide text-white/70">THE STRATEGIC THESIS</div>
+                <div className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                  Firms like UBG grow through referrals, attorney visibility, and client retention — not campaigns.
                 </div>
+                <p className="mt-3 text-sm text-white/70">
+                  These are the three decision realities the plan is built around.
+                </p>
               </div>
+              <Link href="/roadmap" className="text-sm font-semibold text-white/90 hover:underline">
+                See the roadmap →
+              </Link>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <MiniStat label="Referral-driven selection" value="86%" sub="General counsel find outside counsel via peers." />
+              <MiniStat label="Hire the lawyer" value="70%" sub="The individual attorney is the deciding factor." />
+              <MiniStat label="Price sensitivity" value="6%" sub="Price rarely drives recommendations." />
+            </div>
+
+            <div className="mt-4 text-xs text-white/55">
+              Sources linked in the site (appendix).
             </div>
           </div>
         </Section>
       </Container>
 
-      {/* WHY UBG */}
+      {/* START HERE BENTO */}
       <Container>
-        <Section>
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-3xl">
-              Why this moment matters for UBG
-            </h2>
-            <p className="mt-3 text-[color:var(--muted)]">
-              UBG has unusual scale and opportunity — the upside comes from
-              turning that footprint into a single, measurable growth engine.
-            </p>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            <Card className="p-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">
-                Geographic leverage
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                A super-regional platform across major Midwest and business
-                centers creates natural cross-market demand.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">
-                Cross-sell scale
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                Client relationships can expand when opportunities are visible,
-                shared, and coached — not left to chance.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">
-                Proven excellence
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                Recognition and outcomes provide the credibility — the next step
-                is consistent market narrative and execution.
-              </p>
-            </Card>
-          </div>
-        </Section>
-      </Container>
-
-      {/* WHAT I BUILT */}
-      <Container>
-        <Section id="how-it-works">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-3xl">
-                What I built to show how I'd run this role
+        <Section id="start-here" className="pt-0">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">START HERE</div>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[color:var(--navy)]">
+                A clear path in under 60 seconds.
               </h2>
-              <p className="mt-3 text-[color:var(--muted)]">
-                These are working artifacts — not concepts — designed to connect
-                attorney behavior to measurable growth.
+              <p className="mt-3 max-w-2xl text-[color:var(--muted)]">
+                Leadership skims. So the site is structured like an executive brief: strategy first, proof second, fit last.
               </p>
             </div>
-            <Link
-              href="/roadmap"
-              className="text-sm font-medium text-[color:var(--teal)] hover:underline"
-            >
-              Start with the 90-Day Plan →
-            </Link>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-12">
-            <Card className="p-6 lg:col-span-6">
-              <div className="flex items-center justify-between">
-                <div className="text-sm font-semibold text-[color:var(--navy)]">
-                  Strategic Roadmap
-                </div>
-                <Pill className="text-[color:var(--muted)]">Primary</Pill>
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                A practical 90-day plan that earns partner trust, establishes
-                governance, and connects execution to revenue.
-              </p>
-              <div className="mt-5">
-                <PrimaryButton href="/roadmap">View the Roadmap</PrimaryButton>
-              </div>
-            </Card>
+            <div className="lg:col-span-7">
+              <BentoTile
+                eyebrow="1) Strategy"
+                title="90-Day Plan"
+                desc="Listen → prove → scale. Deliverables leadership can operate by Day 90."
+                href="/roadmap"
+                tone="dark"
+              />
+            </div>
 
-            <Card className="p-6 lg:col-span-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">
-                Client & Referral Visibility
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                A dashboard concept that makes referral sources, cross-sell
-                opportunities, and attorney networks visible.
-              </p>
-              <div className="mt-5">
-                <SecondaryButton href="/referrals">Explore</SecondaryButton>
-              </div>
-            </Card>
+            <div className="lg:col-span-5">
+              <BentoTile
+                eyebrow="2) Proof"
+                title="Referral Intelligence"
+                desc="A leadership view of the relationships that drive matters — protect, deepen, replicate."
+                href="/referrals"
+                tone="light"
+              />
+            </div>
 
-            <Card className="p-6 lg:col-span-7">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">
-                Attorney Thought Leadership System
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                A workflow to reduce content bottlenecks and scale attorney
-                visibility with governance and quality control.
-              </p>
-              <div className="mt-5">
-                <SecondaryButton href="/tool">Explore</SecondaryButton>
-              </div>
-            </Card>
+            <div className="lg:col-span-5">
+              <BentoTile
+                eyebrow="3) Throughput"
+                title="Attorney Visibility System"
+                desc="Reduce attorney time required to be visible. Marketing polishes; attorneys approve."
+                href="/tool"
+                tone="light"
+              />
+            </div>
 
-            <Card className="p-6 lg:col-span-5">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">
-                Leadership Background
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--muted)]">
-                How my experience maps to UBG's needs: stakeholder complexity,
-                revenue focus, and execution speed.
-              </p>
-              <div className="mt-5">
-                <SecondaryButton href="/about">View</SecondaryButton>
-              </div>
-            </Card>
+            <div className="lg:col-span-7">
+              <BentoTile
+                eyebrow="4) Fit"
+                title="Why Kyle"
+                desc="Experience mapped to role realities: stakeholder dynamics, revenue focus, execution velocity."
+                href="/about"
+                tone="light"
+              />
+            </div>
           </div>
         </Section>
       </Container>
 
-      {/* AI AS LEVERAGE */}
+      {/* DIFFERENTIATOR: consultative, not preachy */}
       <Container>
-        <Section>
-          <div className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow)] sm:p-10">
+        <Section className="pt-0">
+          <Card className="p-8 sm:p-10" hover={false}>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
-              <div className="lg:col-span-6">
-                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  Forward-thinking, without the hype
-                </h2>
-                <p className="mt-3 text-white/75">
-                  In 2026, the advantage comes from removing friction — not
-                  chasing trends. AI is useful when it increases attorney
-                  throughput and improves client experience.
+              <div className="lg:col-span-7">
+                <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">HOW I WOULD SHOW UP</div>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[color:var(--navy)]">
+                  Consultative, partnership-safe, and evidence-driven.
+                </h3>
+                <p className="mt-4 text-[color:var(--muted)]">
+                  The first 30 days are about earning internal credibility and learning how your clients and partners
+                  actually buy. Then we ship focused wins that reduce friction and make revenue more visible.
                 </p>
               </div>
-              <div className="lg:col-span-6">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-sm font-semibold text-white">
-                      Removes bottlenecks
-                    </div>
-                    <p className="mt-2 text-sm text-white/75">
-                      Faster first drafts, quicker proposal support, and fewer
-                      marketing delays for attorneys.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-sm font-semibold text-white">
-                      Lowers barriers
-                    </div>
-                    <p className="mt-2 text-sm text-white/75">
-                      Makes participation easier for busy lawyers while keeping
-                      governance and quality intact.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <SecondaryButton href="/tool">See Thought Leadership</SecondaryButton>
-                  <SecondaryButton href="/referrals">See Referral Visibility</SecondaryButton>
+              <div className="lg:col-span-5">
+                <div className="rounded-2xl bg-[color:var(--surface-2)] p-6">
+                  <div className="text-sm font-semibold text-[color:var(--navy)]">What changes by Day 90</div>
+                  <ul className="mt-4 space-y-2 text-sm text-[color:var(--muted)]">
+                    <li>• Top referrers and relationship owners (clear care plan)</li>
+                    <li>• Cross-sell pipeline with warm intros</li>
+                    <li>• Attorney visibility pilot that respects time + governance</li>
+                    <li>• Leadership dashboard tied to outcomes, not vanity</li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         </Section>
       </Container>
 
       {/* FINAL CTA */}
       <Container>
         <Section className="pt-0">
-          <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8 shadow-[var(--shadow-soft)] sm:p-10">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="text-2xl font-semibold tracking-tight text-[color:var(--navy)]">
-                  Let's talk about what UBG needs.
-                </div>
-                <p className="mt-2 text-sm text-[color:var(--muted)]">
-                  Start with the roadmap — then explore the systems behind it.
+                <div className="text-2xl font-semibold tracking-tight">If this is directionally aligned, I'd love to talk.</div>
+                <p className="mt-2 text-sm text-white/70">
+                  The clean next click is the roadmap. The proof is in the two demos.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/roadmap">View the 90-Day Plan</PrimaryButton>
-                <SecondaryButton href="/about">About Kyle</SecondaryButton>
+                <PrimaryButton href="/roadmap">Open the 90-Day Plan</PrimaryButton>
+                <SecondaryButton href="/referrals">See Referral Intelligence</SecondaryButton>
               </div>
             </div>
           </div>
