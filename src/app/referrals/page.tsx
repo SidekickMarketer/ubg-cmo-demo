@@ -79,11 +79,32 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   );
 }
 
-function Pill({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function TypeBadge({ type }: { type: ReferrerType }) {
+  const styles: Record<ReferrerType, string> = {
+    "Law Firm": "bg-blue-100 text-blue-800",
+    "Industry Group": "bg-green-100 text-green-800",
+    "Individual": "bg-purple-100 text-purple-800",
+    "Media/Event": "bg-yellow-100 text-yellow-800",
+  };
   return (
-    <span className={`inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-1 text-xs font-medium text-[color:var(--muted)] ${className}`}>
-      {children}
+    <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${styles[type]}`}>
+      {type}
     </span>
+  );
+}
+
+function ProgressBar({ value, max }: { value: number; max: number }) {
+  const percentage = (value / max) * 100;
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-lg font-semibold text-[color:var(--navy)]">{value}</span>
+      <div className="w-16 rounded-full bg-[color:var(--surface-2)] h-2">
+        <div
+          className="h-2 rounded-full bg-[color:var(--teal)]"
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -138,7 +159,7 @@ function TabButton({
 function Kpi({ value, label, accent = false }: { value: string; label: string; accent?: boolean }) {
   return (
     <div className="flex flex-col gap-1">
-      <div className={`text-2xl font-bold tracking-tight ${accent ? "text-[color:var(--gold)]" : "text-[color:var(--navy)]"}`}>
+      <div className={`text-2xl font-bold tracking-tight ${accent ? "text-[color:var(--teal)]" : "text-[color:var(--navy)]"}`}>
         {value}
       </div>
       <div className="text-xs text-[color:var(--muted)]">{label}</div>
@@ -204,7 +225,7 @@ export default function ReferralsPage() {
         />
         <Container>
           <Section className="relative">
-            <h1 className="text-[color:var(--navy)]">
+            <h1 className="h1">
               Referral Intelligence
             </h1>
 
@@ -222,6 +243,26 @@ export default function ReferralsPage() {
               <TabButton active={tab === "network"} onClick={() => setTab("network")}>
                 Attorney Network
               </TabButton>
+            </div>
+
+            {/* Why This Matters Banner */}
+            <div className="mt-8 rounded-2xl border border-[color:var(--teal)]/20 bg-[color:var(--teal)]/5 p-6">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[color:var(--teal)]/10">
+                  <svg className="h-5 w-5 text-[color:var(--teal)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-[color:var(--navy)]">Why This Matters</div>
+                  <p className="mt-1 text-sm text-[color:var(--muted)]">
+                    <strong className="text-[color:var(--navy)]">86% of general counsel</strong> find outside counsel through peer referrals.
+                    Most law firms don&apos;t systematically track where their work comes from. They know referrals
+                    matter, but can&apos;t answer: &quot;Who are our top 10 referral sources?&quot; or &quot;Which relationships
+                    are we underinvesting in?&quot; This tool shows how to answer those questions.
+                  </p>
+                </div>
+              </div>
             </div>
           </Section>
         </Container>
@@ -265,9 +306,11 @@ export default function ReferralsPage() {
                       <tr key={src.id} className="hover:bg-[color:var(--surface-2)]">
                         <td className="px-6 py-4 font-medium text-[color:var(--navy)]">{src.name}</td>
                         <td className="px-6 py-4">
-                          <Pill>{src.type}</Pill>
+                          <TypeBadge type={src.type} />
                         </td>
-                        <td className="px-6 py-4 font-semibold">{src.referrals}</td>
+                        <td className="px-6 py-4">
+                          <ProgressBar value={src.referrals} max={12} />
+                        </td>
                         <td className="px-6 py-4 text-[color:var(--muted)]">{src.lastReferral}</td>
                         <td className="px-6 py-4">
                           <div className="flex flex-wrap gap-1">
@@ -328,7 +371,7 @@ export default function ReferralsPage() {
                       <tr key={row.client} className="hover:bg-[color:var(--surface-2)]">
                         <td className="px-6 py-4 font-medium text-[color:var(--navy)]">{row.client}</td>
                         <td className="px-6 py-4 text-[color:var(--muted)]">{row.currentPractice}</td>
-                        <td className="px-6 py-4 font-semibold text-[color:var(--gold)]">{row.opportunity}</td>
+                        <td className="px-6 py-4 font-semibold text-[color:var(--teal)]">{row.opportunity}</td>
                         <td className="px-6 py-4">{row.contact}</td>
                         <td className="px-6 py-4">
                           <span

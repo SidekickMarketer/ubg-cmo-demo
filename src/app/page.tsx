@@ -123,7 +123,7 @@ function BentoTile({
         <div className={dark ? "text-xs font-semibold text-white/65" : "text-xs font-semibold text-[color:var(--muted)]"}>
           {eyebrow}
         </div>
-        <div className="mt-3 text-xl font-semibold tracking-tight">{title}</div>
+        <div className="mt-3 font-display text-xl font-semibold tracking-tight">{title}</div>
         <p className={["mt-2 text-sm leading-relaxed", dark ? "text-white/75" : "text-[color:var(--muted)]"].join(" ")}>
           {desc}
         </p>
@@ -148,14 +148,14 @@ export default function HomePage() {
                 <Image
                   src="/kyle.jpeg"
                   alt="Kyle Naughtrip"
-                  width={72}
-                  height={72}
-                  className="rounded-full object-cover border-2 border-white shadow-[var(--shadow-soft)]"
+                  width={88}
+                  height={88}
+                  className="h-[88px] w-[88px] rounded-full object-cover border-2 border-white shadow-[var(--shadow-soft)]"
                 />
                 <Pill>Private CMO Application • Jan 2026</Pill>
               </div>
 
-              <h1 className="mt-8 text-[color:var(--navy)]">
+              <h1 className="h1 mt-8">
                 I'm Kyle. I built a working preview of how I'd lead growth at UB Greensfelder.
               </h1>
 
@@ -209,7 +209,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
                 <div className="text-xs font-semibold tracking-wide text-white/70">THE STRATEGIC THESIS</div>
-                <h2 className="mt-3 text-white">
+                <h2 className="h2 mt-3 text-white">
                   Firms like UBG grow through referrals, attorney visibility, and client retention — not campaigns.
                 </h2>
                 <p className="mt-3 text-sm text-white/70">
@@ -240,7 +240,7 @@ export default function HomePage() {
           <div className="flex items-end justify-between gap-6">
             <div>
               <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">START HERE</div>
-              <h2 className="mt-3 text-[color:var(--navy)]">
+              <h2 className="h2 mt-3">
                 A clear path in under 60 seconds.
               </h2>
               <p className="mt-3 max-w-2xl text-[color:var(--muted)]">
@@ -300,7 +300,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-7">
                 <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">HOW I WOULD SHOW UP</div>
-                <h3 className="mt-3 text-[color:var(--navy)]">
+                <h3 className="h2 mt-3">
                   Consultative, partnership-safe, and evidence-driven.
                 </h3>
                 <p className="mt-4 text-[color:var(--muted)]">
@@ -330,7 +330,7 @@ export default function HomePage() {
           <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-white">If this is directionally aligned, I'd love to talk.</h2>
+                <h2 className="h2 text-white">If this is directionally aligned, I'd love to talk.</h2>
                 <p className="mt-2 text-sm text-white/70">
                   The clean next click is the roadmap. The proof is in the two demos.
                 </p>

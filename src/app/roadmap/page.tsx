@@ -41,7 +41,7 @@ function Card({
 function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-1 text-xs font-medium text-[color:var(--muted)]">
-      <span className="h-2 w-2 rounded-full bg-[color:var(--gold)]" />
+      <span className="h-2 w-2 rounded-full bg-[color:var(--teal)]" />
       {children}
     </span>
   );
@@ -89,7 +89,7 @@ function Phase({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">{label}</div>
-          <div className="mt-1 text-2xl font-semibold tracking-tight text-[color:var(--navy)]">{title}</div>
+          <div className="h2 mt-1">{title}</div>
           <p className="mt-2 text-sm text-[color:var(--muted)]">{subtitle}</p>
         </div>
         <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-2)] px-4 py-3 text-sm font-medium text-[color:var(--navy)]">
@@ -138,7 +138,7 @@ export default function RoadmapPage() {
       <Container>
         <Section className="pb-10">
           <Pill>Strategic Roadmap</Pill>
-          <h1 className="mt-6 text-[color:var(--navy)]">
+          <h1 className="h1 mt-6">
             90-Day Growth Roadmap
           </h1>
           <p className="mt-5 max-w-3xl text-[color:var(--muted)]">
@@ -160,7 +160,7 @@ export default function RoadmapPage() {
         <Section className="pt-0">
           <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
             <div className="text-xs font-semibold tracking-wide text-white/70">EXECUTIVE SUMMARY</div>
-            <h2 className="mt-3 text-white">What leadership gets by Day 90</h2>
+            <h2 className="h2 mt-3 text-white">What leadership gets by Day 90</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
                 <div className="text-sm font-semibold">Revenue reality</div>
@@ -254,7 +254,7 @@ export default function RoadmapPage() {
           <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8 shadow-[var(--shadow-soft)] sm:p-10">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="text-2xl font-semibold tracking-tight text-[color:var(--navy)]">
+                <div className="h2">
                   Want to see the systems behind the plan?
                 </div>
                 <p className="mt-2 text-sm text-[color:var(--muted)]">

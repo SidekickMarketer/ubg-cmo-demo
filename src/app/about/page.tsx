@@ -21,7 +21,7 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-1 text-xs font-medium text-[color:var(--muted)]">
-      <span className="h-2 w-2 rounded-full bg-[color:var(--gold)]" />
+      <span className="h-2 w-2 rounded-full bg-[color:var(--teal)]" />
       {children}
     </span>
   );
@@ -83,7 +83,7 @@ export default function AboutPage() {
       <Container>
         <Section className="pb-10">
           <Pill>About</Pill>
-          <h1 className="mt-6 text-[color:var(--navy)]">
+          <h1 className="h1 mt-6">
             Why Kyle
           </h1>
           <p className="mt-5 max-w-3xl text-[color:var(--muted)]">
@@ -189,7 +189,7 @@ export default function AboutPage() {
           <div className="rounded-3xl border border-[color:var(--border)] bg-[color:var(--surface)] p-8 shadow-[var(--shadow-soft)] sm:p-10">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="text-2xl font-semibold tracking-tight text-[color:var(--navy)]">
+                <div className="h2">
                   Start with the plan, then the proof.
                 </div>
                 <p className="mt-2 text-sm text-[color:var(--muted)]">
