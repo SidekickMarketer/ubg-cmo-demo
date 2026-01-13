@@ -149,7 +149,7 @@ export default function AboutPage() {
           <h1 className="h1 mt-6 text-[color:var(--navy)]">Why Kyle</h1>
           <p className="lede mt-5 max-w-3xl">
             I've led marketing in complex, high-stakes environments where stakeholders are opinionated, timelines are
-            tight, and results have to show up in revenue—not vanity metrics.
+            tight, and results have to show up in revenue, not vanity metrics.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -160,7 +160,7 @@ export default function AboutPage() {
               </svg>
             </PrimaryButton>
             <SecondaryButton href="/referrals">Referral Intelligence</SecondaryButton>
-            <SecondaryButton href="/tool">Visibility System</SecondaryButton>
+            <SecondaryButton href="/tool">AI Content Studio</SecondaryButton>
           </div>
         </Section>
       </Container>
@@ -360,7 +360,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="h2 text-[color:var(--navy)]">Start with the plan, then the proof.</h2>
                 <p className="mt-2 text-sm text-[color:var(--muted)]">
-                  Roadmap → Referral Intelligence → Attorney Visibility.
+                  Roadmap → Referral Intelligence → AI Content Studio.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

@@ -257,7 +257,7 @@ export default function HomePage() {
                 number="2"
                 eyebrow="AI Dashboard"
                 title="Referral Intelligence"
-                desc="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention—no extra system to manage."
+                desc="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention. No extra system to manage."
                 href="/referrals"
                 tone="light"
               />
@@ -267,8 +267,8 @@ export default function HomePage() {
               <BentoTile
                 number="3"
                 eyebrow="AI Tool"
-                title="Attorney Visibility Tool"
-                desc="AI-powered content workflow. Turns attorney expertise into polished drafts they just approve."
+                title="AI Content Studio"
+                desc="Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve or post."
                 href="/tool"
                 tone="light"
               />

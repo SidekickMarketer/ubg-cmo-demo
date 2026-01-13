@@ -374,7 +374,7 @@ export default function RoadmapPage() {
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <PrimaryButton href="/referrals">Referral Intelligence</PrimaryButton>
-                <SecondaryButton href="/tool">Attorney Visibility Tool</SecondaryButton>
+                <SecondaryButton href="/tool">AI Content Studio</SecondaryButton>
               </div>
             </div>
           </Card>

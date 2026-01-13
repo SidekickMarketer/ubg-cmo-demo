@@ -567,7 +567,7 @@ export default function ReferralsPage() {
       <Container>
         <Section className="pb-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-            <SecondaryButton href="/tool">Attorney Visibility</SecondaryButton>
+            <SecondaryButton href="/tool">AI Content Studio</SecondaryButton>
             <PrimaryButton href="/roadmap">90-Day Plan</PrimaryButton>
           </div>
         </Section>
