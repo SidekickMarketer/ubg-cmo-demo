@@ -168,14 +168,12 @@ export default function HomePage() {
         <Section className="pb-8">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
-              <Pill>For UB Greensfelder</Pill>
-
               <Image
                 src="/kyle.jpeg"
                 alt="Kyle Naughtrip"
                 width={200}
                 height={200}
-                className="mt-6 h-48 w-48 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
+                className="h-48 w-48 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
               />
 
               <h1 className="h1 mt-6 text-[color:var(--navy)]">
