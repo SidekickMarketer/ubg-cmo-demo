@@ -166,63 +166,27 @@ export default function HomePage() {
       {/* HERO */}
       <Container>
         <Section className="pb-8">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-2xl">
-              <Image
-                src="/kyle.jpeg"
-                alt="Kyle Naughtrip"
-                width={200}
-                height={200}
-                className="h-48 w-48 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
-              />
+          <div className="max-w-3xl">
+            <Image
+              src="/kyle.jpeg"
+              alt="Kyle Naughtrip"
+              width={240}
+              height={240}
+              className="h-56 w-56 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
+            />
 
-              <h1 className="h1 mt-6 text-[color:var(--navy)]">
-                Hi, I&apos;m Kyle Naughtrip.
-              </h1>
+            <h1 className="h1 mt-8 text-[color:var(--navy)]">
+              Hi, I&apos;m Kyle Naughtrip.
+            </h1>
 
-              <p className="mt-3 text-xl font-medium text-[color:var(--navy)]">
-                I built a working preview of how I&apos;d lead growth at UBG.
-              </p>
+            <p className="mt-4 text-xl leading-relaxed text-[color:var(--muted)]">
+              I&apos;d like to lead marketing at UBG — so instead of telling you how I&apos;d approach it, I built what I&apos;d actually deliver. A 90-day plan and two working prototypes.
+            </p>
 
-              <p className="mt-4 text-lg leading-relaxed text-[color:var(--muted)]">
-                Instead of telling you how I&apos;d approach it, I&apos;m showing you. A 90-day roadmap plus two working demos that make revenue relationships visible and reduce attorney friction.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <PrimaryButton href="/roadmap">See the 90-Day Plan</PrimaryButton>
-                <SecondaryButton href="#explore">What&apos;s inside</SecondaryButton>
-              </div>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <PrimaryButton href="/roadmap">See the 90-Day Plan</PrimaryButton>
+              <SecondaryButton href="#explore">What&apos;s inside</SecondaryButton>
             </div>
-
-            {/* Right-side "executive proof" card */}
-            <Card className="w-full lg:max-w-sm shrink-0" hover={false}>
-              <div className="rounded-2xl bg-[color:var(--navy)] p-6">
-                <div className="text-xs font-semibold uppercase tracking-wider text-white/60">Quick Navigation</div>
-                <div className="mt-5 space-y-3">
-                  {[
-                    { label: "The Plan", desc: "What I'd do in the first 90 days", href: "/roadmap" },
-                    { label: "The Proof", desc: "Working prototypes, not mockups", href: "/referrals" },
-                    { label: "The Fit", desc: "Why I'm a fit for this role", href: "/about" },
-                  ].map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="block rounded-xl border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 hover:border-white/20"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-sm font-semibold text-white">{item.label}</div>
-                          <div className="mt-1 text-xs text-white/60">{item.desc}</div>
-                        </div>
-                        <svg className="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </Card>
           </div>
         </Section>
       </Container>
