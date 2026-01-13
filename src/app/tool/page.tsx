@@ -93,11 +93,16 @@ export default function ToolPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to generate content");
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server error: ${response.status}`);
       }
 
       const data = await response.json();
       const fullOutput = data.content;
+
+      if (!fullOutput) {
+        throw new Error("No content returned");
+      }
 
       // Type out the response for effect
       for (let i = 0; i <= fullOutput.length; i++) {
@@ -105,7 +110,8 @@ export default function ToolPage() {
         setOutput(fullOutput.slice(0, i));
       }
     } catch (error) {
-      setOutput("Error generating content. Please try again.");
+      console.error("Generation error:", error);
+      setOutput(error instanceof Error ? `Error: ${error.message}` : "Error generating content. Please try again.");
     }
 
     setIsGenerating(false);

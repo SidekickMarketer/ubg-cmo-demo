@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       : "Choose a timely, relevant topic based on current trends in this practice area.";
 
     const message = await client.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-3-5-haiku-20241022",
       max_tokens: 1024,
       messages: [
         {
