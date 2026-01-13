@@ -170,20 +170,19 @@ export default function HomePage() {
             <div className="max-w-2xl">
               <Pill>For UB Greensfelder</Pill>
 
-              <div className="mt-6 flex items-center gap-6">
-                <Image
-                  src="/kyle.jpeg"
-                  alt="Kyle Naughtrip"
-                  width={180}
-                  height={180}
-                  className="h-44 w-44 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
-                />
-                <h1 className="h1 text-[color:var(--navy)]">
-                  Hi, I&apos;m Kyle Naughtrip.
-                </h1>
-              </div>
+              <Image
+                src="/kyle.jpeg"
+                alt="Kyle Naughtrip"
+                width={200}
+                height={200}
+                className="mt-6 h-48 w-48 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
+              />
 
-              <p className="mt-4 text-xl font-medium text-[color:var(--navy)]">
+              <h1 className="h1 mt-6 text-[color:var(--navy)]">
+                Hi, I&apos;m Kyle Naughtrip.
+              </h1>
+
+              <p className="mt-3 text-xl font-medium text-[color:var(--navy)]">
                 I built a working preview of how I&apos;d lead growth at UBG.
               </p>
 
