@@ -180,11 +180,15 @@ export default function HomePage() {
               </div>
 
               <h1 className="h1 mt-8 text-[color:var(--navy)]">
-                Hi — I&apos;m Kyle Naughtrip.
+                Hi, I&apos;m Kyle Naughtrip.
               </h1>
 
-              <p className="mt-5 text-lg leading-relaxed text-[color:var(--muted)]">
-                I&apos;d like to lead marketing at UBG — so I built what I&apos;d actually deliver.
+              <p className="mt-4 text-xl font-medium text-[color:var(--navy)]">
+                I built a working preview of how I&apos;d lead growth at UBG.
+              </p>
+
+              <p className="mt-4 text-lg leading-relaxed text-[color:var(--muted)]">
+                Instead of telling you how I&apos;d approach it, I&apos;m showing you. A 90-day roadmap plus two working demos that make revenue relationships visible and reduce attorney friction.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
