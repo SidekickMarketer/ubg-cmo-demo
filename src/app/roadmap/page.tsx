@@ -16,7 +16,7 @@ function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`py-14 sm:py-16 lg:py-24 ${className}`}>
+    <section id={id} className={`py-16 sm:py-20 lg:py-28 ${className}`}>
       {children}
     </section>
   );
@@ -138,8 +138,8 @@ export default function RoadmapPage() {
       <Container>
         <Section className="pb-10">
           <Pill>Strategic Roadmap</Pill>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-5xl">
-            90-Day Growth Roadmap for UB Greensfelder
+          <h1 className="mt-6 text-[color:var(--navy)]">
+            90-Day Growth Roadmap
           </h1>
           <p className="mt-5 max-w-3xl text-[color:var(--muted)]">
             Listen → Prove → Scale. No firmwide mandates in the first 90 days. High-impact pilots that remove
@@ -160,7 +160,7 @@ export default function RoadmapPage() {
         <Section className="pt-0">
           <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
             <div className="text-xs font-semibold tracking-wide text-white/70">EXECUTIVE SUMMARY</div>
-            <div className="mt-3 text-2xl font-semibold tracking-tight">What leadership gets by Day 90</div>
+            <h2 className="mt-3 text-white">What leadership gets by Day 90</h2>
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
                 <div className="text-sm font-semibold">Revenue reality</div>

@@ -7,7 +7,7 @@ function Container({ children }: { children: React.ReactNode }) {
   return <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>;
 }
 function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <section className={`py-14 sm:py-16 lg:py-24 ${className}`}>{children}</section>;
+  return <section className={`py-16 sm:py-20 lg:py-28 ${className}`}>{children}</section>;
 }
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
@@ -88,17 +88,15 @@ export default function ToolPage() {
     <div>
       <Container>
         <Section className="pb-10">
-          <Pill>Tool Demo #1</Pill>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-5xl">
-            Attorney Visibility System
+          <h1 className="text-[color:var(--navy)]">
+            Attorney Visibility
           </h1>
-          <p className="mt-5 max-w-3xl text-[color:var(--muted)]">
-            This is not "AI content." It's a friction remover: marketing turns attorney expertise into drafts in minutes,
-            applies governance, and returns something the attorney can approve.
+          <p className="mt-4 max-w-2xl text-[color:var(--muted)]">
+            Marketing drafts. Attorneys approve. Friction removed.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <PrimaryButton href="/roadmap">Back to the 90-Day Plan</PrimaryButton>
+            <PrimaryButton href="/roadmap">90-Day Plan</PrimaryButton>
             <SecondaryButton href="/referrals">Referral Intelligence</SecondaryButton>
           </div>
         </Section>
@@ -170,29 +168,11 @@ export default function ToolPage() {
                 >
                   Generate draft
                 </button>
-
-                <div className="rounded-2xl bg-[color:var(--surface-2)] p-4 text-xs text-[color:var(--muted)]">
-                  <div className="font-semibold text-[color:var(--navy)]">Governance note</div>
-                  <div className="mt-2">
-                    Production version includes brand voice rules, compliance prompts, partner approvals, and a reuse
-                    library.
-                  </div>
-                </div>
               </div>
             </Card>
 
             <Card className="p-6 lg:col-span-7">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">Output</div>
-                  <p className="mt-2 text-sm text-[color:var(--muted)]">
-                    Drafts are designed to be polished by marketing and approved by attorneys.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-2)] px-4 py-3 text-xs text-[color:var(--muted)]">
-                  Demo-only
-                </div>
-              </div>
+              <div className="text-sm font-semibold text-[color:var(--navy)]">Output</div>
 
               <div className="mt-6">
                 <div className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5">
@@ -203,25 +183,10 @@ export default function ToolPage() {
                 <div className="mt-5 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5">
                   <div className="text-xs font-semibold text-[color:var(--muted)]">Generated draft</div>
                   <pre className="mt-2 whitespace-pre-wrap text-sm text-[color:var(--navy)]">
-                    {generated || "Click "Generate draft" to see a sample output."}
+                    {generated || 'Click "Generate draft" to see a sample output.'}
                   </pre>
                 </div>
               </div>
-            </Card>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-3">
-            <Card className="p-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">Step 1</div>
-              <p className="mt-2 text-sm text-[color:var(--muted)]">Attorney provides inputs + a few bullet insights.</p>
-            </Card>
-            <Card className="p-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">Step 2</div>
-              <p className="mt-2 text-sm text-[color:var(--muted)]">AI drafts; marketing applies firm voice + checks.</p>
-            </Card>
-            <Card className="p-6">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">Step 3</div>
-              <p className="mt-2 text-sm text-[color:var(--muted)]">Attorney approves quickly; output ships.</p>
             </Card>
           </div>
         </Section>

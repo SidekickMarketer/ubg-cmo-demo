@@ -7,7 +7,7 @@ function Container({ children }: { children: React.ReactNode }) {
   return <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>;
 }
 function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <section className={`py-14 sm:py-16 lg:py-24 ${className}`}>{children}</section>;
+  return <section className={`py-16 sm:py-20 lg:py-28 ${className}`}>{children}</section>;
 }
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
@@ -83,8 +83,8 @@ export default function AboutPage() {
       <Container>
         <Section className="pb-10">
           <Pill>About</Pill>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-5xl">
-            Why Kyle for UB Greensfelder
+          <h1 className="mt-6 text-[color:var(--navy)]">
+            Why Kyle
           </h1>
           <p className="mt-5 max-w-3xl text-[color:var(--muted)]">
             I've led marketing in complex, high-stakes environments where stakeholders are opinionated, timelines are

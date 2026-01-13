@@ -16,7 +16,7 @@ function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`py-14 sm:py-16 lg:py-24 ${className}`}>
+    <section id={id} className={`py-16 sm:py-20 lg:py-28 ${className}`}>
       {children}
     </section>
   );
@@ -145,7 +145,7 @@ export default function HomePage() {
             <div className="max-w-2xl">
               <Pill>Private CMO Application • Jan 2026</Pill>
 
-              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-5xl">
+              <h1 className="mt-8 text-[color:var(--navy)]">
                 I'm Kyle. I built a working preview of how I'd lead growth at UB Greensfelder.
               </h1>
 
@@ -199,9 +199,9 @@ export default function HomePage() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
                 <div className="text-xs font-semibold tracking-wide text-white/70">THE STRATEGIC THESIS</div>
-                <div className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                <h2 className="mt-3 text-white">
                   Firms like UBG grow through referrals, attorney visibility, and client retention — not campaigns.
-                </div>
+                </h2>
                 <p className="mt-3 text-sm text-white/70">
                   These are the three decision realities the plan is built around.
                 </p>
@@ -230,7 +230,7 @@ export default function HomePage() {
           <div className="flex items-end justify-between gap-6">
             <div>
               <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">START HERE</div>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[color:var(--navy)]">
+              <h2 className="mt-3 text-[color:var(--navy)]">
                 A clear path in under 60 seconds.
               </h2>
               <p className="mt-3 max-w-2xl text-[color:var(--muted)]">
@@ -290,7 +290,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-7">
                 <div className="text-xs font-semibold tracking-wide text-[color:var(--muted)]">HOW I WOULD SHOW UP</div>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[color:var(--navy)]">
+                <h3 className="mt-3 text-[color:var(--navy)]">
                   Consultative, partnership-safe, and evidence-driven.
                 </h3>
                 <p className="mt-4 text-[color:var(--muted)]">
@@ -320,7 +320,7 @@ export default function HomePage() {
           <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="text-2xl font-semibold tracking-tight">If this is directionally aligned, I'd love to talk.</div>
+                <h2 className="text-white">If this is directionally aligned, I'd love to talk.</h2>
                 <p className="mt-2 text-sm text-white/70">
                   The clean next click is the roadmap. The proof is in the two demos.
                 </p>

@@ -68,7 +68,7 @@ function Container({ children }: { children: React.ReactNode }) {
 }
 
 function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <section className={`py-14 sm:py-16 lg:py-24 ${className}`}>{children}</section>;
+  return <section className={`py-16 sm:py-20 lg:py-28 ${className}`}>{children}</section>;
 }
 
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -171,9 +171,8 @@ const totalReceived = attorneyNetwork.reduce((s, a) => s + a.referralsReceived, 
 function RevenueMap() {
   return (
     <Card className="p-6">
-      <div className="mb-4 flex items-center justify-between">
-        <div className="text-sm font-semibold text-[color:var(--navy)]">Revenue-Source Map</div>
-        <Pill>Demo Visualization</Pill>
+      <div className="mb-4">
+        <div className="text-sm font-semibold text-[color:var(--navy)]">Revenue by Source</div>
       </div>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {referralSources.slice(0, 4).map((src) => (
@@ -182,9 +181,6 @@ function RevenueMap() {
             <div className="mt-1 text-xs text-[color:var(--muted)] line-clamp-1">{src.name}</div>
           </div>
         ))}
-      </div>
-      <div className="mt-4 text-xs text-[color:var(--muted)]">
-        This visualization would connect to live data in a production build.
       </div>
     </Card>
   );
@@ -208,17 +204,12 @@ export default function ReferralsPage() {
         />
         <Container>
           <Section className="relative">
-            <Pill>
-              <span className="h-2 w-2 rounded-full bg-[color:var(--gold)]" aria-hidden="true" />
-              Tool Demo • Referral Intelligence
-            </Pill>
-
-            <h1 className="mt-5 text-3xl font-semibold tracking-tight text-[color:var(--navy)] sm:text-4xl lg:text-5xl">
-              Client & Referral Visibility
+            <h1 className="text-[color:var(--navy)]">
+              Referral Intelligence
             </h1>
 
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-[color:var(--foreground)]/85">
-              86% of general-counsel relationships begin with peer referrals. This tool concept shows how to track, strengthen, and grow those relationships — and connect referral activity to revenue.
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[color:var(--muted)]">
+              Track referral sources, surface cross-sell opportunities, and map attorney networks — connected to revenue.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -453,52 +444,12 @@ export default function ReferralsPage() {
         </Container>
       )}
 
-      {/* WHAT THIS DEMONSTRATES */}
-      <Container>
-        <Section>
-          <div className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow)] sm:p-10">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
-              <div className="lg:col-span-5">
-                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  What this tool demonstrates
-                </h2>
-                <p className="mt-3 text-white/75">
-                  Most firms track marketing activities. The right question is: &quot;What&apos;s actually generating work?&quot; This concept connects referral and cross-sell visibility to revenue — so leadership can invest in what matters.
-                </p>
-              </div>
-              <div className="lg:col-span-7">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-sm font-semibold text-[color:var(--gold)]">Track Sources</div>
-                    <p className="mt-2 text-sm text-white/75">
-                      Know who refers work — and strengthen those relationships
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-sm font-semibold text-[color:var(--gold)]">Find Cross-Sells</div>
-                    <p className="mt-2 text-sm text-white/75">
-                      Identify clients who could use more of the firm
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <div className="text-sm font-semibold text-[color:var(--gold)]">Map Networks</div>
-                    <p className="mt-2 text-sm text-white/75">
-                      Understand each attorney&apos;s referral ecosystem
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-      </Container>
-
       {/* NAVIGATION */}
       <Container>
-        <Section className="pt-0">
+        <Section>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-            <SecondaryButton href="/tool">← Thought Leadership Tool</SecondaryButton>
-            <PrimaryButton href="/roadmap">View 90-Day Plan →</PrimaryButton>
+            <SecondaryButton href="/tool">Attorney Visibility</SecondaryButton>
+            <PrimaryButton href="/roadmap">90-Day Plan</PrimaryButton>
           </div>
         </Section>
       </Container>

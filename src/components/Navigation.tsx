@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const navItems = [
+const nav = [
   { href: "/", label: "Home" },
   { href: "/tool", label: "AI Content Tool" },
   { href: "/referrals", label: "Referral Intel" },
@@ -17,35 +17,50 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-bold text-xl text-[#1a2744]">
-            CMO Vision
-          </Link>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
+        <div className="mt-4 rounded-2xl hairline bg-white/70 backdrop-blur shadow-soft">
+          <div className="flex items-center justify-between px-4 py-3 sm:px-6">
+            <Link href="/" className="flex items-center gap-3">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[color:var(--navy)] text-white text-sm font-bold">
+                K
+              </span>
+              <div className="leading-tight">
+                <div className="text-sm font-semibold text-[color:var(--navy)]">Kyle Naughtrip</div>
+                <div className="text-xs text-[color:var(--muted)]">CMO Application</div>
+              </div>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`nav-link text-sm font-medium ${
-                  pathname === item.href
-                    ? "text-[#1a2744]"
-                    : "text-gray-600 hover:text-[#1a2744]"
-                }`}
-              >
-                {item.label}
+            <nav className="hidden items-center gap-1 md:flex">
+              {nav.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={[
+                      "rounded-full px-3 py-2 text-sm font-medium transition",
+                      active
+                        ? "bg-[color:var(--navy)] text-white"
+                        : "text-[color:var(--navy)] hover:bg-[color:var(--surface-2)]",
+                    ].join(" ")}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="hidden sm:flex items-center gap-3">
+              <Link href="/roadmap" className="btn btn-primary">
+                Start Here
               </Link>
-            ))}
-          </div>
+            </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+            {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-600 hover:text-[#1a2744] p-2"
+              className="md:hidden text-[color:var(--navy)] p-2"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -59,30 +74,34 @@ export default function Navigation() {
               )}
             </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-[color:var(--border)] px-4 py-4">
+              <div className="space-y-2">
+                {nav.map((item) => {
+                  const active = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={[
+                        "block rounded-xl px-4 py-3 text-sm font-medium transition",
+                        active
+                          ? "bg-[color:var(--navy)] text-white"
+                          : "text-[color:var(--navy)] hover:bg-[color:var(--surface-2)]",
+                      ].join(" ")}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100">
-          <div className="px-6 py-4 space-y-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-2 text-base font-medium ${
-                  pathname === item.href
-                    ? "text-[#1a2744]"
-                    : "text-gray-600 hover:text-[#1a2744]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
+    </header>
   );
 }
