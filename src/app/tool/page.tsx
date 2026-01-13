@@ -137,14 +137,13 @@ export default function ToolPage() {
               </svg>
               Interactive Demo
             </div>
-            <h1 className="h1 mt-6 text-[color:var(--navy)]">Attorney Visibility Engine</h1>
+            <h1 className="h1 mt-6 text-[color:var(--navy)]">AI Content Studio</h1>
             <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
-              An AI-powered tool that transforms attorney expertise into compelling content.
-              Marketing drafts. Attorneys approve. Friction removed.
+              Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve or post.
             </p>
 
             <p className="mt-6 text-sm text-[color:var(--muted)]">
-              Try the demo below to see how it works.
+              This is a working prototype. Try it below.
             </p>
           </div>
         </Section>
@@ -369,9 +368,9 @@ export default function ToolPage() {
         <Section>
           <Card className="p-8 sm:p-10 lg:p-12" featured>
             <div className="text-center max-w-2xl mx-auto">
-              <h2 className="h2 text-[color:var(--navy)]">How This Would Work in Production</h2>
+              <h2 className="h2 text-[color:var(--navy)]">How It Works</h2>
               <p className="mt-4 text-[color:var(--muted)]">
-                A three-step process that reduces attorney time from hours to minutes.
+                Three steps. Minutes, not hours.
               </p>
             </div>
 
@@ -385,14 +384,14 @@ export default function ToolPage() {
                 },
                 {
                   step: "2",
-                  title: "AI Generation",
-                  desc: "Claude API creates draft content in the attorney's voice, following firm brand guidelines and platform best practices.",
+                  title: "AI Drafts",
+                  desc: "AI generates content in the attorney's voice, tailored to the platform and audience.",
                   color: "teal",
                 },
                 {
                   step: "3",
-                  title: "Marketing Polish",
-                  desc: "Marketing team reviews, refines, and schedules. Attorneys approve final version before publication.",
+                  title: "Review & Post",
+                  desc: "Attorney reviews the draft, makes any edits, and approves or posts directly.",
                   color: "navy",
                 },
               ].map((item, i) => (
