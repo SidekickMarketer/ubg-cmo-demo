@@ -231,18 +231,9 @@ export default function HomePage() {
       {/* WHAT'S INSIDE BENTO */}
       <Container>
         <Section id="explore">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">What&apos;s Inside</div>
-            <h2 className="h2 mt-4 text-[color:var(--navy)]">
-              Four sections. Each one builds on the last.
-            </h2>
-            <p className="mt-4 text-[color:var(--muted)] leading-relaxed">
-              Start with the plan, see the prototypes, then decide if I&apos;m the right fit.
-            </p>
-          </div>
-
-          {/* Divider */}
-          <div className="my-10 h-px bg-gradient-to-r from-transparent via-[color:var(--border)] to-transparent max-w-xs mx-auto" />
+          <p className="text-center text-lg text-[color:var(--muted)] max-w-xl mx-auto mb-10">
+            Start with the plan, explore the prototypes, then get the backstory.
+          </p>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
             <div className="lg:col-span-7">
@@ -250,7 +241,7 @@ export default function HomePage() {
                 number="1"
                 eyebrow="Strategy"
                 title="90-Day Plan"
-                desc="What I'd do in the first 90 days, and what you'd have to show for it."
+                desc="Listen first, prove the model, then scale what works. Concrete deliverables by Day 90."
                 href="/roadmap"
                 tone="dark"
               />
@@ -283,7 +274,7 @@ export default function HomePage() {
                 number="4"
                 eyebrow="Background"
                 title="Why Kyle"
-                desc="My experience, how I work, and why I think I'm right for this role."
+                desc="Agency speed meets in-house judgment. 15 years building marketing that drives revenue."
                 href="/about"
                 tone="light"
               />
@@ -292,51 +283,6 @@ export default function HomePage() {
         </Section>
       </Container>
 
-      {/* HOW I WOULD SHOW UP */}
-      <Section alt>
-        <Container>
-          <Card className="p-8 sm:p-10 lg:p-12" hover={false} featured>
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
-              <div className="lg:col-span-7">
-                <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">How I Would Show Up</div>
-                <h2 className="h2 mt-4 text-[color:var(--navy)]">
-                  I&apos;d earn trust before pushing change.
-                </h2>
-                <p className="mt-5 text-[color:var(--muted)] leading-relaxed">
-                  The first 30 days are about listening. Learning how your clients actually buy and how the firm actually works. Then I&apos;d ship small wins that reduce friction and prove the approach.
-                </p>
-                <Link
-                  href="/about"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--teal)] hover:underline"
-                >
-                  <span>More about my approach</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-              </div>
-              <div className="lg:col-span-5">
-                <div className="rounded-2xl bg-[color:var(--surface-2)] p-6 border border-[color:var(--border)]">
-                  <div className="text-sm font-semibold text-[color:var(--navy)]">What changes by Day 90</div>
-                  <ul className="mt-5 space-y-3 text-sm text-[color:var(--muted)]">
-                    {[
-                      "A clear picture of your top referrers and who owns those relationships",
-                      "Cross-sell opportunities with warm introductions ready",
-                      "An attorney visibility pilot that respects their time",
-                      "A dashboard tied to revenue outcomes, not vanity metrics",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </Container>
-      </Section>
 
       {/* FINAL CTA */}
       <Container>
