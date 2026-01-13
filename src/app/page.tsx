@@ -142,13 +142,13 @@ function MiniStat({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors duration-300 hover:border-[color:var(--teal)]/40 group"
+      className="rounded-2xl bg-[color:var(--navy)] p-8 transition-all duration-300 hover:scale-[1.02] group"
     >
-      <div className="text-xs font-semibold uppercase tracking-wider text-white/60 group-hover:text-white/80 transition-colors">{label}</div>
-      <div className="mt-3 text-4xl font-bold tracking-tight text-white tabular-nums">
+      <div className="text-xs font-bold uppercase tracking-widest text-white/50 group-hover:text-white/70 transition-colors">{label}</div>
+      <div className="mt-4 text-5xl lg:text-6xl font-bold tracking-tight text-white tabular-nums">
         <CountUp to={value} suffix="%" />
       </div>
-      <div className="mt-2 text-sm text-white/70 leading-relaxed group-hover:text-white/80 transition-colors">{sub}</div>
+      <div className="mt-4 text-sm text-white/60 leading-relaxed group-hover:text-white/80 transition-colors">{sub}</div>
     </motion.div>
   );
 }
@@ -256,13 +256,14 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
             >
               <Image
                 src="/kyle.jpeg"
                 alt="Kyle Naughtrip"
-                width={360}
-                height={360}
-                className="h-72 w-72 lg:h-[360px] lg:w-[360px] rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)] shrink-0"
+                width={420}
+                height={520}
+                className="w-80 h-[400px] lg:w-[420px] lg:h-[520px] rounded-3xl object-cover object-top shadow-2xl shadow-gray-300/50 shrink-0"
               />
             </motion.div>
           </div>
@@ -272,21 +273,22 @@ export default function HomePage() {
       {/* STAT STRIP */}
       <Section alt>
         <Container>
+          {/* Thesis Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow-lg)] sm:p-10 lg:p-12"
+            className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow-lg)] sm:p-10 lg:p-14"
           >
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl">
+              <div className="max-w-3xl">
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-xs font-semibold uppercase tracking-wider text-white/60"
+                  className="text-xs font-bold uppercase tracking-widest text-white/50"
                 >
                   The Strategic Thesis
                 </motion.div>
@@ -295,7 +297,7 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="h2 mt-4 text-white"
+                  className="h2 mt-5 text-white leading-tight"
                 >
                   Firms like UB Greensfelder grow through referrals, attorney visibility, and client retention. Not campaigns.
                 </motion.h2>
@@ -304,7 +306,7 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="mt-4 text-base text-white/70 leading-relaxed"
+                  className="mt-5 text-lg text-white/60 leading-relaxed"
                 >
                   The plan is built around these three realities.
                 </motion.p>
@@ -323,22 +325,23 @@ export default function HomePage() {
                 </Link>
               </motion.div>
             </div>
+          </motion.div>
 
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <MiniStat index={0} label="Referrals drive selection" value={86} sub="of general counsel find outside counsel through peer referrals" />
-              <MiniStat index={1} label="Clients choose the lawyer" value={70} sub="choose based on the individual lawyer, not the firm's reputation" />
-              <MiniStat index={2} label="Price is rarely the driver" value={6} sub="say price is their primary factor when choosing counsel" />
-            </div>
+          {/* Stats Cards - Outside the navy block */}
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            <MiniStat index={0} label="Referrals drive selection" value={86} sub="of general counsel find outside counsel through peer referrals" />
+            <MiniStat index={1} label="Clients choose the lawyer" value={70} sub="choose based on the individual lawyer, not the firm's reputation" />
+            <MiniStat index={2} label="Price is rarely the driver" value={6} sub="say price is their primary factor when choosing counsel" />
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-6 text-xs text-white/40"
-            >
-              Sources linked in the site (appendix)
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-6 text-xs text-[color:var(--muted)]"
+          >
+            Sources linked in the site (appendix)
           </motion.div>
         </Container>
       </Section>
