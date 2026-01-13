@@ -185,9 +185,9 @@ export default function HomePage() {
             <Image
               src="/kyle.jpeg"
               alt="Kyle Naughtrip"
-              width={320}
-              height={320}
-              className="h-72 w-72 lg:h-80 lg:w-80 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)] shrink-0"
+              width={360}
+              height={360}
+              className="h-72 w-72 lg:h-[360px] lg:w-[360px] rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)] shrink-0"
             />
           </div>
         </Section>
