@@ -137,7 +137,7 @@ export default function ToolPage() {
               </svg>
               Interactive Demo
             </div>
-            <h1 className="h1 mt-6 text-[color:var(--navy)]">Be the expert they think of first.</h1>
+            <h1 className="h1 mt-6 text-[color:var(--navy)]">AI Content Studio</h1>
             <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
               When someone needs help, you want your attorneys to be the name they think of and the one they trust to handle it. Clients hire attorneys they&apos;ve seen and trust. This helps your attorneys be seen.
             </p>
