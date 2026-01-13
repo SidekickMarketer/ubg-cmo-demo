@@ -62,10 +62,10 @@ const PRACTICES = [
 ] as const;
 
 const CONTENT_TYPES = [
-  { id: "linkedin", label: "LinkedIn Post", description: "Professional insight for LinkedIn feed", icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
-  { id: "article", label: "Client Alert", description: "Blog post or client alert structure", icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" },
-  { id: "speaking", label: "Speaking Topics", description: "Conference or webinar topic ideas", icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" },
-  { id: "newsletter", label: "Email Newsletter", description: "Client outreach and updates", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+  { id: "linkedin", label: "LinkedIn Post", description: "Build visibility on social", icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
+  { id: "article", label: "Blog Article", description: "In-depth insights and analysis", icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" },
+  { id: "speaking", label: "Speaking Topics", description: "Pitch ideas for events", icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" },
+  { id: "newsletter", label: "Email Newsletter", description: "Keep clients informed", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
 ] as const;
 
 export default function ToolPage() {
@@ -302,7 +302,7 @@ export default function ToolPage() {
                   </span>
                   <div>
                     <div className="text-sm font-semibold text-[color:var(--navy)]">Generated Content</div>
-                    <div className="text-xs text-[color:var(--muted)]">Ready for attorney review</div>
+                    <div className="text-xs text-[color:var(--muted)]">Ready for review</div>
                   </div>
                 </div>
               </div>
@@ -334,7 +334,7 @@ export default function ToolPage() {
                         </svg>
                       </div>
                       <p className="text-sm text-[color:var(--muted)]">Select options and click Generate</p>
-                      <p className="mt-1 text-xs text-[color:var(--muted)]/70">AI-created content will appear here</p>
+                      <p className="mt-1 text-xs text-[color:var(--muted)]/70">Your draft will appear here</p>
                     </div>
                   )}
                 </div>
