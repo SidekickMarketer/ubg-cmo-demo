@@ -176,7 +176,7 @@ export default function HomePage() {
                   height={144}
                   className="h-36 w-36 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
                 />
-                <Pill>CMO Application</Pill>
+                <Pill>For UB Greensfelder</Pill>
               </div>
 
               <h1 className="h1 mt-8 text-[color:var(--navy)]">
@@ -203,9 +203,9 @@ export default function HomePage() {
                 <div className="text-xs font-semibold uppercase tracking-wider text-white/60">Quick Navigation</div>
                 <div className="mt-5 space-y-3">
                   {[
-                    { label: "The Plan", desc: "90-day roadmap to earn trust and ship wins", href: "/roadmap" },
-                    { label: "The Proof", desc: "Two demos showing strategy in action", href: "/referrals" },
-                    { label: "The Fit", desc: "Experience mapped to your needs", href: "/about" },
+                    { label: "The Plan", desc: "What I'd do in the first 90 days", href: "/roadmap" },
+                    { label: "The Proof", desc: "Working prototypes, not mockups", href: "/referrals" },
+                    { label: "The Fit", desc: "Why I'm a fit for this role", href: "/about" },
                   ].map((item) => (
                     <Link
                       key={item.label}
@@ -241,7 +241,7 @@ export default function HomePage() {
                   Firms like UBG grow through referrals, attorney visibility, and client retention — not campaigns.
                 </h2>
                 <p className="mt-4 text-base text-white/70 leading-relaxed">
-                  These are the three research-backed realities the entire plan is built around.
+                  The plan is built around these three realities.
                 </p>
               </div>
               <Link href="/roadmap" className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--teal-light)] transition-colors shrink-0">
@@ -253,9 +253,9 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <MiniStat label="Referral-driven selection" value="86%" sub="General counsel find outside counsel via peer referrals" />
-              <MiniStat label="Hire the lawyer" value="70%" sub="The individual attorney is the deciding factor" />
-              <MiniStat label="Price sensitivity" value="6%" sub="Price rarely drives recommendations" />
+              <MiniStat label="Referrals drive selection" value="86%" sub="of general counsel find outside counsel through peer referrals" />
+              <MiniStat label="They hire the attorney" value="70%" sub="choose based on the individual lawyer, not the firm's reputation" />
+              <MiniStat label="Price is rarely the driver" value="6%" sub="say price is their primary factor when choosing counsel" />
             </div>
 
             <div className="mt-6 text-xs text-white/40">
