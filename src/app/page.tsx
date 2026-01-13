@@ -271,10 +271,10 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto">
             <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">What&apos;s Inside</div>
             <h2 className="h2 mt-4 text-[color:var(--navy)]">
-              A clear path in under 60 seconds
+              Four sections. Each one builds on the last.
             </h2>
             <p className="mt-4 text-[color:var(--muted)] leading-relaxed">
-              Leadership skims. So the site is structured like an executive brief: strategy first, proof second, fit last.
+              Start with the plan, see the prototypes, then decide if I&apos;m the right fit.
             </p>
           </div>
 
@@ -287,7 +287,7 @@ export default function HomePage() {
                 number="1"
                 eyebrow="Strategy"
                 title="90-Day Plan"
-                desc="Listen, prove, scale. Deliverables leadership can operate by Day 90."
+                desc="What I'd do in the first 90 days — and what you'd have to show for it."
                 href="/roadmap"
                 tone="dark"
               />
@@ -296,9 +296,9 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <BentoTile
                 number="2"
-                eyebrow="Proof"
+                eyebrow="Prototype"
                 title="Referral Intelligence"
-                desc="A leadership view of the relationships that drive matters — protect, deepen, replicate."
+                desc="A working dashboard that shows where your revenue relationships actually come from."
                 href="/referrals"
                 tone="light"
               />
@@ -307,9 +307,9 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <BentoTile
                 number="3"
-                eyebrow="Throughput"
-                title="Attorney Visibility System"
-                desc="Reduce attorney time required to be visible. Marketing polishes; attorneys approve."
+                eyebrow="Prototype"
+                title="Attorney Visibility Tool"
+                desc="Marketing drafts the content. Attorneys just approve. Less friction, more output."
                 href="/tool"
                 tone="light"
               />
@@ -318,9 +318,9 @@ export default function HomePage() {
             <div className="lg:col-span-7">
               <BentoTile
                 number="4"
-                eyebrow="Fit"
+                eyebrow="Background"
                 title="Why Kyle"
-                desc="Experience mapped to role realities: stakeholder dynamics, revenue focus, execution velocity."
+                desc="My experience, how I work, and why I think I'm right for this role."
                 href="/about"
                 tone="light"
               />
@@ -337,11 +337,10 @@ export default function HomePage() {
               <div className="lg:col-span-7">
                 <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]">How I Would Show Up</div>
                 <h2 className="h2 mt-4 text-[color:var(--navy)]">
-                  Consultative, partnership-safe, and evidence-driven.
+                  I&apos;d earn trust before pushing change.
                 </h2>
                 <p className="mt-5 text-[color:var(--muted)] leading-relaxed">
-                  The first 30 days are about earning internal credibility and learning how your clients and partners
-                  actually buy. Then we ship focused wins that reduce friction and make revenue more visible.
+                  The first 30 days are about listening — learning how your clients actually buy and how the firm actually works. Then I&apos;d ship small wins that reduce friction and prove the approach.
                 </p>
                 <Link
                   href="/about"
@@ -358,10 +357,10 @@ export default function HomePage() {
                   <div className="text-sm font-semibold text-[color:var(--navy)]">What changes by Day 90</div>
                   <ul className="mt-5 space-y-3 text-sm text-[color:var(--muted)]">
                     {[
-                      "Top referrers and relationship owners (clear care plan)",
-                      "Cross-sell pipeline with warm intros",
-                      "Attorney visibility pilot that respects time + governance",
-                      "Leadership dashboard tied to outcomes, not vanity",
+                      "A clear picture of your top referrers and who owns those relationships",
+                      "Cross-sell opportunities with warm introductions ready",
+                      "An attorney visibility pilot that respects their time",
+                      "A dashboard tied to revenue outcomes, not vanity metrics",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] shrink-0" />
@@ -382,9 +381,9 @@ export default function HomePage() {
           <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow-lg)] sm:p-10 lg:p-12">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-xl">
-                <h2 className="h2 text-white">If this is directionally aligned, I&apos;d love to talk.</h2>
+                <h2 className="h2 text-white">If this resonates, I&apos;d love to talk.</h2>
                 <p className="mt-3 text-base text-white/70 leading-relaxed">
-                  The clean next click is the roadmap. The proof is in the two demos.
+                  Start with the roadmap to see the strategy, then check out the prototypes.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row shrink-0">
