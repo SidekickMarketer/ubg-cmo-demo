@@ -149,6 +149,25 @@ export default function ToolPage() {
               This is a working prototype. Try it below.
             </p>
           </div>
+
+          {/* Why This Matters Banner */}
+          <Card className="mt-8 p-6" featured>
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[color:var(--teal)]/10">
+                <svg className="h-5 w-5 text-[color:var(--teal)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div className="font-semibold text-[color:var(--navy)]">Why This Matters</div>
+                <p className="mt-2 text-sm text-[color:var(--muted)] leading-relaxed">
+                  <strong className="text-[color:var(--navy)]">70% of clients choose based on the individual attorney</strong>, not the firm.
+                  But attorneys don&apos;t have time to build visibility. This removes the bottleneck: they spend 5 minutes,
+                  marketing handles the rest.
+                </p>
+              </div>
+            </div>
+          </Card>
         </Section>
       </Container>
 
