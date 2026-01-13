@@ -168,20 +168,20 @@ export default function HomePage() {
         <Section className="pb-8">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-6">
+              <Pill>For UB Greensfelder</Pill>
+
+              <div className="mt-6 flex items-center gap-6">
                 <Image
                   src="/kyle.jpeg"
                   alt="Kyle Naughtrip"
-                  width={144}
-                  height={144}
-                  className="h-36 w-36 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
+                  width={180}
+                  height={180}
+                  className="h-44 w-44 rounded-2xl object-cover border-2 border-white shadow-[var(--shadow)]"
                 />
-                <Pill>For UB Greensfelder</Pill>
+                <h1 className="h1 text-[color:var(--navy)]">
+                  Hi, I&apos;m Kyle Naughtrip.
+                </h1>
               </div>
-
-              <h1 className="h1 mt-8 text-[color:var(--navy)]">
-                Hi, I&apos;m Kyle Naughtrip.
-              </h1>
 
               <p className="mt-4 text-xl font-medium text-[color:var(--navy)]">
                 I built a working preview of how I&apos;d lead growth at UBG.
