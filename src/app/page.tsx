@@ -184,7 +184,7 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-5 text-lg leading-relaxed text-[color:var(--muted)]">
-                I&apos;m applying for your CMO role. Instead of a deck, I built what I&apos;d actually deliver: a 90-day plan and two working prototypes. Take a look around.
+                I&apos;d like to lead marketing at UBG — so I built what I&apos;d actually deliver.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
