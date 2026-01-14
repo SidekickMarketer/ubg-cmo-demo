@@ -619,18 +619,21 @@ export default function RoadmapPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-white/10">
                 <Link
-                  href="/tool"
+                  href="/referrals"
                   className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full text-sm font-bold border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all min-w-[200px] justify-center"
                 >
-                  See the System
+                  See Referral Intelligence
                 </Link>
                 <Link
-                  href="/"
+                  href="/tool"
                   className="flex items-center gap-2 bg-white text-[color:var(--navy)] px-8 py-4 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors shadow-xl min-w-[200px] justify-center"
                 >
-                  Explore the Full Strategy
+                  See Content Engine
                 </Link>
               </div>
+              <p className="text-sm text-gray-500 text-center pt-6">
+                Each system connects — referrals, visibility, and growth run on the same rhythm.
+              </p>
             </div>
           </div>
         </div>
