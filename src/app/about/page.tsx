@@ -224,21 +224,21 @@ export default function AboutPage() {
     {
       id: "uber",
       company: "Uber",
-      title: "Head of Experiential Marketing, NY/NJ/CT",
-      subtitle: "Employee #184. Built marketing from zero in new markets (2013–2016).",
+      title: "Head of Experiential Marketing",
+      subtitle: "Among first 200 employees. NY/NJ/CT markets (2013–2017).",
       description: (
         <ul className="space-y-3">
           <BulletItem>
-            Established marketing functions in new markets—go-to-market strategy, positioning, and launch execution.
+            Directed market-entry campaigns that accelerated adoption and brand awareness during hyper-growth.
           </BulletItem>
           <BulletItem>
-            Built and led experiential marketing team; developed brand ambassador program that scaled user acquisition.
+            Built and managed a 200+ member field team executing branded experiences to drive user acquisition.
           </BulletItem>
           <BulletItem>
-            Operated in fast-paced, ambiguous environment—shipped while navigating cross-functional alignment challenges.
+            Developed launch playbooks later adapted for national rollout, creating replicable market systems.
           </BulletItem>
           <BulletItem highlight>
-            Why it matters: Partnership dynamics, multi-office coordination, building credibility with stakeholders.
+            Why it matters: Scaling in ambiguity, multi-office coordination, building credibility fast.
           </BulletItem>
         </ul>
       ),
@@ -248,20 +248,20 @@ export default function AboutPage() {
       id: "rdi",
       company: "RDI Corporation",
       title: "Director of Marketing",
-      subtitle: "Lead 8-person team across B2B enterprise and B2C portfolio (2023–Present).",
+      subtitle: "$100M+ B2B services portfolio. Department turnaround (2023–2025).",
       description: (
         <ul className="space-y-3">
           <BulletItem>
-            Execute multi-channel strategies for enterprise BPO clients while building brands for B2C portfolio (20th Century Theater, Langen Meats, Kon Tiki).
+            Rebuilt department structure, hired key talent, and implemented SOPs aligning marketing to sales KPIs within 90 days.
           </BulletItem>
           <BulletItem>
-            Lead CRM integration and digital transformation initiatives—applying audience insights to improve targeting and ROI.
+            Led full website rebuild and deployed AI-enabled content and reporting workflows, improving campaign velocity.
           </BulletItem>
           <BulletItem>
-            Work closely with sales and business intelligence teams to deliver cohesive strategies and maximize resources.
+            Produced enterprise pitch decks, virtual site tours, and case studies that helped close multi-million-dollar contracts.
           </BulletItem>
           <BulletItem highlight>
-            Why it matters: Team leadership, cross-functional collaboration, measurable BD enablement.
+            Why it matters: B2B services experience, department transformation, sales enablement.
           </BulletItem>
         </ul>
       ),
@@ -271,20 +271,20 @@ export default function AboutPage() {
       id: "mw",
       company: "Marketing Werks",
       title: "Account Manager, Verizon/NFL Partnership",
-      subtitle: "$7MM annual budget. 200+ brand ambassadors. 15 NFL stadiums (2008–2013).",
+      subtitle: "$7MM annual budget. 15 NFL stadiums (2008–2013).",
       description: (
         <ul className="space-y-3">
           <BulletItem>
-            Managed Verizon/NFL marketing programs for 5+ years—brand activations at 15 NFL stadiums reaching thousands of fans.
+            Managed Verizon's NFL sponsorship marketing across 15 stadiums—brand activations reaching thousands of fans.
           </BulletItem>
           <BulletItem>
-            Recruited and trained 200+ brand ambassadors; managed team of 6 full-time employees.
+            Supervised 6 full-time employees and 200+ brand ambassadors ensuring brand consistency and engagement.
           </BulletItem>
           <BulletItem>
-            Oversaw $7MM annual budget delivering campaigns that reinforced brand presence and consumer engagement.
+            Delivered ROI through strategic planning; renewed a $1.5MM campaign and generated $264K in new business.
           </BulletItem>
           <BulletItem highlight>
-            Why it matters: Budget accountability, large-scale program execution, stakeholder management.
+            Why it matters: Budget accountability, large-scale execution, partnership management.
           </BulletItem>
         </ul>
       ),
@@ -294,20 +294,20 @@ export default function AboutPage() {
       id: "sidekick",
       company: "Sidekick Marketer + Freshly Baked Co.",
       title: "Founder / COO",
-      subtitle: "Built AI-powered marketing systems. Drove $2.4M first-year revenue as COO.",
+      subtitle: "Professional services agency + $2.4M startup revenue (2019–Present).",
       description: (
         <ul className="space-y-3">
           <BulletItem>
-            <strong>Freshly Baked Co.:</strong> COO driving operations and B2B marketing—hit $2.4M revenue in year one, beating projections.
+            <strong>Freshly Baked Co. (COO, 2019–2022):</strong> Drove revenue from $0 to $2.4M in year one. Built B2B sales pipeline and secured key partnerships.
           </BulletItem>
           <BulletItem>
-            <strong>Sidekick Marketer:</strong> Founded consulting practice building AI-powered marketing systems that increase output without chaos.
+            <strong>Sidekick Marketer (2023–Present):</strong> Founded agency helping professional-services firms with AI-powered marketing systems.
           </BulletItem>
           <BulletItem>
-            Designed workflows where humans stay in control and quality stays high—practical automation, not hype.
+            Built proprietary AI workflows automating content and reporting—doubling client output without added headcount.
           </BulletItem>
           <BulletItem highlight>
-            Why it matters: Revenue accountability, AI adoption that respects governance, execution velocity.
+            Why it matters: Revenue accountability, AI that respects governance, professional services focus.
           </BulletItem>
         </ul>
       ),
@@ -387,13 +387,14 @@ export default function AboutPage() {
               About Kyle
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-8 font-serif">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-8 font-display">
               About Me
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] leading-relaxed max-w-3xl mb-10">
-              15 years building marketing that drives revenue. Uber employee #184. Managed a $7MM budget.
-              Most recently drove $2.4M first-year revenue as COO. I ship fast and measure what matters.
+              Business operator with 15+ years building marketing functions that act as revenue engines.
+              Scaled startups, modernized enterprise departments, and managed a $7MM budget.
+              Among Uber's first 200 employees. I combine data, creativity, and operational discipline.
             </p>
 
             {/* Credentials Bar */}
@@ -404,9 +405,9 @@ export default function AboutPage() {
               className="flex flex-wrap gap-4 mb-12"
             >
               <CredentialBadge icon={Calendar} label="Experience" value="15+ Years" />
-              <CredentialBadge icon={Building2} label="Budget Managed" value="$7MM" />
-              <CredentialBadge icon={Users} label="Team Lead" value="8-Person Team" />
-              <CredentialBadge icon={Bolt} label="Track Record" value="Uber #184" />
+              <CredentialBadge icon={DollarSign} label="Budget Managed" value="$7MM" />
+              <CredentialBadge icon={TrendingUp} label="Revenue Built" value="$2.4M Y1" />
+              <CredentialBadge icon={Bolt} label="Track Record" value="Early Uber" />
             </motion.div>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -444,7 +445,7 @@ export default function AboutPage() {
               <span className="text-[color:var(--teal-light)] text-xs font-bold tracking-widest uppercase mb-4 block">
                 WHAT I BRING
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 font-serif max-w-2xl">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 font-display max-w-2xl">
                 Results, not just strategy
               </h2>
 
@@ -543,7 +544,7 @@ export default function AboutPage() {
                 <span className="text-xs font-bold tracking-widest uppercase text-[color:var(--muted)] mb-2 block">
                   RELEVANT EXPERIENCE
                 </span>
-                <h3 className="text-2xl font-bold text-[color:var(--navy)] font-serif">
+                <h3 className="text-2xl font-bold text-[color:var(--navy)] font-display">
                   Where I've done this before
                 </h3>
               </motion.div>
@@ -585,7 +586,7 @@ export default function AboutPage() {
           >
             <div className="relative z-10">
               <div className="max-w-2xl mb-12">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-serif">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
                   Keep exploring.
                 </h2>
                 <p className="text-lg text-[color:var(--muted)]">
@@ -606,7 +607,7 @@ export default function AboutPage() {
                         className="bg-[color:var(--surface)] p-6 rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)] group-hover:shadow-md group-hover:border-[color:var(--teal)]/30 transition-all duration-300 h-full flex flex-col"
                       >
                         <div className="flex items-center justify-between mb-4">
-                          <span className="text-4xl font-bold text-[color:var(--border)] font-serif group-hover:text-[color:var(--teal)]/20 transition-colors">
+                          <span className="text-4xl font-bold text-[color:var(--border)] font-display group-hover:text-[color:var(--teal)]/20 transition-colors">
                             {step.step}
                           </span>
                           <div className="w-10 h-10 rounded-full bg-[color:var(--surface-2)] flex items-center justify-center group-hover:bg-[color:var(--navy)] transition-colors duration-300">

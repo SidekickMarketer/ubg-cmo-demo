@@ -67,7 +67,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] leading-[1.1] tracking-tight font-serif">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] leading-[1.1] tracking-tight font-display">
               Hi, I'm Kyle Naughtrip.
             </h1>
           </motion.div>
@@ -167,7 +167,7 @@ function StatsSection() {
               <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 block">
                 The Opportunity
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-display">
                 Midsize firms are winning on what matters most.
               </h2>
               <p className="text-gray-400 text-lg">
@@ -312,7 +312,7 @@ function ProjectCard({
           </span>
         </div>
 
-        <h3 className="text-2xl md:text-3xl font-bold mb-4 font-serif">{title}</h3>
+        <h3 className="text-2xl md:text-3xl font-bold mb-4 font-display">{title}</h3>
 
         <p
           className={`
@@ -352,7 +352,7 @@ function ProjectsSection() {
         transition={{ duration: 0.6 }}
         className="text-center mb-16 space-y-4"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--navy)] font-serif">
+        <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--navy)] font-display">
           Here's what I built.
         </h2>
         <p className="text-xl text-[color:var(--muted)] max-w-2xl mx-auto">
@@ -377,7 +377,7 @@ function ProjectsSection() {
           number="2"
           category="AI Dashboard"
           title="Referral Intelligence"
-          description="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention. No extra system to manage."
+          description="An AI layer on your existing data. Shows who's driving revenue and which relationships need attention."
           variant="light"
           linkText="See the dashboard"
           href="/referrals"
@@ -427,7 +427,7 @@ function FinalCTA() {
 
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between relative z-10">
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-bold font-serif">
+            <h2 className="text-3xl md:text-4xl font-bold font-display">
               If this resonates, I'd love to talk.
             </h2>
             <p className="mt-3 text-base text-white/70 leading-relaxed">

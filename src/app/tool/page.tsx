@@ -140,7 +140,7 @@ export default function ToolPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-[color:var(--background)] min-h-screen">
+    <div className="pt-32 pb-24 bg-[color:var(--bg)] min-h-screen">
       <div className="px-4 md:px-8 max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">

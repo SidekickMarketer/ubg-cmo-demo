@@ -146,7 +146,7 @@ export default function RoadmapPage() {
               Strategy
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-6 font-serif">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-6 font-display">
               90-Day Plan
             </h1>
 
@@ -204,7 +204,7 @@ export default function RoadmapPage() {
             <span className="text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase mb-3 block">
               Phase 1 — Days 1–30
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-serif">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
               Learn the Business
             </h2>
             <p className="text-[color:var(--muted)] text-lg max-w-2xl">
@@ -315,7 +315,7 @@ export default function RoadmapPage() {
             <span className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-3 block">
               Phase 2 — Days 31–60
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-serif">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
               Run Small Pilots
             </h2>
             <p className="text-[color:var(--muted)] text-lg max-w-2xl">
@@ -425,7 +425,7 @@ export default function RoadmapPage() {
             <span className="text-teal-600 text-xs font-bold tracking-widest uppercase mb-3 block">
               Phase 3 — Days 61–90
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-serif">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
               Scale What Works
             </h2>
             <p className="text-[color:var(--muted)] text-lg max-w-2xl">
@@ -564,7 +564,7 @@ export default function RoadmapPage() {
                   <span className="text-[color:var(--teal-light)] text-xs font-bold tracking-widest uppercase mb-4 block">
                     By Day 90
                   </span>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-serif">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
                     What You'll Have
                   </h2>
                   <p className="text-gray-400 text-lg max-w-2xl mx-auto">
