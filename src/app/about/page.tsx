@@ -6,34 +6,34 @@ import { Download } from "lucide-react";
 export default function AboutPage() {
   const careerItems = [
     {
-      company: "Marketing Werks",
-      headline: "$7M NFL partnership for Verizon",
-      detail: "Managed activation across 15 stadiums. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams."
-    },
-    {
-      company: "Uber",
-      headline: "Employee #184",
-      detail: "Helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported hyper-growth."
-    },
-    {
-      company: "Nikki Martinkovic Design Studio",
-      headline: "Co-founded, 650+ brands served",
-      detail: "Built a design business selling original print collections worldwide. Grew from solo operation to seven-person studio serving enterprise clients globally."
-    },
-    {
-      company: "Freshly Baked Company",
-      headline: "$0 to $2.4M in year one",
-      detail: "Founding COO and Head of Growth. Built the B2B pipeline from zero, secured distributor partnerships, and designed compliant marketing infrastructure."
+      company: "Sidekick Marketer",
+      headline: "Founder — AI-powered growth consultancy",
+      detail: "Engineered AI-driven workflows that automated content and reporting — doubling output. Design growth systems for service businesses combining SEO, automation, and lifecycle ownership."
     },
     {
       company: "RDI Corporation",
-      headline: "$100M+ firm, 90-day turnaround",
-      detail: "Recruited to lead a full marketing turnaround. Rebuilt the department around revenue impact — new website, overhauled sales enablement, aligned with client acquisition goals."
+      headline: "Marketing Lead — $100M+ customer experience outsourcer",
+      detail: "Recruited to lead a full marketing turnaround. Within 90 days, rebuilt the department around revenue impact — new website, overhauled sales enablement, aligned with client acquisition goals."
     },
     {
-      company: "Sidekick Marketer",
-      headline: "AI-driven consultancy, 2x output",
-      detail: "As founder, engineered AI-driven workflows that automated content and reporting. Design growth systems for service businesses combining SEO, automation, and lifecycle ownership."
+      company: "Freshly Baked Company",
+      headline: "Founding COO — $0 to $2.4M in year one",
+      detail: "Regulated cannabis manufacturing startup. Built the B2B pipeline from zero, secured distributor partnerships, and designed compliant marketing infrastructure."
+    },
+    {
+      company: "Nikki Martinkovic Design Studio",
+      headline: "Co-founder — 650+ brands served globally",
+      detail: "Built a design business selling original print collections worldwide. Grew from solo operation to seven-person studio serving enterprise clients."
+    },
+    {
+      company: "Uber",
+      headline: "Employee #184 — NY/NJ/CT market launches",
+      detail: "Helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported hyper-growth."
+    },
+    {
+      company: "Marketing Werks",
+      headline: "Account Manager — $7M Verizon NFL partnership",
+      detail: "Managed activation across 15 stadiums. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams."
     },
   ];
 
