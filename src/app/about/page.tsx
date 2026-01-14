@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 
 export default function AboutPage() {
   const nextSteps = [
@@ -11,21 +11,18 @@ export default function AboutPage() {
       title: "See the Plan",
       desc: "My 90-day roadmap.",
       link: "/roadmap",
-      icon: Target,
     },
     {
       step: "02",
       title: "Try the Content Engine",
       desc: "Working prototype.",
       link: "/tool",
-      icon: Zap,
     },
     {
       step: "03",
       title: "Explore Referral Intel",
       desc: "Working prototype.",
       link: "/referrals",
-      icon: TrendingUp,
     },
   ];
 
@@ -136,6 +133,101 @@ export default function AboutPage() {
           </motion.div>
         </section>
 
+        {/* Career Background */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8"
+          >
+            <div className="flex-1">
+              <span className="text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase mb-4 block">
+                CAREER
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--navy)] mb-6 font-display">
+                15+ years building growth systems
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  "Early Uber",
+                  "Enterprise Partnerships",
+                  "Professional Services",
+                  "$100M+ Revenue Orgs",
+                ].map((tag, i) => (
+                  <span
+                    key={i}
+                    className="px-4 py-2 bg-[color:var(--surface)] border border-[color:var(--border)] rounded-full text-sm font-medium text-[color:var(--navy)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:shrink-0">
+              <a
+                href="/kyle-naughtrip-resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-4 bg-[color:var(--surface)] border border-[color:var(--border)] rounded-2xl text-[color:var(--navy)] hover:border-[color:var(--teal)]/30 hover:shadow-md transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[color:var(--navy)] flex items-center justify-center group-hover:bg-[color:var(--teal)] transition-colors">
+                  <Download className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="font-bold text-sm">Download Resume</div>
+                  <div className="text-xs text-[color:var(--muted)]">PDF, full background</div>
+                </div>
+              </a>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* What I Would Own */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase mb-4 block">
+              WHAT I WOULD OWN AS CMO
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--navy)] mb-4 font-display max-w-3xl">
+              These aren't features. They are the growth engine of the firm.
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
+              {[
+                { title: "Growth strategy", desc: "How the firm grows — not just how it markets." },
+                { title: "Business development", desc: "How referrals and cross-sell become systematic instead of accidental." },
+                { title: "Content systems", desc: "How partners stay visible and trusted without wasting time." },
+                { title: "Reporting", desc: "How leadership sees what is actually driving revenue." },
+                { title: "Team leadership", desc: "How priorities get set, resourced, and shipped." },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-[color:var(--surface)] rounded-2xl p-6 border border-[color:var(--border)] shadow-sm"
+                >
+                  <h3 className="text-base font-bold text-[color:var(--navy)] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-[color:var(--muted)] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
         {/* Why This Site Exists */}
         <section className="mb-24">
           <motion.div
@@ -189,38 +281,30 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {nextSteps.map((step, i) => {
-                const Icon = step.icon;
-                return (
-                  <Link key={i} href={step.link} className="block group">
-                    <motion.div
-                      whileHover={{ y: -5 }}
-                      className="bg-white p-6 rounded-2xl border border-[color:var(--border)] shadow-sm group-hover:shadow-md group-hover:border-[color:var(--teal)]/30 transition-all duration-300 h-full flex flex-col"
-                    >
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-4xl font-bold text-gray-100 font-display group-hover:text-[color:var(--teal)]/20 transition-colors">
-                          {step.step}
-                        </span>
-                        <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[color:var(--navy)] transition-colors duration-300">
-                          <Icon className="w-5 h-5 text-[color:var(--muted)] group-hover:text-white transition-colors" />
-                        </div>
-                      </div>
+              {nextSteps.map((step, i) => (
+                <Link key={i} href={step.link} className="block group">
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-white p-6 rounded-2xl border border-[color:var(--border)] shadow-sm group-hover:shadow-md group-hover:border-[color:var(--teal)]/30 transition-all duration-300 h-full flex flex-col"
+                  >
+                    <span className="text-4xl font-bold text-gray-100 font-display group-hover:text-[color:var(--teal)]/20 transition-colors mb-4">
+                      {step.step}
+                    </span>
 
-                      <h3 className="text-lg font-bold text-[color:var(--navy)] mb-2 group-hover:text-[color:var(--teal)] transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-[color:var(--muted)] leading-relaxed mb-4 flex-1">
-                        {step.desc}
-                      </p>
+                    <h3 className="text-lg font-bold text-[color:var(--navy)] mb-2 group-hover:text-[color:var(--teal)] transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-[color:var(--muted)] leading-relaxed mb-4 flex-1">
+                      {step.desc}
+                    </p>
 
-                      <div className="flex items-center gap-2 text-sm font-bold text-[color:var(--navy)] group-hover:text-[color:var(--teal)] transition-colors mt-auto">
-                        View Details
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </motion.div>
-                  </Link>
-                );
-              })}
+                    <div className="flex items-center gap-2 text-sm font-bold text-[color:var(--navy)] group-hover:text-[color:var(--teal)] transition-colors mt-auto">
+                      View Details
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
             </div>
           </motion.div>
         </section>
