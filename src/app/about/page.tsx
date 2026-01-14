@@ -166,6 +166,78 @@ export default function AboutPage() {
           </motion.div>
         </section>
 
+        {/* Where This Operating Model Comes From */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-[color:var(--surface)] rounded-3xl p-12 md:p-16 shadow-[var(--shadow-soft)] border border-[color:var(--border)]"
+          >
+            <span className="text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase mb-4 block">
+              BACKGROUND
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--navy)] mb-6 font-display">
+              Where this operating model comes from
+            </h2>
+            <p className="text-lg text-[color:var(--muted)] mb-12 max-w-3xl">
+              I've spent my career inside organizations where growth depends on people, credibility, and execution — not advertising.
+            </p>
+
+            <div className="space-y-8">
+              {[
+                {
+                  company: "Marketing Werks",
+                  text: "I managed Verizon's $7M NFL partnership activation across 15 stadiums. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams to strengthen a complex, multi-year enterprise relationship."
+                },
+                {
+                  company: "Uber",
+                  text: "Where I joined as employee #184, I helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported the company's hyper-growth."
+                },
+                {
+                  company: "Nikki Martinkovic Design Studio",
+                  text: "Which I co-founded, I built a design business that sold original print collections to more than 650 brands and companies worldwide. We developed repeatable systems for client acquisition, design production, and trend forecasting — growing from a solo operation to a seven-person studio serving enterprise clients globally."
+                },
+                {
+                  company: "Freshly Baked Company",
+                  text: "A regulated manufacturing startup where I served as founding COO and Head of Growth — overseeing sales, marketing, compliance, and HR. I built the B2B pipeline from zero, secured distributor partnerships, and designed the infrastructure that kept marketing and packaging compliant. Result: $0 to $2.4M in the first year."
+                },
+                {
+                  company: "RDI Corporation",
+                  text: "A $100M+ customer-experience outsourcing firm where I was recruited to lead a full marketing turnaround. Within 90 days, I rebuilt the department around revenue impact — launching a new website, overhauling sales enablement, and aligning marketing directly with client acquisition and retention goals."
+                },
+                {
+                  company: "Sidekick Marketer",
+                  text: "As founder, I built a new kind of consultancy. I engineered AI-driven workflows that automated content and reporting — doubling output without additional staff. I design growth systems for local and regional service businesses, combining SEO, automation, and lifecycle ownership to help them dominate their markets."
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="border-l-2 border-[color:var(--border)] pl-6 hover:border-[color:var(--teal)] transition-colors"
+                >
+                  <p className="text-[color:var(--muted)] leading-relaxed">
+                    <span className="text-[color:var(--navy)] font-bold">At {item.company}</span>, {item.text}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-16 pt-8 border-t border-[color:var(--border)] text-center">
+              <p className="text-xl text-[color:var(--navy)] font-semibold italic mb-2">
+                Find where revenue already flows, build systems around it, and make it scale.
+              </p>
+              <p className="text-[color:var(--muted)]">
+                That's the operating model behind everything on this site.
+              </p>
+            </div>
+          </motion.div>
+        </section>
+
         {/* Contact CTA */}
         <section>
           <motion.div
