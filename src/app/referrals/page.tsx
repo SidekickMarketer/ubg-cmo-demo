@@ -305,11 +305,10 @@ export default function ReferralsPage() {
                   Why This Matters
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                  Most firms can't answer: "Who are our top 10 referral sources?"
+                  Know exactly where your work comes from.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  Referrals drive most new work, but tracking them is usually manual or nonexistent.
-                  This system surfaces who actually sends you business—and which relationships need attention.
+                  This system tracks referral sources, surfaces who drives revenue, and flags relationships that need attention.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -673,10 +672,10 @@ export default function ReferralsPage() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                Keep exploring.
+                See the other systems.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one piece. See the rest.
+                This is one piece of the strategy. Explore the rest.
               </p>
             </div>
 
