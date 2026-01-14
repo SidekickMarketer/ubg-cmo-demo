@@ -168,10 +168,10 @@ function StatsSection() {
                 The Opportunity
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
-                In-house teams are moving work to midsize firms. Here's how I'd help you capture more of it.
+                In-house legal is shifting work to midsize firms.
               </h2>
               <p className="text-gray-400 text-lg">
-                The data shows a clear shift—and a clear opportunity.
+                Here's what the data shows.
               </p>
             </motion.div>
 
