@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/tool", label: "AI Content Tool" },
-  { href: "/referrals", label: "Referral Intel" },
   { href: "/roadmap", label: "90-Day Plan" },
-  { href: "/about", label: "About Kyle" },
+  { href: "/referrals", label: "Referral Intelligence" },
+  { href: "/tool", label: "Content Engine" },
+  { href: "/about", label: "Why Kyle" },
 ];
 
 export default function Navigation() {
