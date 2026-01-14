@@ -78,7 +78,7 @@ function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed"
           >
-            I want to lead marketing at UB Greensfelder. Instead of a deck, I built working prototypes of the systems I'd create.
+            I want to lead marketing at UB Greensfelder. To show what that looks like, I built a 90-day plan and two working systems.
           </motion.p>
 
           <motion.div
@@ -168,7 +168,7 @@ function StatsSection() {
                 The Opportunity
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
-                In-house legal is shifting work to midsize firms.
+                In-house counsel is shifting work to midsize firms.
               </h2>
               <p className="text-gray-400 text-lg">
                 Here's what the data shows.
@@ -204,7 +204,7 @@ function StatsSection() {
               <CountUp to={35} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              of in-house legal teams moved work to midsize firms last year
+              of in-house counsel moved work to midsize firms last year
             </p>
           </motion.div>
 
