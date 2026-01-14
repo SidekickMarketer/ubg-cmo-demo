@@ -189,27 +189,27 @@ export default function AboutPage() {
               {[
                 {
                   company: "Marketing Werks",
-                  text: "I managed Verizon's $7M NFL partnership activation across 15 stadiums. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams to strengthen a complex, multi-year enterprise relationship."
+                  content: <>I managed Verizon's <strong className="text-[color:var(--navy)]">$7M NFL partnership</strong> activation across <strong className="text-[color:var(--navy)]">15 stadiums</strong>. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams to strengthen a complex, multi-year enterprise relationship.</>
                 },
                 {
                   company: "Uber",
-                  text: "Where I joined as employee #184, I helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported the company's hyper-growth."
+                  content: <>Where I joined as <strong className="text-[color:var(--navy)]">employee #184</strong>, I helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported the company's hyper-growth.</>
                 },
                 {
                   company: "Nikki Martinkovic Design Studio",
-                  text: "Which I co-founded, I built a design business that sold original print collections to more than 650 brands and companies worldwide. We developed repeatable systems for client acquisition, design production, and trend forecasting — growing from a solo operation to a seven-person studio serving enterprise clients globally."
+                  content: <>Which I co-founded, I built a design business that sold original print collections to more than <strong className="text-[color:var(--navy)]">650 brands</strong> and companies worldwide. We developed repeatable systems for client acquisition, design production, and trend forecasting — growing from a solo operation to a <strong className="text-[color:var(--navy)]">seven-person studio</strong> serving enterprise clients globally.</>
                 },
                 {
                   company: "Freshly Baked Company",
-                  text: "A regulated manufacturing startup where I served as founding COO and Head of Growth — overseeing sales, marketing, compliance, and HR. I built the B2B pipeline from zero, secured distributor partnerships, and designed the infrastructure that kept marketing and packaging compliant. Result: $0 to $2.4M in the first year."
+                  content: <>A regulated manufacturing startup where I served as founding COO and Head of Growth — overseeing sales, marketing, compliance, and HR. I built the B2B pipeline from zero, secured distributor partnerships, and designed the infrastructure that kept marketing and packaging compliant. Result: <strong className="text-[color:var(--navy)]">$0 to $2.4M</strong> in the first year.</>
                 },
                 {
                   company: "RDI Corporation",
-                  text: "A $100M+ customer-experience outsourcing firm where I was recruited to lead a full marketing turnaround. Within 90 days, I rebuilt the department around revenue impact — launching a new website, overhauling sales enablement, and aligning marketing directly with client acquisition and retention goals."
+                  content: <>A <strong className="text-[color:var(--navy)]">$100M+</strong> customer-experience outsourcing firm where I was recruited to lead a full marketing turnaround. Within <strong className="text-[color:var(--navy)]">90 days</strong>, I rebuilt the department around revenue impact — launching a new website, overhauling sales enablement, and aligning marketing directly with client acquisition and retention goals.</>
                 },
                 {
                   company: "Sidekick Marketer",
-                  text: "As founder, I built a new kind of consultancy. I engineered AI-driven workflows that automated content and reporting — doubling output without additional staff. I design growth systems for local and regional service businesses, combining SEO, automation, and lifecycle ownership to help them dominate their markets."
+                  content: <>As founder, I built a new kind of consultancy. I engineered AI-driven workflows that automated content and reporting — <strong className="text-[color:var(--navy)]">doubling output</strong> without additional staff. I design growth systems for local and regional service businesses, combining SEO, automation, and lifecycle ownership to help them dominate their markets.</>
                 },
               ].map((item, i) => (
                 <motion.div
@@ -221,7 +221,7 @@ export default function AboutPage() {
                   className="border-l-2 border-[color:var(--border)] pl-6 hover:border-[color:var(--teal)] transition-colors"
                 >
                   <p className="text-[color:var(--muted)] leading-relaxed">
-                    <span className="text-[color:var(--navy)] font-bold">At {item.company}</span>, {item.text}
+                    <span className="text-[color:var(--navy)] font-bold">At {item.company}</span>, {item.content}
                   </p>
                 </motion.div>
               ))}
