@@ -319,31 +319,31 @@ export default function AboutPage() {
     {
       icon: Star,
       title: "Growth strategy",
-      description: "It's how the firm grows — not just how it markets.",
+      description: "How the firm grows — not just how it markets.",
       isHero: true,
     },
     {
       icon: Target,
       title: "Business development",
-      description: "It's how referrals and cross-sell become systematic instead of accidental.",
+      description: "How referrals and cross-sell become systematic instead of accidental.",
       isHero: true,
     },
     {
       icon: Shield,
       title: "Content systems",
-      description: "It's how partners stay visible without wasting time.",
+      description: "How partners stay visible without wasting time.",
       isHero: false,
     },
     {
       icon: BarChart3,
       title: "Reporting",
-      description: "It's how leadership sees what's actually driving revenue.",
+      description: "How leadership sees what's actually driving revenue.",
       isHero: false,
     },
     {
       icon: Users,
       title: "Team leadership",
-      description: "It's how priorities get set, resourced, and shipped.",
+      description: "How priorities get set, resourced, and shipped.",
       isHero: false,
     },
   ];
@@ -391,13 +391,22 @@ export default function AboutPage() {
               Why Kyle
             </h1>
 
-            <p className="text-lg md:text-xl text-[color:var(--muted)] leading-relaxed max-w-3xl mb-10">
-              <span className="text-[color:var(--navy)] font-semibold">
-                I turn a firm's existing strengths — relationships, reputation, and expertise — into a unified growth engine that scales.
-              </span>
-              <br />
-              Law firms don't grow through campaigns. They grow through trust, referrals, and partner relationships — especially midsize, multi-office firms like UB Greensfelder, where senior attention and reputation are the product.
-            </p>
+            <div className="text-lg md:text-xl text-[color:var(--muted)] leading-relaxed max-w-3xl mb-10 space-y-4">
+              <p>
+                <span className="text-[color:var(--navy)] font-semibold">
+                  I turn a firm's existing strengths — relationships, reputation, and expertise — into a unified growth engine that scales.
+                </span>
+              </p>
+              <p>
+                Law firms don't grow through campaigns. They grow through trust, referrals, and partner relationships — especially midsize, multi-office firms like UB Greensfelder, where senior attention and reputation are the product.
+              </p>
+              <p>
+                I have spent more than 15 years operating inside organizations where growth depended on trust, relationships, and sustained visibility — not just campaigns.
+              </p>
+              <p>
+                Across startups, enterprise partnerships, and professional services, the pattern has been consistent: the firms that win are the ones that turn referral relationships into systems, partner visibility into infrastructure, and market intelligence into strategy.
+              </p>
+            </div>
 
             {/* Credentials Bar */}
             <motion.div
@@ -439,17 +448,17 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   {
-                    icon: "🤝",
+                    Icon: Users,
                     title: "Partnership-driven execution.",
                     desc: "Listen first, earn trust, then build systems partners actually use.",
                   },
                   {
-                    icon: "📈",
+                    Icon: DollarSign,
                     title: "Revenue focus.",
                     desc: "Referrals, cross-sell, and retention — the economics that move the firm.",
                   },
                   {
-                    icon: "⚡",
+                    Icon: Zap,
                     title: "Fast execution.",
                     desc: "Working systems, not decks.",
                   },
@@ -462,8 +471,8 @@ export default function AboutPage() {
                     transition={{ delay: i * 0.1, duration: 0.5 }}
                     className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors duration-300 group"
                   >
-                    <div className="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300 origin-left">
-                      {item.icon}
+                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-white/20 transition-colors">
+                      <item.Icon className="w-5 h-5 text-[color:var(--teal-light)]" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">
                       {item.title}
@@ -605,8 +614,11 @@ export default function AboutPage() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
                   Keep exploring.
                 </h2>
-                <p className="text-lg text-[color:var(--muted)]">
+                <p className="text-lg text-[color:var(--muted)] mb-3">
                   Everything below shows what that looks like in practice.
+                </p>
+                <p className="text-base text-[color:var(--navy)] font-medium">
+                  This is not a collection of marketing examples. It is a working CMO operating system.
                 </p>
               </div>
 
