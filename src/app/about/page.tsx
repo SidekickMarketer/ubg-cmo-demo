@@ -44,7 +44,7 @@ export default function AboutPage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20">
                 <div className="w-2 h-2 rounded-full bg-[color:var(--teal)] animate-pulse" />
-                Why Kyle
+                Background
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] font-display leading-[1.1]">
@@ -54,22 +54,6 @@ export default function AboutPage() {
               <p className="text-xl text-[color:var(--navy)] font-semibold leading-relaxed max-w-lg">
                 I turn a firm's existing strengths — relationships, reputation, and expertise — into a unified growth engine that scales.
               </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/roadmap"
-                  className="flex items-center gap-2 bg-[color:var(--navy)] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[color:var(--navy)]/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-                >
-                  See the 90-Day Plan
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/tool"
-                  className="px-6 py-3 text-[color:var(--navy)] text-sm font-bold bg-white rounded-full border border-[color:var(--border)] hover:border-[color:var(--navy)]/30 hover:shadow-sm transition-all"
-                >
-                  Try Content Engine
-                </Link>
-              </div>
             </motion.div>
 
             {/* Right Column - The Pattern Card */}
