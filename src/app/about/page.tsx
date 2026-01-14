@@ -402,30 +402,15 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="flex flex-wrap gap-4 mb-12"
+              className="flex flex-wrap gap-4"
             >
               <CredentialBadge icon={Calendar} label="Experience" value="15+ Years" />
-              <CredentialBadge icon={DollarSign} label="Budget Managed" value="$7MM" />
+              <CredentialBadge icon={Building2} label="Portfolio" value="$100M+" />
               <CredentialBadge icon={TrendingUp} label="Revenue Built" value="$2.4M Y1" />
               <CredentialBadge icon={Bolt} label="Track Record" value="Early Uber" />
             </motion.div>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/roadmap"
-                className="flex items-center gap-2 bg-[color:var(--navy)] text-white px-8 py-4 rounded-full text-base font-bold hover:opacity-95 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-              >
-                Start with the 90-Day Plan
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/tool"
-                className="px-8 py-4 text-[color:var(--navy)] text-base font-bold bg-[color:var(--surface)] rounded-full border border-[color:var(--border)] hover:bg-[color:var(--surface-2)] transition-all"
-              >
-                AI Content Studio
-              </Link>
-            </div>
-          </motion.div>
+            </motion.div>
         </section>
 
         {/* What This Demonstrates */}
