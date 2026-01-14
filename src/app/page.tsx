@@ -205,7 +205,8 @@ function StatsSection() {
               <CountUp to={35} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              of in-house counsel moved work to midsize firms last year
+              of in-house counsel moved work to midsize firms last year.
+              <span className="block text-xs text-gray-500 mt-2">Source: Above the Law, Nov 2025</span>
             </p>
           </motion.div>
 
@@ -218,10 +219,11 @@ function StatsSection() {
               Client Priorities
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
-              <CountUp to={98} suffix="%" />
+              <CountUp to={95} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              say value delivery is the top factor when choosing outside counsel
+              of corporate counsel cite responsiveness and value as top factors when choosing outside counsel.
+              <span className="block text-xs text-gray-500 mt-2">Sources: BTI Consulting; Leopard Solutions, 2025</span>
             </p>
           </motion.div>
 
@@ -237,14 +239,15 @@ function StatsSection() {
               <CountUp to={48} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              say midsize firms are more responsive than large firms
+              say midsize firms are more agile and responsive than large firms.
+              <span className="block text-xs text-gray-500 mt-2">Source: Above the Law, Nov 2025</span>
             </p>
           </motion.div>
         </motion.div>
 
         {/* Footer Note */}
         <motion.div variants={itemVariants} className="mt-10 text-xs text-gray-500">
-          Data sources: BTI Consulting, Thomson Reuters, and Bloomberg Law.
+          Data sources: Above the Law (Nov 2025), BTI Consulting, Leopard Solutions (2025 Corporate Counsel Survey), Thomson Reuters Legal Market Insights.
         </motion.div>
       </motion.div>
     </section>
