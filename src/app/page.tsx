@@ -78,7 +78,7 @@ function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed"
           >
-            I want to lead marketing at UB Greensfelder. To show what that looks like, I built a 90-day plan and two working systems.
+            I want to lead marketing at UB Greensfelder. To show what that looks like, I built a 90-day plan and two connected systems to grow relationships, visibility, and measurable revenue.
           </motion.p>
 
           <motion.div
@@ -168,10 +168,11 @@ function StatsSection() {
                 The Opportunity
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-display">
-                Midsize firms are winning on what matters most.
+                Midsize firms win on what matters most.
               </h2>
               <p className="text-gray-400 text-lg">
-                Value, responsiveness, senior attention.
+                Value. Responsiveness. Senior attention.
+                <span className="block mt-2 text-gray-300">The 90-Day Framework turns those strengths into measurable growth.</span>
               </p>
             </motion.div>
 
@@ -180,7 +181,7 @@ function StatsSection() {
                 href="/roadmap"
                 className="flex items-center gap-2 text-[color:var(--teal-light)] hover:text-white transition-colors text-base font-bold whitespace-nowrap group bg-white/5 px-6 py-3 rounded-full hover:bg-white/10"
               >
-                See the roadmap
+                See the 90-Day Plan
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -198,7 +199,7 @@ function StatsSection() {
             className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
           >
             <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
-              The Shift
+              The Market Shift
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
               <CountUp to={35} suffix="%" />
@@ -214,7 +215,7 @@ function StatsSection() {
             className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
           >
             <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
-              What They Want
+              Client Priorities
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
               <CountUp to={98} suffix="%" />
@@ -230,7 +231,7 @@ function StatsSection() {
             className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
           >
             <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
-              Why Midsize
+              The Advantage
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
               <CountUp to={48} suffix="%" />
@@ -243,7 +244,7 @@ function StatsSection() {
 
         {/* Footer Note */}
         <motion.div variants={itemVariants} className="mt-10 text-xs text-gray-500">
-          Sources linked in the appendix
+          Data sources: BTI Consulting, Thomson Reuters, and Bloomberg Law.
         </motion.div>
       </motion.div>
     </section>
@@ -356,7 +357,7 @@ function ProjectsSection() {
           Here's what I built.
         </h2>
         <p className="text-xl text-[color:var(--muted)] max-w-2xl mx-auto">
-          A strategy, two working systems, and context on me.
+          A strategy, two working systems, and a look at how I approach marketing leadership.
         </p>
       </motion.div>
 
@@ -364,9 +365,9 @@ function ProjectsSection() {
         <ProjectCard
           index={0}
           number="1"
-          category="Strategy"
+          category="Growth System"
           title="90-Day Plan"
-          description="Listen first, prove the model, then scale what works. Concrete deliverables by Day 90."
+          description="Listens first, proves the model, then scales what works. Concrete deliverables by Day 90."
           variant="dark"
           linkText="See the plan"
           href="/roadmap"
@@ -375,20 +376,20 @@ function ProjectsSection() {
         <ProjectCard
           index={1}
           number="2"
-          category="AI Dashboard"
+          category="Relationship System"
           title="Referral Intelligence"
-          description="An AI layer on your existing data. Shows who's driving revenue and which relationships need attention."
+          description="Measures relationship health at the firm level. Shows who's driving revenue and where to focus leadership attention."
           variant="light"
-          linkText="See the dashboard"
+          linkText="See the system"
           href="/referrals"
         />
 
         <ProjectCard
           index={2}
           number="3"
-          category="AI Content"
+          category="Visibility System"
           title="Content Engine"
-          description="Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve and post."
+          description="Solves the attorney content bottleneck. Attorneys review, marketing publishes—without adding to their workload."
           variant="light"
           linkText="See how it works"
           href="/tool"
@@ -397,9 +398,9 @@ function ProjectsSection() {
         <ProjectCard
           index={3}
           number="4"
-          category="Background"
+          category="Context"
           title="Why Kyle"
-          description="Agency speed meets in-house judgment. 15 years building marketing that drives revenue."
+          description="Blends agency speed with in-house judgment — 15 years of building marketing that drives revenue."
           variant="light"
           linkText="See my background"
           href="/about"
@@ -428,7 +429,7 @@ function FinalCTA() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between relative z-10">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold font-display">
-              If this resonates, I'd love to talk.
+              If this direction resonates, I'd welcome a conversation.
             </h2>
             <p className="mt-3 text-base text-white/70 leading-relaxed">
               Reach out directly or keep exploring.
@@ -472,6 +473,21 @@ function FinalCTA() {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Footer
+───────────────────────────────────────────────────────────── */
+function Footer() {
+  return (
+    <footer className="px-4 md:px-8 pb-12 max-w-7xl mx-auto">
+      <div className="text-center">
+        <p className="text-sm text-[color:var(--muted)]">
+          A strategic growth vision for UB Greensfelder LLP — integrating relationships, visibility, and modern legal marketing.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
    Main Page
 ───────────────────────────────────────────────────────────── */
 export default function HomePage() {
@@ -481,6 +497,7 @@ export default function HomePage() {
       <StatsSection />
       <ProjectsSection />
       <FinalCTA />
+      <Footer />
     </div>
   );
 }
