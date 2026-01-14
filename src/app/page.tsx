@@ -165,13 +165,13 @@ function StatsSection() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <motion.div variants={itemVariants} className="max-w-3xl">
               <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 block">
-                The Opportunity
+                The Strategic Thesis
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
-                Midsize firms are winning on what matters most.
+                Firms like UB Greensfelder grow through referrals, attorney visibility, and client retention. Not campaigns.
               </h2>
               <p className="text-gray-400 text-lg">
-                Value, responsiveness, senior attention.
+                This plan is built around those three realities.
               </p>
             </motion.div>
 
@@ -353,10 +353,10 @@ function ProjectsSection() {
         className="text-center mb-16 space-y-4"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--navy)] font-serif">
-          What I built.
+          Here's what I built.
         </h2>
         <p className="text-xl text-[color:var(--muted)] max-w-2xl mx-auto">
-          A roadmap and two working prototypes.
+          A strategy, two working systems, and context on me.
         </p>
       </motion.div>
 
@@ -366,7 +366,7 @@ function ProjectsSection() {
           number="1"
           category="Strategy"
           title="90-Day Plan"
-          description="Learn the business, run small pilots, scale what works."
+          description="Listen first, prove the model, then scale what works. Concrete deliverables by Day 90."
           variant="dark"
           linkText="See the plan"
           href="/roadmap"
@@ -375,9 +375,9 @@ function ProjectsSection() {
         <ProjectCard
           index={1}
           number="2"
-          category="Prototype"
+          category="AI Dashboard"
           title="Referral Intelligence"
-          description="Track who sends you work—and which relationships need attention."
+          description="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention. No extra system to manage."
           variant="light"
           linkText="See the dashboard"
           href="/referrals"
@@ -386,9 +386,9 @@ function ProjectsSection() {
         <ProjectCard
           index={2}
           number="3"
-          category="Prototype"
+          category="AI Content"
           title="Content Engine"
-          description="5 minutes of attorney input, AI handles the draft."
+          description="Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve and post."
           variant="light"
           linkText="See how it works"
           href="/tool"
@@ -398,10 +398,10 @@ function ProjectsSection() {
           index={3}
           number="4"
           category="Background"
-          title="About Me"
-          description="15 years building marketing that drives revenue."
+          title="Why Kyle"
+          description="Agency speed meets in-house judgment. 15 years building marketing that drives revenue."
           variant="light"
-          linkText="Learn more"
+          linkText="See my background"
           href="/about"
         />
       </div>
@@ -428,10 +428,10 @@ function FinalCTA() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between relative z-10">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold font-serif">
-              Let's talk.
+              If this resonates, I'd love to talk.
             </h2>
             <p className="mt-3 text-base text-white/70 leading-relaxed">
-              Questions? Want to see more? Reach out.
+              Reach out directly or keep exploring.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row shrink-0">
