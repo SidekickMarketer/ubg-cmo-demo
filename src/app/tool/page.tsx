@@ -457,11 +457,11 @@ export default function ToolPage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-[color:var(--border)] shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-200/80 transition-all group"
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-[color:var(--navy)] text-white flex items-center justify-center shadow-lg shadow-gray-900/10 group-hover:scale-105 transition-transform duration-300">
-                    <item.Icon className="w-7 h-7" />
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-[color:var(--navy)] text-white flex items-center justify-center shadow-md shadow-gray-900/10">
+                    <item.Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-sm font-bold text-[color:var(--muted)] uppercase tracking-widest">
+                  <span className="text-sm font-bold text-[color:var(--muted)]">
                     Step {item.step}
                   </span>
                 </div>
