@@ -318,32 +318,32 @@ export default function AboutPage() {
   const alignmentItems = [
     {
       icon: Star,
-      title: "Marketing strategy + positioning",
-      description: "Build unified growth engine tied to revenue.",
+      title: "Growth strategy",
+      description: "Build a marketing engine that drives revenue.",
       isHero: true,
     },
     {
       icon: Target,
-      title: "Business development enablement",
-      description: "Make referrals + cross-sell operational.",
+      title: "Business development",
+      description: "Make referrals and cross-sell systematic.",
       isHero: true,
     },
     {
       icon: Shield,
-      title: "Digital + content systems",
-      description: "Reduce attorney friction; increase throughput.",
+      title: "Content systems",
+      description: "Get attorneys visible without burning them out.",
       isHero: false,
     },
     {
       icon: BarChart3,
-      title: "Analytics + reporting",
-      description: "Leadership dashboard that's actually actionable.",
+      title: "Reporting",
+      description: "Dashboards leadership will actually use.",
       isHero: false,
     },
     {
       icon: Users,
       title: "Team leadership",
-      description: "Clear priorities, fast shipping, high standards.",
+      description: "Clear priorities. Ship fast. High standards.",
       isHero: false,
     },
   ];
@@ -351,22 +351,22 @@ export default function AboutPage() {
   const nextSteps = [
     {
       step: "01",
-      title: "Start with the Plan",
-      desc: "90-day roadmap to prove the model.",
+      title: "See the Plan",
+      desc: "My 90-day roadmap.",
       link: "/roadmap",
       icon: Target,
     },
     {
       step: "02",
-      title: "See the Proof",
-      desc: "AI content engine in action.",
+      title: "Try the Content Engine",
+      desc: "Working prototype.",
       link: "/tool",
       icon: Zap,
     },
     {
       step: "03",
-      title: "Track Revenue",
-      desc: "Referral intelligence system.",
+      title: "Explore Referral Intel",
+      desc: "Working prototype.",
       link: "/referrals",
       icon: TrendingUp,
     },
@@ -388,14 +388,12 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-8 font-serif">
-              Why Kyle
+              About Me
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] leading-relaxed max-w-3xl mb-10">
-              15 years building marketing teams and revenue engines—from Uber employee #184
-              to managing a $7MM budget at Marketing Werks to driving $2.4M first-year revenue
-              as COO. I know how to ship in environments where stakeholders are opinionated
-              and results have to show up in revenue.
+              15 years building marketing that drives revenue. Uber employee #184. Managed a $7MM budget.
+              Most recently drove $2.4M first-year revenue as COO. I ship fast and measure what matters.
             </p>
 
             {/* Credentials Bar */}
@@ -444,28 +442,28 @@ export default function AboutPage() {
 
             <div className="relative z-10">
               <span className="text-[color:var(--teal-light)] text-xs font-bold tracking-widest uppercase mb-4 block">
-                WHAT THIS DEMONSTRATES
+                WHAT I BRING
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 font-serif max-w-2xl">
-                Not just strategy—execution proof
+                Results, not just strategy
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   {
                     icon: "🤝",
-                    title: "Partnership-safe leadership",
-                    desc: "Earn credibility before prescribing change.",
+                    title: "Partner-friendly approach",
+                    desc: "Listen first, earn trust, then move.",
                   },
                   {
                     icon: "📈",
-                    title: "Revenue orientation",
-                    desc: "Referrals + cross-sell + retention made visible.",
+                    title: "Revenue focus",
+                    desc: "Track what matters: referrals, cross-sell, retention.",
                   },
                   {
                     icon: "⚡",
-                    title: "Execution velocity",
-                    desc: "Working systems, not abstract concepts.",
+                    title: "Fast execution",
+                    desc: "Working systems, not decks.",
                   },
                 ].map((item, i) => (
                   <motion.div
@@ -508,11 +506,11 @@ export default function AboutPage() {
                     <Target className="w-4 h-4 text-[color:var(--teal)]" />
                   </div>
                   <h3 className="text-xl font-bold text-[color:var(--navy)]">
-                    Core Responsibilities
+                    What I'd Own
                   </h3>
                 </div>
                 <p className="text-sm text-[color:var(--muted)] mb-8 max-w-md">
-                  How I cover the critical functions of the role.
+                  The core functions of the CMO role.
                 </p>
               </motion.div>
 
@@ -588,10 +586,10 @@ export default function AboutPage() {
             <div className="relative z-10">
               <div className="max-w-2xl mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-serif">
-                  Ready to move fast?
+                  Keep exploring.
                 </h2>
                 <p className="text-lg text-[color:var(--muted)]">
-                  Here's the recommended path forward.
+                  See what I built.
                 </p>
               </div>
 

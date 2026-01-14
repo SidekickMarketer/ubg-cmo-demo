@@ -199,12 +199,11 @@ export default function ToolPage() {
                   The Challenge
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                  48% of in-house counsel say midsize firms are more responsive.
+                  Attorneys have expertise worth sharing—but no time to write about it.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  But attorneys don&apos;t have time to build visibility. This
-                  removes the bottleneck: 5 minutes of their time, marketing
-                  handles execution.
+                  This removes the bottleneck. Five minutes of attorney time, marketing
+                  handles the rest. They stay visible without getting buried in content production.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -514,19 +513,19 @@ export default function ToolPage() {
               {[
                 {
                   title: "Scale",
-                  desc: "More attorneys participating without adding headcount",
+                  desc: "More attorneys visible without adding headcount.",
                 },
                 {
                   title: "Consistency",
-                  desc: "On-brand content across every practice area",
+                  desc: "On-brand content, every time.",
                 },
                 {
                   title: "Speed",
-                  desc: "Days to publish, not weeks",
+                  desc: "Days to publish, not weeks.",
                 },
                 {
-                  title: "Participation",
-                  desc: "Low time commitment drives higher attorney buy-in",
+                  title: "Buy-in",
+                  desc: "5 minutes of attorney time = full participation.",
                 },
               ].map((benefit, i) => (
                 <motion.div
@@ -562,11 +561,10 @@ export default function ToolPage() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                See the other systems
+                Keep exploring.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one piece of the growth engine. Explore the full
-                strategy.
+                This is one piece. See the rest.
               </p>
             </div>
 

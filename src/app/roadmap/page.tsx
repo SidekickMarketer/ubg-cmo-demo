@@ -168,12 +168,12 @@ export default function RoadmapPage() {
                 Why This Approach
               </span>
               <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                Most new marketing leaders spend months building decks before showing results.
+                Small wins first, then scale what works.
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                This plan flips that: show results first, then scale what works. By Day 90,
-                leadership sees real data on where revenue comes from, active cross-sell
-                opportunities, and attorneys visibly building their practices.
+                No firmwide mandates in the first 90 days. Instead: learn the business, run small pilots,
+                prove they work, then expand. By Day 90, you'll see real data on where work comes from,
+                active cross-sell opportunities, and attorneys visibly building their practices.
               </p>
 
               <div className="flex items-center gap-4 pt-4 border-t border-white/10">

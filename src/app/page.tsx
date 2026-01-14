@@ -78,8 +78,7 @@ function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed"
           >
-            I want to lead marketing at UB Greensfelder. To show what that looks
-            like, I built a 90-day plan and two working systems.
+            I want to lead marketing at UB Greensfelder. Instead of a deck, I built working prototypes of the systems I'd create.
           </motion.p>
 
           <motion.div
@@ -166,14 +165,13 @@ function StatsSection() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <motion.div variants={itemVariants} className="max-w-3xl">
               <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 block">
-                The Strategic Thesis
+                The Opportunity
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
-                Corporate counsel are shifting work to midsize firms. They want
-                value, responsiveness, and senior attention.
+                In-house teams are moving work to midsize firms. Here's how I'd help you capture more of it.
               </h2>
               <p className="text-gray-400 text-lg">
-                UB Greensfelder is positioned perfectly for this moment.
+                The data shows a clear shift—and a clear opportunity.
               </p>
             </motion.div>
 
@@ -200,13 +198,13 @@ function StatsSection() {
             className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
           >
             <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
-              The Shift Is Happening
+              The Shift
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
               <CountUp to={35} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              of in-house counsel shifted work to midsize firms last year
+              of in-house legal teams moved work to midsize firms last year
             </p>
           </motion.div>
 
@@ -216,13 +214,13 @@ function StatsSection() {
             className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
           >
             <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
-              Value Wins
+              What They Want
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
               <CountUp to={98} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              cite value delivery as the top factor in selecting counsel
+              say value delivery is the top factor when choosing outside counsel
             </p>
           </motion.div>
 
@@ -232,13 +230,13 @@ function StatsSection() {
             className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
           >
             <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
-              Midsize Delivers
+              Why Midsize
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
               <CountUp to={48} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              say midsize firms are more agile and responsive
+              say midsize firms are more responsive than large firms
             </p>
           </motion.div>
         </motion.div>
@@ -355,10 +353,10 @@ function ProjectsSection() {
         className="text-center mb-16 space-y-4"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--navy)] font-serif">
-          Here's what I built.
+          What I built.
         </h2>
         <p className="text-xl text-[color:var(--muted)] max-w-2xl mx-auto">
-          A strategy, two working systems, and context on me.
+          A roadmap and two working prototypes.
         </p>
       </motion.div>
 
@@ -368,7 +366,7 @@ function ProjectsSection() {
           number="1"
           category="Strategy"
           title="90-Day Plan"
-          description="Listen first, prove the model, then scale what works. Concrete deliverables by Day 90."
+          description="Learn the business, run small pilots, scale what works."
           variant="dark"
           linkText="See the plan"
           href="/roadmap"
@@ -377,9 +375,9 @@ function ProjectsSection() {
         <ProjectCard
           index={1}
           number="2"
-          category="AI Dashboard"
+          category="Prototype"
           title="Referral Intelligence"
-          description="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention. No extra system to manage."
+          description="Track who sends you work—and which relationships need attention."
           variant="light"
           linkText="See the dashboard"
           href="/referrals"
@@ -388,9 +386,9 @@ function ProjectsSection() {
         <ProjectCard
           index={2}
           number="3"
-          category="AI Content"
+          category="Prototype"
           title="Content Engine"
-          description="Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve and post."
+          description="5 minutes of attorney input, AI handles the draft."
           variant="light"
           linkText="See how it works"
           href="/tool"
@@ -400,10 +398,10 @@ function ProjectsSection() {
           index={3}
           number="4"
           category="Background"
-          title="Why Kyle"
-          description="Agency speed meets in-house judgment. 15 years building marketing that drives revenue."
+          title="About Me"
+          description="15 years building marketing that drives revenue."
           variant="light"
-          linkText="See my background"
+          linkText="Learn more"
           href="/about"
         />
       </div>
@@ -430,10 +428,10 @@ function FinalCTA() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between relative z-10">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold font-serif">
-              If this resonates, I'd love to talk.
+              Let's talk.
             </h2>
             <p className="mt-3 text-base text-white/70 leading-relaxed">
-              Reach out directly or keep exploring.
+              Questions? Want to see more? Reach out.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row shrink-0">

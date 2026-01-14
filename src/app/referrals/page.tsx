@@ -305,13 +305,11 @@ export default function ReferralsPage() {
                   Why This Matters
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                  98% of corporate counsel cite value delivery as the top factor in selecting counsel.
+                  Most firms can't answer: "Who are our top 10 referral sources?"
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  Most law firms don&apos;t systematically track where their work
-                  comes from. They know referrals matter, but can&apos;t answer: &quot;Who
-                  are our top 10 referral sources?&quot; This tool shows how to
-                  answer that question.
+                  Referrals drive most new work, but tracking them is usually manual or nonexistent.
+                  This system surfaces who actually sends you business—and which relationships need attention.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -675,11 +673,10 @@ export default function ReferralsPage() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                See the other systems
+                Keep exploring.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one piece of the growth engine. Explore the full
-                strategy.
+                This is one piece. See the rest.
               </p>
             </div>
 
