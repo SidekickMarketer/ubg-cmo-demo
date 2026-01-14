@@ -319,31 +319,31 @@ export default function AboutPage() {
     {
       icon: Star,
       title: "Growth strategy",
-      description: "Build a marketing engine that drives revenue.",
+      description: "It's how the firm grows — not just how it markets.",
       isHero: true,
     },
     {
       icon: Target,
       title: "Business development",
-      description: "Make referrals and cross-sell systematic.",
+      description: "It's how referrals and cross-sell become systematic instead of accidental.",
       isHero: true,
     },
     {
       icon: Shield,
       title: "Content systems",
-      description: "Get attorneys visible without burning them out.",
+      description: "It's how partners stay visible without wasting time.",
       isHero: false,
     },
     {
       icon: BarChart3,
       title: "Reporting",
-      description: "Dashboards leadership will actually use.",
+      description: "It's how leadership sees what's actually driving revenue.",
       isHero: false,
     },
     {
       icon: Users,
       title: "Team leadership",
-      description: "Clear priorities. Ship fast. High standards.",
+      description: "It's how priorities get set, resourced, and shipped.",
       isHero: false,
     },
   ];
@@ -384,17 +384,19 @@ export default function AboutPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20 mb-6">
               <div className="w-2 h-2 rounded-full bg-[color:var(--teal)] animate-pulse" />
-              About Kyle
+              Why Kyle
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-8 font-display">
-              About Me
+              Why Kyle
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] leading-relaxed max-w-3xl mb-10">
-              Business operator with 15+ years building marketing functions that act as revenue engines.
-              Scaled startups, modernized enterprise departments, and managed a $7MM budget.
-              Among Uber's first 200 employees. I combine data, creativity, and operational discipline.
+              <span className="text-[color:var(--navy)] font-semibold">
+                I turn a firm's existing strengths — relationships, reputation, and expertise — into a unified growth engine that scales.
+              </span>
+              <br />
+              Law firms don't grow through campaigns. They grow through trust, referrals, and partner relationships — especially midsize, multi-office firms like UB Greensfelder, where senior attention and reputation are the product.
             </p>
 
             {/* Credentials Bar */}
@@ -404,10 +406,10 @@ export default function AboutPage() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="flex flex-wrap gap-4"
             >
-              <CredentialBadge icon={Calendar} label="Experience" value="15+ Years" />
-              <CredentialBadge icon={Building2} label="Portfolio" value="$100M+" />
-              <CredentialBadge icon={TrendingUp} label="Revenue Built" value="$2.4M Y1" />
-              <CredentialBadge icon={Bolt} label="Track Record" value="Early Uber" />
+              <CredentialBadge icon={Calendar} label="Experience" value="15+ Years (Operator)" />
+              <CredentialBadge icon={Building2} label="Scale" value="$100M+ Revenue Orgs" />
+              <CredentialBadge icon={TrendingUp} label="Growth" value="$2.4M (Year One)" />
+              <CredentialBadge icon={Bolt} label="Pattern" value="Early Uber + Founder" />
             </motion.div>
 
             </motion.div>
@@ -431,24 +433,24 @@ export default function AboutPage() {
                 WHAT I BRING
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 font-display max-w-2xl">
-                Results, not just strategy
+                Results, not just strategy.
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   {
                     icon: "🤝",
-                    title: "Partner-friendly approach",
-                    desc: "Listen first, earn trust, then move.",
+                    title: "Partnership-driven execution.",
+                    desc: "Listen first, earn trust, then build systems partners actually use.",
                   },
                   {
                     icon: "📈",
-                    title: "Revenue focus",
-                    desc: "Track what matters: referrals, cross-sell, retention.",
+                    title: "Revenue focus.",
+                    desc: "Referrals, cross-sell, and retention — the economics that move the firm.",
                   },
                   {
                     icon: "⚡",
-                    title: "Fast execution",
+                    title: "Fast execution.",
                     desc: "Working systems, not decks.",
                   },
                 ].map((item, i) => (
@@ -496,7 +498,7 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <p className="text-sm text-[color:var(--muted)] mb-8 max-w-md">
-                  The core functions of the CMO role.
+                  These aren't features. They're the growth engine of the firm.
                 </p>
               </motion.div>
 
@@ -530,7 +532,7 @@ export default function AboutPage() {
                   RELEVANT EXPERIENCE
                 </span>
                 <h3 className="text-2xl font-bold text-[color:var(--navy)] font-display">
-                  Where I've done this before
+                  How I've built revenue engines in complex organizations
                 </h3>
               </motion.div>
 
@@ -560,6 +562,35 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Why This Site Exists */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-[color:var(--surface)] rounded-3xl p-12 md:p-16 shadow-[var(--shadow-soft)] border border-[color:var(--border)]"
+          >
+            <span className="text-xs font-bold tracking-widest uppercase text-[color:var(--muted)] mb-4 block">
+              WHY THIS SITE EXISTS
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--navy)] mb-6 font-display max-w-3xl">
+              This isn't a portfolio. It's how I would run UB Greensfelder's growth engine.
+            </h2>
+
+            <div className="max-w-3xl text-[color:var(--muted)] text-lg leading-relaxed space-y-4">
+              <p>
+                I built this to show the system in action — the 90-Day Plan, Referral Intelligence, and Content Engine are the
+                infrastructure I would put in place to make referrals visible, cross-sell intentional, and partner visibility easier to sustain.
+              </p>
+              <p className="text-[color:var(--navy)] font-semibold">
+                By Day 90, leadership would have line-of-sight into what actually drives growth — and the systems in place to sustain it.
+              </p>
+            </div>
+          </motion.div>
+        </section>
+
         {/* Next Steps Timeline */}
         <section>
           <motion.div
@@ -575,7 +606,7 @@ export default function AboutPage() {
                   Keep exploring.
                 </h2>
                 <p className="text-lg text-[color:var(--muted)]">
-                  See what I built.
+                  Everything below shows what that looks like in practice.
                 </p>
               </div>
 
