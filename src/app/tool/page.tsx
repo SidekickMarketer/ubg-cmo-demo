@@ -431,19 +431,19 @@ export default function ToolPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                step: "01",
+                step: "1",
                 title: "Attorney Input",
                 desc: "Attorneys share recent matters, insights, or topics they want to address.",
                 Icon: MicIcon,
               },
               {
-                step: "02",
+                step: "2",
                 title: "AI Drafts",
                 desc: "AI generates content in the attorney's voice, tailored to the platform.",
                 Icon: SparklesIcon,
               },
               {
-                step: "03",
+                step: "3",
                 title: "Review & Approve",
                 desc: "Attorney reviews, edits if needed, and approves for publishing.",
                 Icon: CheckCircle2Icon,
@@ -457,12 +457,12 @@ export default function ToolPage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-[color:var(--border)] shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-200/80 transition-all group"
               >
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-[color:var(--surface-2)] text-[color:var(--navy)] flex items-center justify-center group-hover:bg-[color:var(--navy)] group-hover:text-white transition-colors duration-300">
-                    <item.Icon className="w-6 h-6" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-[color:var(--navy)] text-white flex items-center justify-center shadow-lg shadow-gray-900/10 group-hover:scale-105 transition-transform duration-300">
+                    <item.Icon className="w-7 h-7" />
                   </div>
-                  <span className="text-4xl font-bold text-gray-100 font-display group-hover:text-gray-200 transition-colors">
-                    {item.step}
+                  <span className="text-sm font-bold text-[color:var(--muted)] uppercase tracking-widest">
+                    Step {item.step}
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-[color:var(--navy)] mb-3">
