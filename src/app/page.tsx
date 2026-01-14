@@ -440,7 +440,7 @@ function FinalCTA() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row shrink-0">
             <motion.a
-              href="mailto:kyle@sidekickmarketer.com"
+              href="mailto:kyle@naughtrip.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[color:var(--navy)] shadow-lg transition-shadow hover:shadow-xl"

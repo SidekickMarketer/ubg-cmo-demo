@@ -72,7 +72,7 @@ export default function RootLayout({
                 <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)] mb-4">Get in Touch</div>
                 <div className="space-y-3">
                   <a
-                    href="mailto:kyle@sidekickmarketer.com"
+                    href="mailto:kyle@naughtrip.com"
                     className="flex items-center gap-3 text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors group"
                   >
                     <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color:var(--surface)] border border-[color:var(--border)] group-hover:border-[color:var(--teal)] transition-colors">
@@ -80,7 +80,7 @@ export default function RootLayout({
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </span>
-                    kyle@sidekickmarketer.com
+                    kyle@naughtrip.com
                   </a>
                   <a
                     href="https://linkedin.com/in/kylenaughtrip"
@@ -101,14 +101,8 @@ export default function RootLayout({
 
             {/* Bottom bar */}
             <div className="mt-12 pt-8 border-t border-[color:var(--border)]">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="text-xs text-[color:var(--muted)]">
-                  © 2026 Kyle Naughtrip. Built with Next.js and Claude.
-                </div>
-                <div className="flex items-center gap-2 text-xs text-[color:var(--muted)]">
-                  <span className="h-2 w-2 rounded-full bg-[color:var(--teal)] animate-pulse"></span>
-                  Auto-deployed via Vercel
-                </div>
+              <div className="text-xs text-[color:var(--muted)]">
+                © 2026 Kyle Naughtrip
               </div>
             </div>
           </div>
