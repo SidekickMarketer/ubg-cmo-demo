@@ -72,7 +72,7 @@ export default function Navigation() {
                 href="/roadmap"
                 className="inline-flex items-center gap-2 rounded-full bg-[color:var(--navy)] px-5 py-2.5 text-sm font-semibold text-white shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow)] hover:-translate-y-0.5"
               >
-                <span>Start Here</span>
+                <span>See the Plan</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -124,7 +124,7 @@ export default function Navigation() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block rounded-xl bg-[color:var(--teal)] px-4 py-3 text-sm font-semibold text-white text-center mt-3"
                 >
-                  Start Here →
+                  See the Plan →
                 </Link>
               </div>
             </div>

@@ -1,55 +1,69 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 
-function Container({ children }: { children: React.ReactNode }) {
-  return <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>;
-}
+// Lucide-style icons as SVG components
+const SparklesIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+  </svg>
+);
 
-function Section({ children, className = "", alt = false }: { children: React.ReactNode; className?: string; alt?: boolean }) {
-  return (
-    <section className={`py-16 sm:py-20 lg:py-24 ${alt ? "bg-[color:var(--surface-2)] border-y border-[color:var(--border)]" : ""} ${className}`}>
-      {children}
-    </section>
-  );
-}
+const Edit3Icon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+  </svg>
+);
 
-function Card({ children, className = "", featured = false }: { children: React.ReactNode; className?: string; featured?: boolean }) {
-  return (
-    <div
-      className={[
-        "rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[var(--shadow-soft)]",
-        featured ? "border-l-[3px] border-l-[color:var(--teal)]" : "",
-        className,
-      ].join(" ")}
-    >
-      {children}
-    </div>
-  );
-}
+const FileTextIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+  </svg>
+);
 
-function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--navy)] px-6 py-3.5 text-sm font-semibold text-white shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow)] hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
-    >
-      {children}
-    </Link>
-  );
-}
+const MicIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+  </svg>
+);
 
-function SecondaryButton({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-3.5 text-sm font-semibold text-[color:var(--navy)] transition-all hover:bg-[color:var(--surface-2)] hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
-    >
-      {children}
-    </Link>
-  );
-}
+const MailIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+);
+
+const LinkedinIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
+const ZapIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>
+);
+
+const CheckCircle2Icon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const ChevronDownIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+  </svg>
+);
+
+const ArrowRightIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+  </svg>
+);
 
 const PRACTICES = [
   "Franchise Law",
@@ -62,10 +76,10 @@ const PRACTICES = [
 ] as const;
 
 const CONTENT_TYPES = [
-  { id: "linkedin", label: "LinkedIn Post", description: "Build visibility on social", icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
-  { id: "article", label: "Blog Article", description: "In-depth insights and analysis", icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" },
-  { id: "speaking", label: "Speaking Topics", description: "Pitch ideas for events", icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" },
-  { id: "newsletter", label: "Email Newsletter", description: "Keep clients informed", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+  { id: "linkedin", label: "LinkedIn Post", icon: LinkedinIcon },
+  { id: "article", label: "Blog Article", icon: FileTextIcon },
+  { id: "speaking", label: "Speaking Topics", icon: MicIcon },
+  { id: "newsletter", label: "Email Newsletter", icon: MailIcon },
 ] as const;
 
 export default function ToolPage() {
@@ -125,362 +139,456 @@ export default function ToolPage() {
     setOutput("");
   };
 
+  const scrollToDemo = () => {
+    const demoSection = document.getElementById("demo-section");
+    if (demoSection) {
+      demoSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
-    <div>
-      {/* Hero */}
-      <Container>
-        <Section className="pb-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--teal)]/20 bg-[color:var(--teal)]/5 px-4 py-1.5 text-sm font-medium text-[color:var(--teal)]">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Interactive Demo
+    <div className="pt-32 pb-24 bg-[color:var(--background)] min-h-screen">
+      <div className="px-4 md:px-8 max-w-7xl mx-auto">
+        {/* Hero Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20 mb-6">
+              <SparklesIcon className="w-3 h-3" />
+              AI Content
             </div>
-            <h1 className="h1 mt-6 text-[color:var(--navy)]">AI Content Studio</h1>
-            <p className="mt-5 text-lg text-[color:var(--muted)] leading-relaxed">
-              Turn attorney expertise into ready-to-publish content. Pick a topic, AI writes the draft, they review and post.
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] leading-[1.1] tracking-tight font-display">
+              Content Engine
+            </h1>
+
+            <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed">
+              Here&apos;s how I&apos;d solve the attorney content bottleneck. Attorneys
+              provide the expertise, AI handles the drafting, they review and
+              approve.
             </p>
 
-            <p className="mt-6 text-sm text-[color:var(--muted)]">
-              This is a working prototype. Try it below.
-            </p>
-          </div>
+            <motion.button
+              onClick={scrollToDemo}
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 px-8 py-4 text-white text-base font-bold bg-[color:var(--navy)] rounded-full transition-all shadow-xl shadow-gray-200 hover:shadow-2xl group"
+            >
+              See how it works
+              <ChevronDownIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            </motion.button>
+          </motion.div>
 
-          {/* Why This Matters Banner */}
-          <Card className="mt-8 p-6" featured>
-            <div className="flex items-start gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[color:var(--teal)]/10">
-                <svg className="h-5 w-5 text-[color:var(--teal)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <div className="font-semibold text-[color:var(--navy)]">Why This Matters</div>
-                <p className="mt-2 text-sm text-[color:var(--muted)] leading-relaxed">
-                  <strong className="text-[color:var(--navy)]">70% of clients choose based on the individual attorney</strong>, not the firm.
-                  But attorneys don&apos;t have time to build visibility. This removes the bottleneck: they spend 5 minutes,
-                  marketing handles the rest.
+          {/* Why This Matters Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <div className="bg-[color:var(--navy)] rounded-3xl p-8 md:p-12 text-white shadow-2xl shadow-gray-900/20 relative overflow-hidden">
+              <div className="relative z-10">
+                <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-6 block">
+                  The Challenge
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
+                  48% of in-house counsel say midsize firms are more responsive.
+                </h3>
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  But attorneys don&apos;t have time to build visibility. This
+                  removes the bottleneck: 5 minutes of their time, marketing
+                  handles execution.
                 </p>
-              </div>
-            </div>
-          </Card>
-        </Section>
-      </Container>
 
-      {/* Tool Interface */}
-      <Section alt>
-        <Container>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {/* Input Panel */}
-            <Card className="overflow-hidden">
-              <div className="border-b border-[color:var(--border)] bg-[color:var(--surface-2)] px-6 py-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color:var(--navy)]">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <div className="text-sm font-semibold text-[color:var(--navy)]">Generate Content</div>
-                    <div className="text-xs text-[color:var(--muted)]">Attorney time required: ~5 minutes</div>
+                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3].map((i) => (
+                      <div
+                        key={i}
+                        className="w-8 h-8 rounded-full bg-gray-600 border-2 border-[color:var(--navy)] flex items-center justify-center text-[10px] font-bold"
+                      >
+                        {i}
+                      </div>
+                    ))}
                   </div>
+                  <span className="text-sm text-gray-400">
+                    Scales across the firm
+                  </span>
                 </div>
               </div>
 
-              <div className="p-6 space-y-6">
-                {/* Practice Area */}
-                <label className="block">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)] mb-2">Practice Area</div>
-                  <select
-                    className="w-full rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm text-[color:var(--navy)] focus:outline-none focus:ring-2 focus:ring-[color:var(--teal)] focus:border-transparent transition-all"
-                    value={practice}
-                    onChange={(e) => setPractice(e.target.value)}
-                  >
-                    <option value="">Select a practice area...</option>
-                    {PRACTICES.map((p) => (
-                      <option key={p} value={p}>
-                        {p}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[color:var(--teal)] opacity-5 blur-[100px] rounded-full pointer-events-none" />
+            </div>
+          </motion.div>
+        </div>
 
-                {/* Content Type Cards */}
+        {/* Interactive Demo Section */}
+        <div id="demo-section" className="scroll-mt-32 mb-24">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold tracking-widest uppercase text-[color:var(--muted)]">
+              Working Prototype
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] font-display">
+              How it works
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Left Column: Input */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-3xl p-8 md:p-10 shadow-lg shadow-gray-200/50 border border-[color:var(--border)] flex flex-col"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 rounded-full bg-[color:var(--navy)] flex items-center justify-center text-white shadow-lg shadow-gray-900/20">
+                  <Edit3Icon className="w-5 h-5" />
+                </div>
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)] mb-3">Content Type</div>
+                  <h3 className="text-xl font-bold text-[color:var(--navy)]">
+                    Attorney Input
+                  </h3>
+                  <p className="text-sm text-[color:var(--muted)]">
+                    What they want to write about
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-8 flex-1">
+                {/* Practice Area */}
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-[color:var(--muted)] uppercase tracking-widest">
+                    Practice Area
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={practice}
+                      onChange={(e) => setPractice(e.target.value)}
+                      className="w-full p-4 pr-10 rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-2)] focus:outline-none focus:ring-2 focus:ring-[color:var(--teal)] focus:border-transparent transition-all appearance-none font-medium text-[color:var(--navy)] cursor-pointer hover:bg-[color:var(--surface)]"
+                    >
+                      <option value="" disabled>
+                        Select a practice area...
+                      </option>
+                      {PRACTICES.map((area) => (
+                        <option key={area} value={area}>
+                          {area}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDownIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[color:var(--muted)] pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Content Type */}
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-[color:var(--muted)] uppercase tracking-widest">
+                    Content Type
+                  </label>
                   <div className="grid grid-cols-2 gap-3">
-                    {CONTENT_TYPES.map((t) => {
-                      const active = t.id === contentType;
+                    {CONTENT_TYPES.map((type) => {
+                      const Icon = type.icon;
+                      const isSelected = contentType === type.id;
                       return (
                         <button
-                          key={t.id}
-                          type="button"
-                          onClick={() => setContentType(t.id)}
-                          className={[
-                            "rounded-xl border-2 p-4 text-left transition-all focus:outline-none focus:ring-2 focus:ring-[color:var(--teal)] focus:ring-offset-2",
-                            active
-                              ? "border-[color:var(--teal)] bg-[color:var(--teal)]/5"
-                              : "border-[color:var(--border)] hover:border-[color:var(--muted)]/50 hover:bg-[color:var(--surface-2)]",
-                          ].join(" ")}
+                          key={type.id}
+                          onClick={() => setContentType(type.id)}
+                          className={`
+                            p-4 rounded-xl border text-left transition-all duration-200 flex items-center gap-3 relative overflow-hidden group
+                            ${isSelected ? "border-[color:var(--navy)] bg-[color:var(--navy)] text-white shadow-lg shadow-gray-900/20" : "border-[color:var(--border)] bg-white hover:border-[color:var(--muted)]/50 hover:bg-[color:var(--surface-2)] text-[color:var(--muted)]"}
+                          `}
                         >
-                          <div className="flex items-center gap-3">
-                            <span className={[
-                              "flex h-8 w-8 items-center justify-center rounded-lg transition-colors",
-                              active ? "bg-[color:var(--teal)]/10" : "bg-[color:var(--surface-2)]"
-                            ].join(" ")}>
-                              <svg className={["w-4 h-4", active ? "text-[color:var(--teal)]" : "text-[color:var(--muted)]"].join(" ")} fill={t.id === "linkedin" ? "currentColor" : "none"} stroke={t.id === "linkedin" ? "none" : "currentColor"} viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={t.icon} />
-                              </svg>
-                            </span>
-                            <div>
-                              <div className={["text-sm font-medium", active ? "text-[color:var(--teal)]" : "text-[color:var(--navy)]"].join(" ")}>{t.label}</div>
-                            </div>
-                          </div>
-                          <div className="mt-2 text-xs text-[color:var(--muted)]">{t.description}</div>
+                          <Icon
+                            className={`w-5 h-5 shrink-0 ${isSelected ? "text-[color:var(--teal)]" : "text-[color:var(--muted)] group-hover:text-[color:var(--navy)]"}`}
+                          />
+                          <span
+                            className={`font-bold text-sm ${isSelected ? "text-white" : "text-[color:var(--navy)]"}`}
+                          >
+                            {type.label}
+                          </span>
                         </button>
                       );
                     })}
                   </div>
                 </div>
 
-                {/* Optional Topic */}
-                <label className="block">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)] mb-2">Specific Topic (optional)</div>
+                {/* Specific Topic */}
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-[color:var(--muted)] uppercase tracking-widest">
+                    Topic (Optional)
+                  </label>
                   <input
-                    className="w-full rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm text-[color:var(--navy)] placeholder:text-[color:var(--muted)]/60 focus:outline-none focus:ring-2 focus:ring-[color:var(--teal)] focus:border-transparent transition-all"
-                    placeholder="e.g., Recent FTC franchise rule changes"
+                    type="text"
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
+                    placeholder="e.g., Recent FTC franchise rule changes"
+                    className="w-full p-4 rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-2)] focus:outline-none focus:ring-2 focus:ring-[color:var(--teal)] focus:border-transparent transition-all font-medium text-[color:var(--navy)] placeholder:text-[color:var(--muted)]"
                   />
-                </label>
+                </div>
+              </div>
 
-                {/* Generate Button */}
+              {/* Generate Button */}
+              <div className="mt-8 pt-8 border-t border-[color:var(--border)]">
                 <button
-                  type="button"
                   onClick={handleGenerate}
                   disabled={!practice || !contentType || isGenerating}
-                  className={[
-                    "w-full rounded-xl px-5 py-4 text-sm font-semibold shadow-[var(--shadow-soft)] transition-all focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]",
-                    !practice || !contentType || isGenerating
-                      ? "cursor-not-allowed bg-[color:var(--surface-2)] text-[color:var(--muted)] border border-[color:var(--border)]"
-                      : "bg-[color:var(--teal)] text-white hover:opacity-95 hover:-translate-y-0.5 hover:shadow-[var(--shadow)]",
-                  ].join(" ")}
+                  className={`
+                    w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-lg
+                    ${!practice || !contentType || isGenerating ? "bg-[color:var(--surface-2)] text-[color:var(--muted)] cursor-not-allowed shadow-none border border-[color:var(--border)]" : "bg-[color:var(--teal)] text-white hover:opacity-95 hover:-translate-y-0.5 hover:shadow-xl"}
+                  `}
                 >
                   {isGenerating ? (
-                    <span className="flex items-center justify-center gap-3">
-                      <svg
-                        className="h-5 w-5 animate-spin"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      Generating content...
-                    </span>
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Generating...
+                    </>
                   ) : (
-                    <span className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      Generate Content
-                    </span>
+                    <>
+                      <ZapIcon className="w-5 h-5" />
+                      Generate Draft
+                    </>
                   )}
                 </button>
 
-                <p className="text-center text-xs text-[color:var(--muted)]">
+                <p className="text-center text-xs text-[color:var(--muted)] mt-4">
                   <span className="inline-flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     Powered by Claude API — this generates real content
                   </span>
                 </p>
               </div>
-            </Card>
+            </motion.div>
 
-            {/* Output Panel */}
-            <Card className="overflow-hidden flex flex-col">
-              <div className="border-b border-[color:var(--border)] bg-[color:var(--surface-2)] px-6 py-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color:var(--teal)]">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <div className="text-sm font-semibold text-[color:var(--navy)]">Generated Content</div>
-                    <div className="text-xs text-[color:var(--muted)]">Ready for review</div>
-                  </div>
+            {/* Right Column: Output */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white rounded-3xl p-8 md:p-10 shadow-lg shadow-gray-200/50 border border-[color:var(--border)] flex flex-col h-full"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 rounded-full bg-[color:var(--teal)]/10 flex items-center justify-center text-[color:var(--navy)] border border-[color:var(--teal)]/20">
+                  <FileTextIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[color:var(--navy)]">
+                    Generated Draft
+                  </h3>
+                  <p className="text-sm text-[color:var(--muted)]">
+                    Ready for attorney review
+                  </p>
                 </div>
               </div>
 
-              <div className="flex-1 p-6">
-                <div
-                  className={[
-                    "min-h-[400px] rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-2)] p-5",
-                    !output ? "flex items-center justify-center" : "",
-                  ].join(" ")}
-                >
-                  {output ? (
-                    <pre className="whitespace-pre-wrap font-sans text-sm text-[color:var(--navy)] leading-relaxed">{output}</pre>
-                  ) : (
-                    <div className="text-center">
-                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[color:var(--surface)] border border-[color:var(--border)]">
-                        <svg
-                          className="h-8 w-8 text-[color:var(--muted)]/50"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.5}
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-[color:var(--muted)]">Select options and click Generate</p>
-                      <p className="mt-1 text-xs text-[color:var(--muted)]/70">Your draft will appear here</p>
+              <div className="flex-1 bg-[color:var(--surface-2)] rounded-2xl border border-[color:var(--border)] p-8 flex flex-col relative overflow-hidden min-h-[400px]">
+                {output ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-left w-full h-full overflow-y-auto whitespace-pre-wrap font-sans text-sm text-[color:var(--navy)] leading-relaxed"
+                  >
+                    {output}
+                  </motion.div>
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                    <div className="w-16 h-16 bg-white rounded-2xl border border-[color:var(--border)] flex items-center justify-center mb-6 shadow-sm">
+                      <SparklesIcon className="w-8 h-8 text-[color:var(--muted)]/50" />
                     </div>
-                  )}
-                </div>
-
-                {output && (
-                  <div className="mt-4 flex gap-3">
-                    <button
-                      onClick={handleCopy}
-                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--navy)] transition-all hover:bg-[color:var(--surface-2)]"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                      Copy to Clipboard
-                    </button>
-                    <button
-                      onClick={handleClear}
-                      className="rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--navy)] transition-all hover:bg-[color:var(--surface-2)]"
-                    >
-                      Clear
-                    </button>
+                    <h3 className="text-[color:var(--navy)] font-medium mb-2">
+                      Ready to generate
+                    </h3>
+                    <p className="text-[color:var(--muted)] text-sm max-w-xs">
+                      Select your parameters and click Generate. Your draft will
+                      appear here.
+                    </p>
                   </div>
                 )}
               </div>
-            </Card>
-          </div>
-        </Container>
-      </Section>
 
-      {/* How This Works Section */}
-      <Container>
-        <Section>
-          <Card className="p-8 sm:p-10 lg:p-12" featured>
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="h2 text-[color:var(--navy)]">How It Works</h2>
-              <p className="mt-4 text-[color:var(--muted)]">
-                Three steps. Minutes, not hours.
+              {output && (
+                <div className="mt-4 flex gap-3">
+                  <button
+                    onClick={handleCopy}
+                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-[color:var(--border)] bg-white px-4 py-3 text-sm font-medium text-[color:var(--navy)] transition-all hover:bg-[color:var(--surface-2)]"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    Copy to Clipboard
+                  </button>
+                  <button
+                    onClick={handleClear}
+                    className="rounded-xl border border-[color:var(--border)] bg-white px-4 py-3 text-sm font-medium text-[color:var(--navy)] transition-all hover:bg-[color:var(--surface-2)]"
+                  >
+                    Clear
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        </div>
+
+        {/* How It Works Section */}
+        <div className="mb-24">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] font-display">
+              Three steps, five minutes
+            </h2>
+            <p className="text-xl text-[color:var(--muted)] max-w-2xl mx-auto">
+              Simple by design.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Attorney Input",
+                desc: "Attorneys share recent matters, insights, or topics they want to address.",
+                Icon: MicIcon,
+              },
+              {
+                step: "02",
+                title: "AI Drafts",
+                desc: "AI generates content in the attorney's voice, tailored to the platform.",
+                Icon: SparklesIcon,
+              },
+              {
+                step: "03",
+                title: "Review & Approve",
+                desc: "Attorney reviews, edits if needed, and approves for publishing.",
+                Icon: CheckCircle2Icon,
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white p-8 rounded-3xl border border-[color:var(--border)] shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-200/80 transition-all group"
+              >
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-[color:var(--surface-2)] text-[color:var(--navy)] flex items-center justify-center group-hover:bg-[color:var(--navy)] group-hover:text-white transition-colors duration-300">
+                    <item.Icon className="w-6 h-6" />
+                  </div>
+                  <span className="text-4xl font-bold text-gray-100 font-display group-hover:text-gray-200 transition-colors">
+                    {item.step}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-[color:var(--navy)] mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-[color:var(--muted)] leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strategic Impact */}
+        <div className="mb-24">
+          <div className="bg-[color:var(--navy)] rounded-3xl p-8 md:p-12 text-white shadow-2xl shadow-gray-900/20">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+              <div>
+                <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 block">
+                  Strategic Impact
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold leading-tight font-display">
+                  What this enables
+                </h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Scale",
+                  desc: "More attorneys participating without adding headcount",
+                },
+                {
+                  title: "Consistency",
+                  desc: "On-brand content across every practice area",
+                },
+                {
+                  title: "Speed",
+                  desc: "Days to publish, not weeks",
+                },
+                {
+                  title: "Participation",
+                  desc: "Low time commitment drives higher attorney buy-in",
+                },
+              ].map((benefit, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white/5 rounded-2xl p-6 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group flex flex-col h-full"
+                >
+                  <h4 className="font-bold text-white mb-2 text-lg group-hover:text-[color:var(--teal)] transition-colors">
+                    {benefit.title}
+                  </h4>
+                  <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                    {benefit.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-[color:var(--navy)] rounded-3xl p-12 md:p-16 text-white shadow-2xl shadow-gray-900/20 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[color:var(--teal)]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+
+          <div className="relative z-10">
+            <div className="max-w-2xl mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
+                See the other systems
+              </h2>
+              <p className="text-gray-400 text-lg">
+                This is one piece of the growth engine. Explore the full
+                strategy.
               </p>
             </div>
 
-            <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-              {[
-                {
-                  step: "1",
-                  title: "Attorney Input",
-                  desc: "Attorneys share recent matters, insights, or topics they want to address.",
-                  color: "navy",
-                },
-                {
-                  step: "2",
-                  title: "AI Drafts",
-                  desc: "AI generates content in the attorney's voice, tailored to the platform and audience.",
-                  color: "teal",
-                },
-                {
-                  step: "3",
-                  title: "Review & Post",
-                  desc: "Attorney reviews the draft, makes any edits, and approves or posts directly.",
-                  color: "navy",
-                },
-              ].map((item, i) => (
-                <div key={item.step} className="text-center relative">
-                  <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-2xl ${item.color === "teal" ? "bg-[color:var(--teal)]" : "bg-[color:var(--navy)]"}`}>
-                    <span className="text-xl font-bold text-white">{item.step}</span>
-                  </div>
-                  {i < 2 && (
-                    <div className="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-0.5 bg-gradient-to-r from-[color:var(--border)] to-[color:var(--border)]" />
-                  )}
-                  <h3 className="mt-5 font-display text-lg font-semibold text-[color:var(--navy)]">{item.title}</h3>
-                  <p className="mt-3 text-sm text-[color:var(--muted)] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 rounded-2xl bg-[color:var(--surface-2)] p-6 border border-[color:var(--border)]">
-              <div className="text-sm font-semibold text-[color:var(--navy)]">What This Enables</div>
-              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {[
-                  { label: "Scale", desc: "More attorneys participating without adding headcount" },
-                  { label: "Consistency", desc: "On-brand content across every practice area" },
-                  { label: "Speed", desc: "Days to publish, not weeks" },
-                  { label: "Buy-In", desc: "Low time commitment means higher participation" },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-xl bg-[color:var(--surface)] p-4 border border-[color:var(--border)]">
-                    <div className="text-sm font-semibold text-[color:var(--navy)]">{item.label}</div>
-                    <div className="mt-2 text-sm text-[color:var(--muted)]">{item.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Card>
-        </Section>
-      </Container>
-
-      {/* CTA */}
-      <Container>
-        <Section className="pb-8">
-          <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow-lg)] sm:p-10 lg:p-12">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-xl">
-                <h2 className="h2 text-white">See the full strategy.</h2>
-                <p className="mt-3 text-base text-white/70 leading-relaxed">
-                  This tool is one piece of a larger plan. Check out the 90-day roadmap or explore the referral intelligence prototype.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row shrink-0">
-                <Link
-                  href="/roadmap"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[color:var(--navy)] shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow)] hover:-translate-y-0.5"
-                >
-                  90-Day Plan
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/referrals"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
-                >
-                  Referral Intelligence
-                </Link>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/referrals"
+                className="flex items-center justify-center gap-2 bg-white text-[color:var(--navy)] px-8 py-4 rounded-full text-base font-bold hover:bg-gray-100 transition-colors shadow-lg"
+              >
+                Referral Intelligence
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/roadmap"
+                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full text-base font-bold border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all"
+              >
+                90-Day Plan
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
             </div>
           </div>
-        </Section>
-      </Container>
+        </motion.div>
+      </div>
     </div>
   );
 }

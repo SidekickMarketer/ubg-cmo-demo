@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
    CountUp – animates a number from 0 to target when in view
-   ───────────────────────────────────────────────────────────── */
+───────────────────────────────────────────────────────────── */
 function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
@@ -34,436 +35,454 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   }, [isInView, to]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className="inline-flex items-baseline">
       {count}
-      {suffix}
+      {suffix && (
+        <span className="text-2xl md:text-3xl text-gray-400 ml-1 font-medium -translate-y-1">
+          {suffix}
+        </span>
+      )}
     </span>
   );
 }
 
-function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-6xl px-6 lg:px-10 ${className}`}>{children}</div>;
-}
+/* ─────────────────────────────────────────────────────────────
+   Hero Section
+───────────────────────────────────────────────────────────── */
+function Hero() {
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects-section");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
-function Section({
-  children,
-  className = "",
-  id,
-  alt = false,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
-  alt?: boolean;
-}) {
   return (
-    <section
-      id={id}
-      className={`py-16 sm:py-20 lg:py-24 ${alt ? "bg-[color:var(--surface-2)] border-y border-[color:var(--border)]" : ""} ${className}`}
-    >
-      {children}
+    <section className="pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Left Content */}
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] leading-[1.1] tracking-tight font-serif">
+              Hi, I'm Kyle Naughtrip.
+            </h1>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed"
+          >
+            I want to lead marketing at UB Greensfelder. To show what that looks
+            like, I built a 90-day plan and two working systems.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="flex flex-col items-start gap-4"
+          >
+            <Link href="/roadmap">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2 bg-[color:var(--navy)] text-white px-8 py-4 rounded-full text-base font-bold hover:opacity-95 transition-all shadow-xl shadow-gray-200 hover:shadow-2xl hover:-translate-y-0.5 group"
+              >
+                See the 90-Day Plan
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </Link>
+
+            <button
+              onClick={scrollToProjects}
+              className="flex items-center gap-2 text-[color:var(--muted)] hover:text-[color:var(--navy)] transition-colors text-base font-medium group"
+            >
+              Or explore the systems
+              <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Right Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative"
+        >
+          <div className="aspect-[4/5] md:aspect-square rounded-3xl overflow-hidden bg-[color:var(--surface)] shadow-2xl shadow-gray-200/50 border border-[color:var(--border)]">
+            <Image
+              src="/kyle.jpeg"
+              alt="Kyle Naughtrip"
+              width={600}
+              height={600}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
 
-function Card({
-  children,
-  className = "",
-  hover = true,
-  featured = false,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  hover?: boolean;
-  featured?: boolean;
-}) {
+/* ─────────────────────────────────────────────────────────────
+   Stats Section
+───────────────────────────────────────────────────────────── */
+function StatsSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div
-      className={[
-        "rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[var(--shadow-soft)]",
-        hover ? "transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow)]" : "",
-        featured ? "border-l-[3px] border-l-[color:var(--teal)]" : "",
-        className,
-      ].join(" ")}
-    >
-      {children}
-    </div>
+    <section className="px-4 md:px-8 pb-16 max-w-7xl mx-auto">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="bg-[color:var(--navy)] rounded-3xl p-8 md:p-12 text-white shadow-2xl shadow-gray-900/20 relative overflow-hidden"
+      >
+        {/* Header */}
+        <div className="relative z-10 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <motion.div variants={itemVariants} className="max-w-3xl">
+              <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 block">
+                The Strategic Thesis
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
+                Corporate counsel are shifting work to midsize firms. They want
+                value, responsiveness, and senior attention.
+              </h2>
+              <p className="text-gray-400 text-lg">
+                UB Greensfelder is positioned perfectly for this moment.
+              </p>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <Link
+                href="/roadmap"
+                className="flex items-center gap-2 text-[color:var(--teal-light)] hover:text-white transition-colors text-base font-bold whitespace-nowrap group bg-white/5 px-6 py-3 rounded-full hover:bg-white/10"
+              >
+                See the roadmap
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Stats Grid */}
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10"
+        >
+          {/* Card 1 */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
+          >
+            <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
+              The Shift Is Happening
+            </h3>
+            <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
+              <CountUp to={35} suffix="%" />
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+              of in-house counsel shifted work to midsize firms last year
+            </p>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
+          >
+            <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
+              Value Wins
+            </h3>
+            <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
+              <CountUp to={98} suffix="%" />
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+              cite value delivery as the top factor in selecting counsel
+            </p>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div
+            variants={itemVariants}
+            className="bg-[#252830] rounded-2xl p-8 border border-white/5 hover:border-[color:var(--teal)]/30 transition-colors duration-300 group"
+          >
+            <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 group-hover:text-gray-300 transition-colors">
+              Midsize Delivers
+            </h3>
+            <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
+              <CountUp to={48} suffix="%" />
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+              say midsize firms are more agile and responsive
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Footer Note */}
+        <motion.div variants={itemVariants} className="mt-10 text-xs text-gray-500">
+          Sources linked in the appendix
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }
 
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-white/80 px-4 py-1.5 text-sm font-medium text-[color:var(--muted)] backdrop-blur shadow-sm">
-      <span className="h-2 w-2 rounded-full bg-[color:var(--teal)] animate-pulse" />
-      {children}
-    </span>
-  );
-}
-
-function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--navy)] px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow)] hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
-    >
-      {children}
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-      </svg>
-    </Link>
-  );
-}
-
-function SecondaryButton({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-6 py-3 text-sm font-semibold text-[color:var(--navy)] transition-all hover:bg-[color:var(--surface-2)] hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
-    >
-      {children}
-    </Link>
-  );
-}
-
-function MiniStat({
-  label,
-  value,
-  sub,
-  index = 0,
-}: {
-  label: string;
-  value: number;
-  sub: string;
-  index?: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="rounded-2xl bg-[color:var(--navy)] p-8 transition-all duration-300 hover:scale-[1.02] group"
-    >
-      <div className="text-xs font-bold uppercase tracking-widest text-white/50 group-hover:text-white/70 transition-colors">{label}</div>
-      <div className="mt-4 text-5xl lg:text-6xl font-bold tracking-tight text-white tabular-nums">
-        <CountUp to={value} suffix="%" />
-      </div>
-      <div className="mt-4 text-sm text-white/60 leading-relaxed group-hover:text-white/80 transition-colors">{sub}</div>
-    </motion.div>
-  );
-}
-
-function BentoTile({
-  number,
-  eyebrow,
-  title,
-  desc,
-  href,
-  tone = "light",
-  index = 0,
-}: {
+/* ─────────────────────────────────────────────────────────────
+   Project Card
+───────────────────────────────────────────────────────────── */
+interface ProjectCardProps {
   number: string;
-  eyebrow: string;
+  category: string;
   title: string;
-  desc: string;
+  description: string;
+  variant: "dark" | "light";
+  linkText?: string;
+  index: number;
   href: string;
-  tone?: "light" | "dark";
-  index?: number;
-}) {
-  const dark = tone === "dark";
+}
+
+function ProjectCard({
+  number,
+  category,
+  title,
+  description,
+  variant,
+  linkText = "Explore",
+  index,
+  href,
+}: ProjectCardProps) {
+  const isDark = variant === "dark";
+
   return (
-    <Link href={href} className="group block h-full">
+    <Link href={href} className="block h-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        whileHover={{ scale: 1.02, y: -4 }}
-        className={[
-          "h-full rounded-2xl border p-6 sm:p-7 shadow-[var(--shadow-soft)] transition-shadow duration-200 group-hover:shadow-[var(--shadow)]",
-          dark
-            ? "border-white/10 bg-[color:var(--navy)] text-white"
-            : "border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--navy)]",
-        ].join(" ")}
+        whileHover={{ scale: 1.02 }}
+        className={`
+          relative p-8 md:p-10 rounded-3xl flex flex-col transition-all duration-300 group h-full
+          ${
+            isDark
+              ? "bg-[color:var(--navy)] text-white shadow-xl shadow-gray-900/10 hover:shadow-2xl hover:shadow-gray-900/20"
+              : "bg-[color:var(--surface)] text-[color:var(--navy)] border border-[color:var(--border)] shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-200/80 hover:border-gray-200"
+          }
+        `}
       >
-        <div className="flex items-center gap-3">
-          <span
-            className={[
-              "inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold",
-              dark ? "bg-white/10 text-white" : "bg-[color:var(--teal)]/10 text-[color:var(--teal)]",
-            ].join(" ")}
+        <div className="flex items-center gap-3 mb-6">
+          <div
+            className={`
+              w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border
+              ${isDark ? "bg-white/5 text-white border-white/10" : "bg-[color:var(--surface-2)] text-[color:var(--navy)] border-[color:var(--border)]"}
+            `}
           >
             {number}
-          </span>
-          <span className={dark ? "text-xs font-semibold uppercase tracking-wider text-white/60" : "text-xs font-semibold uppercase tracking-wider text-[color:var(--muted)]"}>
-            {eyebrow}
+          </div>
+          <span
+            className={`
+              text-xs font-bold tracking-widest uppercase
+              ${isDark ? "text-gray-400" : "text-[color:var(--muted)]"}
+            `}
+          >
+            {category}
           </span>
         </div>
-        <div className="mt-4 font-display text-xl font-semibold tracking-tight">{title}</div>
-        <p className={["mt-2 text-sm leading-relaxed", dark ? "text-white/70" : "text-[color:var(--muted)]"].join(" ")}>
-          {desc}
+
+        <h3 className="text-2xl md:text-3xl font-bold mb-4 font-serif">{title}</h3>
+
+        <p
+          className={`
+            mb-8 text-base leading-relaxed
+            ${isDark ? "text-gray-400" : "text-[color:var(--muted)]"}
+          `}
+        >
+          {description}
         </p>
 
-        <div className={["mt-6 flex items-center gap-2 text-sm font-semibold transition-colors", dark ? "text-white group-hover:text-[color:var(--teal-light)]" : "text-[color:var(--teal)]"].join(" ")}>
-          <span>Explore</span>
-          <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+        <div className="mt-auto">
+          <div
+            className={`
+              flex items-center gap-2 text-sm font-bold transition-colors
+              ${isDark ? "text-white group-hover:text-[color:var(--teal-light)]" : "text-[color:var(--navy)] group-hover:text-[color:var(--teal)]"}
+            `}
+          >
+            {linkText}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </div>
         </div>
       </motion.div>
     </Link>
   );
 }
 
+/* ─────────────────────────────────────────────────────────────
+   Projects Section
+───────────────────────────────────────────────────────────── */
+function ProjectsSection() {
+  return (
+    <section id="projects-section" className="px-4 md:px-8 py-24 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16 space-y-4"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--navy)] font-serif">
+          Here's what I built.
+        </h2>
+        <p className="text-xl text-[color:var(--muted)] max-w-2xl mx-auto">
+          A strategy, two working systems, and context on me.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <ProjectCard
+          index={0}
+          number="1"
+          category="Strategy"
+          title="90-Day Plan"
+          description="Listen first, prove the model, then scale what works. Concrete deliverables by Day 90."
+          variant="dark"
+          linkText="See the plan"
+          href="/roadmap"
+        />
+
+        <ProjectCard
+          index={1}
+          number="2"
+          category="AI Dashboard"
+          title="Referral Intelligence"
+          description="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention. No extra system to manage."
+          variant="light"
+          linkText="See the dashboard"
+          href="/referrals"
+        />
+
+        <ProjectCard
+          index={2}
+          number="3"
+          category="AI Content"
+          title="Content Engine"
+          description="Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve and post."
+          variant="light"
+          linkText="See how it works"
+          href="/tool"
+        />
+
+        <ProjectCard
+          index={3}
+          number="4"
+          category="Background"
+          title="Why Kyle"
+          description="Agency speed meets in-house judgment. 15 years building marketing that drives revenue."
+          variant="light"
+          linkText="See my background"
+          href="/about"
+        />
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Final CTA Section
+───────────────────────────────────────────────────────────── */
+function FinalCTA() {
+  return (
+    <section className="px-4 md:px-8 pb-24 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-2xl shadow-gray-900/20 sm:p-10 lg:p-12 relative overflow-hidden"
+      >
+        {/* Decorative blur */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[color:var(--teal)] opacity-5 blur-[100px] rounded-full pointer-events-none" />
+
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between relative z-10">
+          <div className="max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold font-serif">
+              If this resonates, I'd love to talk.
+            </h2>
+            <p className="mt-3 text-base text-white/70 leading-relaxed">
+              Reach out directly or keep exploring.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row shrink-0">
+            <motion.a
+              href="mailto:kyle@sidekickmarketer.com"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-[color:var(--navy)] shadow-lg transition-shadow hover:shadow-xl"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span>Email me</span>
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/kylenaughtrip"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              <span>LinkedIn</span>
+            </motion.a>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Main Page
+───────────────────────────────────────────────────────────── */
 export default function HomePage() {
   return (
-    <div>
-      {/* HERO */}
-      <Container>
-        <Section className="pb-8">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-xl">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="h1 text-[color:var(--navy)]"
-              >
-                Hi, I&apos;m Kyle Naughtrip.
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="mt-5 text-xl leading-relaxed text-[color:var(--muted)]"
-              >
-                I want to lead marketing at UB Greensfelder. So I built what I&apos;d actually deliver: a 90-day plan and two working prototypes.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
-              >
-                <PrimaryButton href="/roadmap">See the 90-Day Plan</PrimaryButton>
-                <SecondaryButton href="#explore">What&apos;s inside</SecondaryButton>
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
-              <Image
-                src="/kyle.jpeg"
-                alt="Kyle Naughtrip"
-                width={420}
-                height={520}
-                className="w-80 h-[400px] lg:w-[420px] lg:h-[520px] rounded-3xl object-cover object-top shadow-2xl shadow-gray-300/50 shrink-0"
-              />
-            </motion.div>
-          </div>
-        </Section>
-      </Container>
-
-      {/* STAT STRIP */}
-      <Section alt>
-        <Container>
-          {/* Thesis Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-[color:var(--navy)] p-8 shadow-[var(--shadow-lg)] sm:p-10 lg:p-14"
-          >
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-3xl">
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-xs font-bold uppercase tracking-widest text-white/50"
-                >
-                  The Strategic Thesis
-                </motion.div>
-                <motion.h2
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="h2 mt-5 text-white leading-tight"
-                >
-                  Firms like UB Greensfelder grow through referrals, attorney visibility, and client retention. Not campaigns.
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="mt-5 text-lg text-white/60 leading-relaxed"
-                >
-                  The plan is built around these three realities.
-                </motion.p>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <Link href="/roadmap" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--teal-light)] hover:text-white transition-colors shrink-0 group bg-white/5 px-5 py-2.5 rounded-full hover:bg-white/10">
-                  <span>See the roadmap</span>
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Stats Cards - Outside the navy block */}
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            <MiniStat index={0} label="Referrals drive selection" value={86} sub="of general counsel find outside counsel through peer referrals" />
-            <MiniStat index={1} label="Clients choose the lawyer" value={70} sub="choose based on the individual lawyer, not the firm's reputation" />
-            <MiniStat index={2} label="Price is rarely the driver" value={6} sub="say price is their primary factor when choosing counsel" />
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-6 text-xs text-[color:var(--muted)]"
-          >
-            Sources linked in the site (appendix)
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* WHAT'S INSIDE BENTO */}
-      <Container>
-        <Section id="explore">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto mb-12"
-          >
-            <h2 className="h2 text-[color:var(--navy)]">
-              Here&apos;s what I built.
-            </h2>
-            <p className="mt-3 text-lg text-[color:var(--muted)]">
-              A strategy, two working prototypes, and the context on me.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <BentoTile
-                index={0}
-                number="1"
-                eyebrow="Strategy"
-                title="90-Day Plan"
-                desc="Listen first, prove the model, then scale what works. Concrete deliverables by Day 90."
-                href="/roadmap"
-                tone="dark"
-              />
-            </div>
-
-            <div className="lg:col-span-5">
-              <BentoTile
-                index={1}
-                number="2"
-                eyebrow="AI Dashboard"
-                title="Referral Intelligence"
-                desc="An AI layer on your existing data. Surfaces who drives revenue and which relationships need attention. No extra system to manage."
-                href="/referrals"
-                tone="light"
-              />
-            </div>
-
-            <div className="lg:col-span-5">
-              <BentoTile
-                index={2}
-                number="3"
-                eyebrow="AI Tool"
-                title="AI Content Studio"
-                desc="Turn attorney expertise into ready-to-post content. Pick a topic, AI writes the draft, they approve or post."
-                href="/tool"
-                tone="light"
-              />
-            </div>
-
-            <div className="lg:col-span-7">
-              <BentoTile
-                index={3}
-                number="4"
-                eyebrow="Background"
-                title="Why Kyle"
-                desc="Agency speed meets in-house judgment. 15 years building marketing that drives revenue."
-                href="/about"
-                tone="light"
-              />
-            </div>
-          </div>
-        </Section>
-      </Container>
-
-
-      {/* FINAL CTA */}
-      <Container>
-        <Section className="pb-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow-lg)] sm:p-10 lg:p-12"
-          >
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-xl">
-                <h2 className="h2 text-white">If this resonates, I&apos;d love to talk.</h2>
-                <p className="mt-3 text-base text-white/70 leading-relaxed">
-                  Reach out directly or keep exploring.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row shrink-0">
-                <motion.a
-                  href="mailto:kyle@sidekickmarketer.com"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[color:var(--navy)] shadow-[var(--shadow-soft)] transition-shadow hover:shadow-[var(--shadow)]"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span>Email me</span>
-                </motion.a>
-                <motion.a
-                  href="https://linkedin.com/in/kylenaughtrip"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  <span>LinkedIn</span>
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-        </Section>
-      </Container>
+    <div className="bg-[color:var(--bg)]">
+      <Hero />
+      <StatsSection />
+      <ProjectsSection />
+      <FinalCTA />
     </div>
   );
 }

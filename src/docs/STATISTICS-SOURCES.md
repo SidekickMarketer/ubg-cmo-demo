@@ -103,4 +103,15 @@ When citing these statistics:
 
 ---
 
+## Public Appendix Page
+
+A public-facing appendix page with formatted citations is available at `/appendix` on the demo site. This includes:
+
+- The three core statistics (86%, 70%, 6%) with full context
+- Supporting research on client selection, BD, CMO role, and AI adoption
+- Common pain points with citations
+- Full source list
+
+---
+
 *Created for Kyle Naughtrip's CMO Demo Website*

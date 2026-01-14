@@ -2,375 +2,640 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import {
+  ArrowRight,
+  Star,
+  Target,
+  Shield,
+  BarChart3,
+  Users,
+  ChevronDown,
+  Briefcase,
+  Building2,
+  TrendingUp,
+  Zap,
+  Calendar,
+  DollarSign,
+  Bolt,
+} from "lucide-react";
 
-function Container({ children }: { children: React.ReactNode }) {
-  return <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">{children}</div>;
-}
-
-function Section({
-  children,
-  className = "",
-  alt = false,
+/* ─────────────────────────────────────────────────────────────
+   Credential Badge
+───────────────────────────────────────────────────────────── */
+function CredentialBadge({
+  icon: Icon,
+  label,
+  value,
 }: {
-  children: React.ReactNode;
-  className?: string;
-  alt?: boolean;
+  icon: any;
+  label: string;
+  value: string;
 }) {
   return (
-    <section className={`py-16 sm:py-20 lg:py-28 ${alt ? "section-alt" : ""} ${className}`}>
-      {children}
-    </section>
-  );
-}
-
-function Card({
-  children,
-  className = "",
-  featured = false,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  featured?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] shadow-[var(--shadow-soft)] ${featured ? "card-featured" : ""} ${className}`}
-    >
-      {children}
+    <div className="flex items-center gap-3 px-4 py-3 bg-[color:var(--surface)] rounded-xl border border-[color:var(--border)] shadow-[var(--shadow-soft)]">
+      <div className="w-10 h-10 rounded-full bg-[color:var(--teal)]/10 flex items-center justify-center shrink-0">
+        <Icon className="w-5 h-5 text-[color:var(--teal)]" />
+      </div>
+      <div className="flex flex-col">
+        <span className="text-xs font-bold text-[color:var(--muted)] uppercase tracking-wider">
+          {label}
+        </span>
+        <span className="font-bold text-[color:var(--navy)]">{value}</span>
+      </div>
     </div>
   );
 }
 
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-1 text-xs font-medium text-[color:var(--muted)]">
-      <span className="h-2 w-2 rounded-full bg-[color:var(--teal)]" />
-      {children}
-    </span>
-  );
-}
-
-function PrimaryButton({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--navy)] px-5 py-3 text-sm font-medium text-white shadow-[var(--shadow-soft)] transition hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
-    >
-      {children}
-    </Link>
-  );
-}
-
-function SecondaryButton({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-5 py-3 text-sm font-medium text-[color:var(--navy)] transition hover:bg-[color:var(--surface-2)] focus:outline-none focus:ring-4 focus:ring-[color:var(--ring)]"
-    >
-      {children}
-    </Link>
-  );
-}
-
-function ExperienceAccordion({
-  icon,
-  company,
-  title,
-  subtitle,
-  children,
-}: {
-  icon: React.ReactNode;
+/* ─────────────────────────────────────────────────────────────
+   Experience Card
+───────────────────────────────────────────────────────────── */
+interface Experience {
+  id: string;
   company: string;
   title: string;
   subtitle: string;
-  children: React.ReactNode;
+  description: React.ReactNode;
+  color: string;
+}
+
+function ExperienceCard({
+  exp,
+  isExpanded,
+  onToggle,
+}: {
+  exp: Experience;
+  isExpanded: boolean;
+  onToggle: () => void;
 }) {
-  const [open, setOpen] = useState(false);
   return (
-    <Card className={`overflow-hidden transition-all ${open ? "ring-2 ring-[color:var(--teal)]/30" : ""}`}>
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-start justify-between gap-4 p-6 text-left hover:bg-[color:var(--surface-2)]/50 transition"
+    <motion.div
+      layout
+      initial={false}
+      className={`bg-[color:var(--surface)] rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)] overflow-hidden relative group cursor-pointer hover:shadow-md transition-shadow ${
+        isExpanded ? "ring-2 ring-[color:var(--teal)] ring-offset-2" : ""
+      }`}
+      onClick={onToggle}
+    >
+      <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${exp.color}`} />
+
+      <div className="p-6 flex items-start gap-4 text-left relative z-10">
+        <div className="w-12 h-12 rounded-xl bg-[color:var(--navy)] flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-lg shadow-gray-900/10">
+          {exp.company.charAt(0)}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between mb-1">
+            <div className="text-xs font-bold tracking-wider text-[color:var(--muted)] uppercase">
+              {exp.company}
+            </div>
+            <span className="text-xs font-medium text-[color:var(--teal)] bg-[color:var(--teal)]/10 px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+              {isExpanded ? "Collapse" : "Expand"}
+            </span>
+          </div>
+          <h4 className="font-bold text-[color:var(--navy)] text-lg truncate pr-4">
+            {exp.title}
+          </h4>
+          <p className="text-sm text-[color:var(--muted)] mt-0.5">{exp.subtitle}</p>
+        </div>
+        <motion.div
+          animate={{ rotate: isExpanded ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "circOut" }}
+          className="shrink-0 mt-1"
+        >
+          <ChevronDown
+            className={`w-5 h-5 text-[color:var(--muted)] group-hover:text-[color:var(--navy)] transition-colors`}
+          />
+        </motion.div>
+      </div>
+
+      <AnimatePresence initial={false}>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            <div className="px-6 pb-6 pl-[4.5rem]">
+              <div className="text-[color:var(--muted)] leading-relaxed border-t border-[color:var(--border)] pt-4 text-sm">
+                {exp.description}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Alignment Card
+───────────────────────────────────────────────────────────── */
+function AlignmentCard({
+  item,
+  isHero = false,
+}: {
+  item: { icon: any; title: string; description: string };
+  isHero?: boolean;
+}) {
+  const Icon = item.icon;
+
+  if (isHero) {
+    return (
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        className="bg-gradient-to-br from-[color:var(--teal)] to-teal-600 rounded-2xl p-6 text-white shadow-xl shadow-[color:var(--teal)]/20 relative overflow-hidden group"
       >
-        <div className="flex items-start gap-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[color:var(--navy)] text-white flex-shrink-0">
-            {icon}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+        <div className="relative z-10 flex items-start gap-4">
+          <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0 border border-white/20">
+            <Icon className="w-5 h-5 text-white" />
           </div>
           <div>
-            <div className="kicker text-[color:var(--teal)]">{company}</div>
-            <div className="text-lg font-semibold tracking-tight text-[color:var(--navy)] mt-0.5">{title}</div>
-            <div className="mt-1 text-sm text-[color:var(--muted)]">{subtitle}</div>
+            <h4 className="font-bold text-white text-lg mb-2 leading-tight">
+              {item.title}
+            </h4>
+            <p className="text-white/90 text-sm leading-relaxed">
+              {item.description}
+            </p>
           </div>
         </div>
-        <div
-          className={`flex h-8 w-8 items-center justify-center rounded-full border transition ${
-            open
-              ? "bg-[color:var(--teal)] border-[color:var(--teal)] text-white rotate-180"
-              : "bg-[color:var(--surface-2)] border-[color:var(--border)] text-[color:var(--navy)]"
-          }`}
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </button>
-      <div
-        className={`overflow-hidden transition-all ${open ? "max-h-96" : "max-h-0"}`}
-      >
-        <div className="border-t border-[color:var(--border)] bg-[color:var(--surface-2)]/30 p-6">
-          {children}
-        </div>
-      </div>
-    </Card>
-  );
-}
+      </motion.div>
+    );
+  }
 
-function SkillItem({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
   return (
-    <div className="rounded-2xl bg-[color:var(--surface-2)] p-4 hover:bg-[color:var(--surface-2)]/80 transition">
-      <div className="flex items-center gap-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color:var(--navy)] text-white">
-          {icon}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      className="bg-[color:var(--surface)] rounded-2xl p-6 border border-[color:var(--border)] shadow-[var(--shadow-soft)] hover:shadow-md transition-all duration-300 group"
+    >
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 rounded-xl bg-[color:var(--surface-2)] flex items-center justify-center shrink-0 group-hover:bg-[color:var(--navy)] transition-colors duration-300">
+          <Icon className="w-5 h-5 text-[color:var(--muted)] group-hover:text-white transition-colors duration-300" />
         </div>
-        <div className="text-sm font-semibold text-[color:var(--navy)]">{title}</div>
-      </div>
-      <div className="mt-2 text-sm text-[color:var(--muted)]">{desc}</div>
-    </div>
-  );
-}
-
-export default function AboutPage() {
-  return (
-    <div>
-      <Container>
-        <Section className="pb-10">
-          <Pill>About</Pill>
-          <h1 className="h1 mt-6 text-[color:var(--navy)]">Why Kyle</h1>
-          <p className="lede mt-5 max-w-3xl">
-            I've led marketing in complex, high-stakes environments where stakeholders are opinionated, timelines are
-            tight, and results have to show up in revenue, not vanity metrics.
+        <div>
+          <h4 className="font-bold text-[color:var(--navy)] text-lg mb-2 leading-tight">
+            {item.title}
+          </h4>
+          <p className="text-[color:var(--muted)] text-sm leading-relaxed">
+            {item.description}
           </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <PrimaryButton href="/roadmap">
-              Start with the 90-Day Plan
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </PrimaryButton>
-            <SecondaryButton href="/referrals">Referral Intelligence</SecondaryButton>
-            <SecondaryButton href="/tool">AI Content Studio</SecondaryButton>
-          </div>
-        </Section>
-      </Container>
+/* ─────────────────────────────────────────────────────────────
+   Bullet Item
+───────────────────────────────────────────────────────────── */
+function BulletItem({
+  children,
+  highlight = false,
+}: {
+  children: React.ReactNode;
+  highlight?: boolean;
+}) {
+  return (
+    <li className={`flex items-start gap-2 ${highlight ? "text-[color:var(--navy)] font-medium" : "text-[color:var(--muted)]"}`}>
+      <span
+        className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${
+          highlight ? "bg-[color:var(--navy)]" : "bg-[color:var(--teal)]"
+        }`}
+      />
+      {children}
+    </li>
+  );
+}
 
-      <Section alt>
-        <Container>
-          <div className="rounded-3xl bg-[color:var(--navy)] p-8 text-white shadow-[var(--shadow)] sm:p-10">
-            <div className="kicker text-white/70">WHAT THIS DEMONSTRATES</div>
-            <h2 className="h2 mt-3 text-white">Not just strategy—execution proof</h2>
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
-                <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-[color:var(--gold)]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                  </svg>
-                  <div className="text-sm font-semibold">Partnership-safe leadership</div>
-                </div>
-                <p className="mt-2 text-sm text-white/75">Earn credibility before prescribing change.</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
-                <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-[color:var(--gold)]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
-                  </svg>
-                  <div className="text-sm font-semibold">Revenue orientation</div>
-                </div>
-                <p className="mt-2 text-sm text-white/75">Referrals + cross-sell + retention made visible.</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
-                <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-[color:var(--gold)]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                  </svg>
-                  <div className="text-sm font-semibold">Execution velocity</div>
-                </div>
-                <p className="mt-2 text-sm text-white/75">Working systems, not abstract concepts.</p>
+/* ─────────────────────────────────────────────────────────────
+   Main Page
+───────────────────────────────────────────────────────────── */
+export default function AboutPage() {
+  const [expandedExperience, setExpandedExperience] = useState<string | null>("uber");
+
+  const experiences: Experience[] = [
+    {
+      id: "uber",
+      company: "Uber",
+      title: "Head of Experiential Marketing, NY/NJ/CT",
+      subtitle: "Employee #184. Built marketing from zero in new markets (2013–2016).",
+      description: (
+        <ul className="space-y-3">
+          <BulletItem>
+            Established marketing functions in new markets—go-to-market strategy, positioning, and launch execution.
+          </BulletItem>
+          <BulletItem>
+            Built and led experiential marketing team; developed brand ambassador program that scaled user acquisition.
+          </BulletItem>
+          <BulletItem>
+            Operated in fast-paced, ambiguous environment—shipped while navigating cross-functional alignment challenges.
+          </BulletItem>
+          <BulletItem highlight>
+            Why it matters: Partnership dynamics, multi-office coordination, building credibility with stakeholders.
+          </BulletItem>
+        </ul>
+      ),
+      color: "bg-black",
+    },
+    {
+      id: "rdi",
+      company: "RDI Corporation",
+      title: "Director of Marketing",
+      subtitle: "Lead 8-person team across B2B enterprise and B2C portfolio (2023–Present).",
+      description: (
+        <ul className="space-y-3">
+          <BulletItem>
+            Execute multi-channel strategies for enterprise BPO clients while building brands for B2C portfolio (20th Century Theater, Langen Meats, Kon Tiki).
+          </BulletItem>
+          <BulletItem>
+            Lead CRM integration and digital transformation initiatives—applying audience insights to improve targeting and ROI.
+          </BulletItem>
+          <BulletItem>
+            Work closely with sales and business intelligence teams to deliver cohesive strategies and maximize resources.
+          </BulletItem>
+          <BulletItem highlight>
+            Why it matters: Team leadership, cross-functional collaboration, measurable BD enablement.
+          </BulletItem>
+        </ul>
+      ),
+      color: "bg-blue-600",
+    },
+    {
+      id: "mw",
+      company: "Marketing Werks",
+      title: "Account Manager, Verizon/NFL Partnership",
+      subtitle: "$7MM annual budget. 200+ brand ambassadors. 15 NFL stadiums (2008–2013).",
+      description: (
+        <ul className="space-y-3">
+          <BulletItem>
+            Managed Verizon/NFL marketing programs for 5+ years—brand activations at 15 NFL stadiums reaching thousands of fans.
+          </BulletItem>
+          <BulletItem>
+            Recruited and trained 200+ brand ambassadors; managed team of 6 full-time employees.
+          </BulletItem>
+          <BulletItem>
+            Oversaw $7MM annual budget delivering campaigns that reinforced brand presence and consumer engagement.
+          </BulletItem>
+          <BulletItem highlight>
+            Why it matters: Budget accountability, large-scale program execution, stakeholder management.
+          </BulletItem>
+        </ul>
+      ),
+      color: "bg-orange-600",
+    },
+    {
+      id: "sidekick",
+      company: "Sidekick Marketer + Freshly Baked Co.",
+      title: "Founder / COO",
+      subtitle: "Built AI-powered marketing systems. Drove $2.4M first-year revenue as COO.",
+      description: (
+        <ul className="space-y-3">
+          <BulletItem>
+            <strong>Freshly Baked Co.:</strong> COO driving operations and B2B marketing—hit $2.4M revenue in year one, beating projections.
+          </BulletItem>
+          <BulletItem>
+            <strong>Sidekick Marketer:</strong> Founded consulting practice building AI-powered marketing systems that increase output without chaos.
+          </BulletItem>
+          <BulletItem>
+            Designed workflows where humans stay in control and quality stays high—practical automation, not hype.
+          </BulletItem>
+          <BulletItem highlight>
+            Why it matters: Revenue accountability, AI adoption that respects governance, execution velocity.
+          </BulletItem>
+        </ul>
+      ),
+      color: "bg-purple-600",
+    },
+  ];
+
+  const alignmentItems = [
+    {
+      icon: Star,
+      title: "Marketing strategy + positioning",
+      description: "Build unified growth engine tied to revenue.",
+      isHero: true,
+    },
+    {
+      icon: Target,
+      title: "Business development enablement",
+      description: "Make referrals + cross-sell operational.",
+      isHero: true,
+    },
+    {
+      icon: Shield,
+      title: "Digital + content systems",
+      description: "Reduce attorney friction; increase throughput.",
+      isHero: false,
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics + reporting",
+      description: "Leadership dashboard that's actually actionable.",
+      isHero: false,
+    },
+    {
+      icon: Users,
+      title: "Team leadership",
+      description: "Clear priorities, fast shipping, high standards.",
+      isHero: false,
+    },
+  ];
+
+  const nextSteps = [
+    {
+      step: "01",
+      title: "Start with the Plan",
+      desc: "90-day roadmap to prove the model.",
+      link: "/roadmap",
+      icon: Target,
+    },
+    {
+      step: "02",
+      title: "See the Proof",
+      desc: "AI content engine in action.",
+      link: "/tool",
+      icon: Zap,
+    },
+    {
+      step: "03",
+      title: "Track Revenue",
+      desc: "Referral intelligence system.",
+      link: "/referrals",
+      icon: TrendingUp,
+    },
+  ];
+
+  return (
+    <div className="pt-32 pb-24 bg-[color:var(--bg)] min-h-screen">
+      <div className="px-4 md:px-8 max-w-7xl mx-auto">
+        {/* Hero Section */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20 mb-6">
+              <div className="w-2 h-2 rounded-full bg-[color:var(--teal)] animate-pulse" />
+              About Kyle
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-8 font-serif">
+              Why Kyle
+            </h1>
+
+            <p className="text-lg md:text-xl text-[color:var(--muted)] leading-relaxed max-w-3xl mb-10">
+              15 years building marketing teams and revenue engines—from Uber employee #184
+              to managing a $7MM budget at Marketing Werks to driving $2.4M first-year revenue
+              as COO. I know how to ship in environments where stakeholders are opinionated
+              and results have to show up in revenue.
+            </p>
+
+            {/* Credentials Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="flex flex-wrap gap-4 mb-12"
+            >
+              <CredentialBadge icon={Calendar} label="Experience" value="15+ Years" />
+              <CredentialBadge icon={Building2} label="Budget Managed" value="$7MM" />
+              <CredentialBadge icon={Users} label="Team Lead" value="8-Person Team" />
+              <CredentialBadge icon={Bolt} label="Track Record" value="Uber #184" />
+            </motion.div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/roadmap"
+                className="flex items-center gap-2 bg-[color:var(--navy)] text-white px-8 py-4 rounded-full text-base font-bold hover:opacity-95 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Start with the 90-Day Plan
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/tool"
+                className="px-8 py-4 text-[color:var(--navy)] text-base font-bold bg-[color:var(--surface)] rounded-full border border-[color:var(--border)] hover:bg-[color:var(--surface-2)] transition-all"
+              >
+                AI Content Studio
+              </Link>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* What This Demonstrates */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-[color:var(--navy)] rounded-3xl p-12 md:p-16 text-white shadow-2xl shadow-gray-900/20 relative overflow-hidden"
+          >
+            {/* Decorative background */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[color:var(--teal)]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+
+            <div className="relative z-10">
+              <span className="text-[color:var(--teal-light)] text-xs font-bold tracking-widest uppercase mb-4 block">
+                WHAT THIS DEMONSTRATES
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 font-serif max-w-2xl">
+                Not just strategy—execution proof
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: "🤝",
+                    title: "Partnership-safe leadership",
+                    desc: "Earn credibility before prescribing change.",
+                  },
+                  {
+                    icon: "📈",
+                    title: "Revenue orientation",
+                    desc: "Referrals + cross-sell + retention made visible.",
+                  },
+                  {
+                    icon: "⚡",
+                    title: "Execution velocity",
+                    desc: "Working systems, not abstract concepts.",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors duration-300 group"
+                  >
+                    <div className="text-3xl mb-4 transform group-hover:scale-110 transition-transform duration-300 origin-left">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
-        </Container>
-      </Section>
+          </motion.div>
+        </section>
 
-      <Container>
-        <Section className="pt-0">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-            <Card featured className="p-7 lg:col-span-5">
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5 text-[color:var(--teal)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
-                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                </svg>
-                <div className="text-sm font-semibold text-[color:var(--navy)]">CMO job alignment</div>
-              </div>
-              <p className="mt-2 text-sm text-[color:var(--muted)]">
-                A fast scan of how I'd cover the core responsibilities.
-              </p>
-
-              <div className="mt-5 space-y-3">
-                <SkillItem
-                  icon={
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  }
-                  title="Marketing strategy + positioning"
-                  desc="Build unified growth engine tied to revenue."
-                />
-                <SkillItem
-                  icon={
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                    </svg>
-                  }
-                  title="Business development enablement"
-                  desc="Make referrals + cross-sell operational."
-                />
-                <SkillItem
-                  icon={
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd" />
-                    </svg>
-                  }
-                  title="Digital + content systems"
-                  desc="Reduce attorney friction; increase throughput."
-                />
-                <SkillItem
-                  icon={
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
-                    </svg>
-                  }
-                  title="Analytics + reporting"
-                  desc="Leadership dashboard that's actually actionable."
-                />
-                <SkillItem
-                  icon={
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                    </svg>
-                  }
-                  title="Team leadership"
-                  desc="Clear priorities, fast shipping, high standards."
-                />
-              </div>
-            </Card>
-
-            <div className="lg:col-span-7 space-y-4">
-              <div className="kicker mb-4">RELEVANT EXPERIENCE</div>
-
-              <ExperienceAccordion
-                icon={
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                    <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z" />
-                  </svg>
-                }
-                company="Uber"
-                title="Stakeholder complexity + speed"
-                subtitle="Learned how to ship in environments where alignment is hard and timelines are real."
+        {/* Core Responsibilities & Experience Split */}
+        <section className="mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Left Column: CMO Job Alignment */}
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
               >
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] flex-shrink-0" />
-                    Built programs that required cross-functional buy-in and rapid execution.
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] flex-shrink-0" />
-                    Learned how to make decisions with imperfect information and still deliver.
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--navy)] font-medium">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--navy)] flex-shrink-0" />
-                    Why it matters for UB Greensfelder: partnership dynamics + multi-office coordination.
-                  </li>
-                </ul>
-              </ExperienceAccordion>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-[color:var(--teal)]/10 flex items-center justify-center">
+                    <Target className="w-4 h-4 text-[color:var(--teal)]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[color:var(--navy)]">
+                    Core Responsibilities
+                  </h3>
+                </div>
+                <p className="text-sm text-[color:var(--muted)] mb-8 max-w-md">
+                  How I cover the critical functions of the role.
+                </p>
+              </motion.div>
 
-              <ExperienceAccordion
-                icon={
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  </svg>
-                }
-                company="RDI"
-                title="B2B growth + operations"
-                subtitle="Lived inside a revenue environment with high accountability and measurable outcomes."
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{
+                  visible: {
+                    transition: { staggerChildren: 0.1 },
+                  },
+                }}
+                className="space-y-4"
               >
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] flex-shrink-0" />
-                    Built go-to-market execution and reporting discipline.
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] flex-shrink-0" />
-                    Focused on what moved revenue, not what looked good.
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--navy)] font-medium">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--navy)] flex-shrink-0" />
-                    Why it matters for UB Greensfelder: measurable BD enablement and leadership reporting.
-                  </li>
-                </ul>
-              </ExperienceAccordion>
+                {alignmentItems.map((item, index) => (
+                  <AlignmentCard key={index} item={item} isHero={item.isHero} />
+                ))}
+              </motion.div>
+            </div>
 
-              <ExperienceAccordion
-                icon={
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                  </svg>
-                }
-                company="Sidekick Marketer"
-                title="AI systems + velocity"
-                subtitle="Practical AI adoption that reduces bottlenecks and respects governance."
+            {/* Right Column: Relevant Experience */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="mb-8"
               >
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] flex-shrink-0" />
-                    Built working systems (not hype) that increase output without chaos.
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--teal)] flex-shrink-0" />
-                    Designed workflows where humans stay in control and quality stays high.
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-[color:var(--navy)] font-medium">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[color:var(--navy)] flex-shrink-0" />
-                    Why it matters for UB Greensfelder: leverage marketing team capacity without sacrificing standards.
-                  </li>
-                </ul>
-              </ExperienceAccordion>
+                <span className="text-xs font-bold tracking-widest uppercase text-[color:var(--muted)] mb-2 block">
+                  RELEVANT EXPERIENCE
+                </span>
+                <h3 className="text-2xl font-bold text-[color:var(--navy)] font-serif">
+                  Where I've done this before
+                </h3>
+              </motion.div>
+
+              <LayoutGroup>
+                <motion.div
+                  className="space-y-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  {experiences.map((exp) => (
+                    <ExperienceCard
+                      key={exp.id}
+                      exp={exp}
+                      isExpanded={expandedExperience === exp.id}
+                      onToggle={() =>
+                        setExpandedExperience(
+                          expandedExperience === exp.id ? null : exp.id
+                        )
+                      }
+                    />
+                  ))}
+                </motion.div>
+              </LayoutGroup>
             </div>
           </div>
-        </Section>
-      </Container>
+        </section>
 
-      <Section alt>
-        <Container>
-          <Card featured className="p-8 sm:p-10">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="h2 text-[color:var(--navy)]">Start with the plan, then the proof.</h2>
-                <p className="mt-2 text-sm text-[color:var(--muted)]">
-                  Roadmap → Referral Intelligence → AI Content Studio.
+        {/* Next Steps Timeline */}
+        <section>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-[color:var(--surface)] rounded-3xl p-12 md:p-16 shadow-[var(--shadow-soft)] border border-[color:var(--border)] relative overflow-hidden"
+          >
+            <div className="relative z-10">
+              <div className="max-w-2xl mb-12">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-serif">
+                  Ready to move fast?
+                </h2>
+                <p className="text-lg text-[color:var(--muted)]">
+                  Here's the recommended path forward.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <PrimaryButton href="/roadmap">90-Day Plan</PrimaryButton>
-                <SecondaryButton href="/referrals">Referral Intelligence</SecondaryButton>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                {/* Connecting line for desktop */}
+                <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-[color:var(--border)] -z-10 -translate-y-1/2" />
+
+                {nextSteps.map((step, i) => {
+                  const Icon = step.icon;
+                  return (
+                    <Link key={i} href={step.link} className="block group">
+                      <motion.div
+                        whileHover={{ y: -5 }}
+                        className="bg-[color:var(--surface)] p-6 rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)] group-hover:shadow-md group-hover:border-[color:var(--teal)]/30 transition-all duration-300 h-full flex flex-col"
+                      >
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-4xl font-bold text-[color:var(--border)] font-serif group-hover:text-[color:var(--teal)]/20 transition-colors">
+                            {step.step}
+                          </span>
+                          <div className="w-10 h-10 rounded-full bg-[color:var(--surface-2)] flex items-center justify-center group-hover:bg-[color:var(--navy)] transition-colors duration-300">
+                            <Icon className="w-5 h-5 text-[color:var(--muted)] group-hover:text-white transition-colors" />
+                          </div>
+                        </div>
+
+                        <h3 className="text-lg font-bold text-[color:var(--navy)] mb-2 group-hover:text-[color:var(--teal)] transition-colors">
+                          {step.title}
+                        </h3>
+                        <p className="text-sm text-[color:var(--muted)] leading-relaxed mb-4 flex-1">
+                          {step.desc}
+                        </p>
+
+                        <div className="flex items-center gap-2 text-sm font-bold text-[color:var(--navy)] group-hover:text-[color:var(--teal)] transition-colors mt-auto">
+                          View Details
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </motion.div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
-          </Card>
-        </Container>
-      </Section>
+          </motion.div>
+        </section>
+      </div>
     </div>
   );
 }
