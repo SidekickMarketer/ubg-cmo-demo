@@ -494,7 +494,7 @@ export default function ToolPage() {
               {[
                 {
                   title: "Scale",
-                  desc: "More attorneys participating without adding headcount.",
+                  desc: "More attorneys visible without growing the team.",
                 },
                 {
                   title: "Consistency",
