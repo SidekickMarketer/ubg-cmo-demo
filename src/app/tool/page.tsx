@@ -160,9 +160,7 @@ export default function ToolPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed">
-              Here&apos;s how I&apos;d solve the attorney content bottleneck. Attorneys
-              provide the expertise, AI handles the drafting, they review and
-              approve.
+              Built to solve the attorney content bottleneck. Attorneys provide expertise; AI drafts, marketing refines, and attorneys review and approve.
             </p>
 
           </motion.div>
@@ -180,11 +178,10 @@ export default function ToolPage() {
                   The Challenge
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                  Attorneys have expertise worth sharing—but no time to write about it.
+                  Attorneys have expertise worth sharing — but no time to write about it.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  This removes the bottleneck. Five minutes of attorney time, marketing
-                  handles the rest. They stay visible without getting buried in content production.
+                  This system removes the bottleneck. Five minutes of attorney time, marketing handles the rest. Attorneys stay visible without getting buried in content production — and the firm gains a consistent presence across practices.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -213,10 +210,10 @@ export default function ToolPage() {
         <div id="demo-section" className="scroll-mt-32 mb-24">
           <div className="text-center mb-16 space-y-4">
             <span className="text-xs font-bold tracking-widest uppercase text-[color:var(--muted)]">
-              Working Prototype
+              Working Model
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] font-display">
-              How it works
+              How the System Works
             </h2>
           </div>
 
@@ -238,7 +235,7 @@ export default function ToolPage() {
                     Attorney Input
                   </h3>
                   <p className="text-sm text-[color:var(--muted)]">
-                    What they want to write about
+                    Minimal effort, maximum impact
                   </p>
                 </div>
               </div>
@@ -341,7 +338,7 @@ export default function ToolPage() {
                 <p className="text-center text-xs text-[color:var(--muted)] mt-4">
                   <span className="inline-flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Powered by Claude API — this generates real content
+                    Live system — generates real content
                   </span>
                 </p>
               </div>
@@ -364,7 +361,7 @@ export default function ToolPage() {
                     Generated Draft
                   </h3>
                   <p className="text-sm text-[color:var(--muted)]">
-                    Ready for attorney review
+                    Ready for review and refinement
                   </p>
                 </div>
               </div>
@@ -433,7 +430,7 @@ export default function ToolPage() {
               {
                 step: "1",
                 title: "Attorney Input",
-                desc: "Attorneys share recent matters, insights, or topics they want to address.",
+                desc: "Attorneys share recent matters, insights, or topics they want to highlight.",
                 Icon: MicIcon,
               },
               {
@@ -445,7 +442,7 @@ export default function ToolPage() {
               {
                 step: "3",
                 title: "Review & Approve",
-                desc: "Attorney reviews, edits if needed, and approves for publishing.",
+                desc: "Marketing refines for tone and brand; attorney approves before publish.",
                 Icon: CheckCircle2Icon,
               },
             ].map((item, i) => (
@@ -506,7 +503,7 @@ export default function ToolPage() {
                 },
                 {
                   title: "Buy-in",
-                  desc: "Low time commitment drives higher attorney participation.",
+                  desc: "Minimal time commitment drives participation.",
                 },
               ].map((benefit, i) => (
                 <motion.div
@@ -542,10 +539,10 @@ export default function ToolPage() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                See the other systems.
+                See the Other Systems.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one piece of the strategy. Explore the rest.
+                Each system connects — referrals, visibility, and growth all run on the same operating rhythm.
               </p>
             </div>
 

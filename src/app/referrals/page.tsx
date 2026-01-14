@@ -266,8 +266,7 @@ export default function ReferralsPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed">
-              Track referral sources, surface cross-sell opportunities, and map
-              attorney networks — all connected to revenue.
+              Track referral sources, surface cross-sell opportunities, and map attorney networks — all connected to firm revenue.
             </p>
 
             {/* Tab Navigation */}
@@ -308,7 +307,7 @@ export default function ReferralsPage() {
                   Know exactly where your work comes from.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  Referrals drive most new business, but the data usually lives in people's heads. This makes it visible—so you can nurture what's working and fix what's not.
+                  Referrals drive most new business, but the data usually lives in people's heads. This dashboard makes it visible — so leadership can see which relationships create growth, where new opportunities exist, and how cross-practice referrals actually move revenue.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -365,7 +364,7 @@ export default function ReferralsPage() {
                     Top Referral Sources
                   </h2>
                   <p className="text-sm text-[color:var(--muted)]">
-                    Ranked by referral volume over 12 months
+                    Ranked by referral volume over the past 12 months. This snapshot reveals which relationships drive the most work and where new opportunities may exist.
                   </p>
                 </div>
 
@@ -386,6 +385,19 @@ export default function ReferralsPage() {
                 </div>
               </motion.div>
 
+              {/* Bridge Text */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-12"
+              >
+                <p className="text-[color:var(--muted)] text-lg italic max-w-2xl mx-auto">
+                  These insights make relationship networks measurable — turning firm trust into firm intelligence.
+                </p>
+              </motion.div>
+
               {/* Revenue by Source */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -399,7 +411,7 @@ export default function ReferralsPage() {
                     Revenue by Source
                   </h2>
                   <p className="text-sm text-[color:var(--muted)]">
-                    Top 4 referral sources by estimated revenue
+                    Top referral sources by estimated annual revenue contribution.
                   </p>
                 </div>
 
@@ -672,14 +684,14 @@ export default function ReferralsPage() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                See the other systems.
+                See the Other Systems.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one piece of the strategy. Explore the rest.
+                This is one layer of the 90-Day Operating Plan — the visibility layer. Explore how it connects with the firm's Content Engine and Growth Framework.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 href="/tool"
                 className="flex items-center justify-center gap-2 bg-white text-[color:var(--navy)] px-8 py-4 rounded-full text-base font-bold hover:bg-gray-100 transition-colors shadow-lg"
@@ -695,6 +707,10 @@ export default function ReferralsPage() {
                 <ArrowRightIcon className="w-4 h-4" />
               </Link>
             </div>
+
+            <p className="text-sm text-gray-500 pt-4 border-t border-white/10">
+              Each system connects — referrals, visibility, and growth run on the same rhythm.
+            </p>
           </div>
         </motion.div>
       </div>

@@ -24,6 +24,9 @@ import {
   ArrowDown,
   BarChart3,
   Settings,
+  Eye,
+  Handshake,
+  PenTool,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
@@ -135,63 +138,64 @@ export default function RoadmapPage() {
     <div className="pt-32 pb-24 bg-[color:var(--bg)] min-h-screen">
       <div className="px-4 md:px-8 max-w-7xl mx-auto">
         {/* Hero Section */}
-        <div className="mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20">
               <Target className="w-3 h-3" />
               Strategy
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-6 font-display">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] leading-[1.1] tracking-tight font-display">
               90-Day Plan
             </h1>
 
-            <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-3xl leading-relaxed mb-12">
-              Midsize firms win on value, responsiveness, and senior attention. Here's how I'd help UBG deliver on all three.
+            <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed">
+              Midsize firms grow on trust, responsiveness, and senior attention. This 90-day operating plan demonstrates how UB Greensfelder can turn those strengths into measurable growth.
             </p>
           </motion.div>
 
-          {/* Why This Approach - Dark Card */}
+          {/* The Approach - Dark Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-[color:var(--navy)] rounded-3xl p-8 md:p-12 text-white shadow-2xl shadow-gray-900/20 relative overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
           >
-            <div className="relative z-10">
-              <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-6 block">
-                The Approach
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                Referrals, attorney visibility, and client retention. Not campaigns.
-              </h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                No firmwide mandates in the first 90 days. Instead: learn the business, run small pilots,
-                prove they work, then expand. By Day 90, you'll see real data on where work comes from,
-                active cross-sell opportunities, and attorneys visibly building their practices.
-              </p>
+            <div className="bg-[color:var(--navy)] rounded-3xl p-8 md:p-12 text-white shadow-2xl shadow-gray-900/20 relative overflow-hidden">
+              <div className="relative z-10">
+                <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-6 block">
+                  The Approach
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
+                  Referrals, visibility, and client retention — not campaigns.
+                </h3>
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  The first 90 days focus on clarity, not complexity. Understand how the firm actually wins work, build small pilots that prove results, then scale what works. By Day 90, leadership has visibility into where growth originates, which relationships drive revenue, and how attorneys build visibility without adding effort.
+                </p>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-[color:var(--teal)]/20 border-2 border-[color:var(--navy)] flex items-center justify-center">
-                    <Zap className="w-4 h-4 text-[color:var(--teal-light)]" />
+                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-[color:var(--teal)]/20 border-2 border-[color:var(--navy)] flex items-center justify-center">
+                      <Zap className="w-4 h-4 text-[color:var(--teal-light)]" />
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-blue-500/20 border-2 border-[color:var(--navy)] flex items-center justify-center">
+                      <Target className="w-4 h-4 text-blue-400" />
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-teal-500/20 border-2 border-[color:var(--navy)] flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4 text-teal-400" />
+                    </div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-blue-500/20 border-2 border-[color:var(--navy)] flex items-center justify-center">
-                    <Target className="w-4 h-4 text-blue-400" />
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-teal-500/20 border-2 border-[color:var(--navy)] flex items-center justify-center">
-                    <TrendingUp className="w-4 h-4 text-teal-400" />
-                  </div>
+                  <span className="text-sm text-gray-400">Results in 90 days</span>
                 </div>
-                <span className="text-sm text-gray-400">Results in 90 days</span>
               </div>
-            </div>
 
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[color:var(--teal)] opacity-5 blur-[100px] rounded-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[color:var(--teal)] opacity-5 blur-[100px] rounded-full pointer-events-none" />
+            </div>
           </motion.div>
         </div>
 
@@ -205,7 +209,7 @@ export default function RoadmapPage() {
               Phase 1 — Days 1–30
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
-              Learn the Business
+              Learn How the Firm Actually Gets Hired
             </h2>
             <p className="text-[color:var(--muted)] text-lg max-w-2xl">
               Understand how relationships and revenue actually work before proposing changes.
@@ -227,15 +231,15 @@ export default function RoadmapPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[color:var(--navy)]">What I'll Learn</h3>
-                  <p className="text-sm text-[color:var(--muted)]">Discovery and context</p>
+                  <p className="text-sm text-[color:var(--muted)]">Discovery and understanding</p>
                 </div>
               </div>
               <ul className="space-y-4">
                 {[
-                  "Meet the key stakeholders across leadership and practices",
-                  "Understand what marketing and BD actually do today",
-                  "See what data exists and what people actually use",
-                  "Find out what slows attorneys down",
+                  "Meet key stakeholders across leadership and practices.",
+                  "Understand how business development and client intake really work today.",
+                  "Review what data exists — and what partners and staff actually use.",
+                  "Identify friction points that slow attorneys or BD down.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-[color:var(--muted)] leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--navy)] mt-2 shrink-0" />
@@ -259,14 +263,14 @@ export default function RoadmapPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">What I'll Identify</h3>
-                  <p className="text-sm text-white/80">Key findings</p>
+                  <p className="text-sm text-white/80">Key insights and opportunities</p>
                 </div>
               </div>
               <ul className="space-y-4">
                 {[
-                  "Identify who actually sends you work (people, not channels)",
-                  "Find clients using only one practice area",
-                  "Pick 15–20 attorneys for the pilot",
+                  "Who actually sends the firm work (people and institutions, not channels).",
+                  "Which top clients currently use only one or two practices.",
+                  "10–15 natural referrers or clients ideal for a pilot.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-white/95 leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-white mt-2 shrink-0" />
@@ -289,13 +293,13 @@ export default function RoadmapPage() {
               <Star className="w-5 h-5 text-[color:var(--teal)] fill-[color:var(--teal)]" />
               <h3 className="text-xl font-bold text-[color:var(--navy)]">Deliverables</h3>
             </div>
-            <p className="text-[color:var(--muted)] mb-10">Concrete outputs by the end of this phase</p>
+            <p className="text-[color:var(--muted)] mb-10">Presented to leadership at the end of Phase 1</p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: FileText, title: "Revenue Brief", desc: "Where work comes from, where risk sits, where upside exists." },
-                { icon: Map, title: "Referral Map", desc: "Top referrers and who owns each relationship." },
-                { icon: Target, title: "Pilot Plan", desc: "Who's in, what they do, how we measure it." },
+                { icon: FileText, title: "Revenue Brief", desc: "Where work originates, where risk sits, and where growth potential exists." },
+                { icon: Map, title: "Referral Map", desc: "Who sends work, who owns each relationship, and which practices benefit." },
+                { icon: Zap, title: "Quick Win Plan", desc: "A small pilot proving immediate traction — measurable, credible, and leadership-visible." },
               ].map((item, i) => (
                 <div key={i} className="bg-[color:var(--surface)] p-6 rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)]">
                   <div className="w-10 h-10 rounded-xl bg-[color:var(--teal)]/10 text-[color:var(--teal)] flex items-center justify-center mb-4">
@@ -316,10 +320,10 @@ export default function RoadmapPage() {
               Phase 2 — Days 31–60
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
-              Run Small Pilots
+              Build the Engines
             </h2>
             <p className="text-[color:var(--muted)] text-lg max-w-2xl">
-              Test what works with a small group before scaling.
+              Turn trusted relationships into a visible, measurable growth system.
             </p>
           </div>
 
@@ -338,14 +342,14 @@ export default function RoadmapPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[color:var(--navy)]">What I'll Build</h3>
-                  <p className="text-sm text-[color:var(--muted)]">Systems and processes</p>
+                  <p className="text-sm text-[color:var(--muted)]">Systems and engines</p>
                 </div>
               </div>
               <ul className="space-y-4">
                 {[
-                  "Speed up pitch and proposal turnaround",
-                  "Create case studies and bios that actually get used",
-                  "Track where work comes from without creating busywork",
+                  "Referral Engine — Structure and track relationships with referrers, without incentives.",
+                  "Cross-Sell Engine — Identify top clients with needs across multiple practices.",
+                  "Visibility Engine — Help attorneys stay visible with minimal time investment through AI-assisted drafting and marketing support.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-[color:var(--muted)] leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--navy)] mt-2 shrink-0" />
@@ -355,7 +359,7 @@ export default function RoadmapPage() {
               </ul>
             </motion.div>
 
-            {/* What I'll Launch */}
+            {/* What I'll Establish */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -368,15 +372,15 @@ export default function RoadmapPage() {
                   <Rocket className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">What I'll Launch</h3>
-                  <p className="text-sm text-white/80">Active programs</p>
+                  <h3 className="text-xl font-bold text-white">What I'll Establish</h3>
+                  <p className="text-sm text-white/80">Processes and workflows</p>
                 </div>
               </div>
               <ul className="space-y-4">
                 {[
-                  "Run a visibility pilot with 10-15 attorneys",
-                  "Create a referrer appreciation program",
-                  "Support 10 cross-sell introductions",
+                  "Assign clear relationship stewards and touch cadences for major referrers.",
+                  "Connect clients with additional practices through warm, coordinated introductions.",
+                  "Ensure marketing systems produce content aligned with client industries and firm priorities.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-white/95 leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-white mt-2 shrink-0" />
@@ -399,13 +403,13 @@ export default function RoadmapPage() {
               <Star className="w-5 h-5 text-blue-500 fill-blue-500" />
               <h3 className="text-xl font-bold text-[color:var(--navy)]">Deliverables</h3>
             </div>
-            <p className="text-[color:var(--muted)] mb-10">Concrete outputs by the end of this phase</p>
+            <p className="text-[color:var(--muted)] mb-10">Presented to leadership at the end of Phase 2</p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: TrendingUp, title: "Pilot Results", desc: "What worked, what didn't, what to scale." },
-                { icon: Users, title: "Referrer Program", desc: "How we recognize and engage top referrers." },
-                { icon: GitMerge, title: "Cross-Sell Pipeline", desc: "Introductions made and next steps." },
+                { icon: GitMerge, title: "One-Firm Growth Framework", desc: "Unified structure connecting referrals, visibility, and cross-sell activity across practices." },
+                { icon: Users, title: "Referral Tracker", desc: "Shared visibility into relationship activity, top referrers, and engagement cadence." },
+                { icon: TrendingUp, title: "Cross-Sell Pipeline", desc: "Live list of in-progress introductions and joint pursuits between practices." },
               ].map((item, i) => (
                 <div key={i} className="bg-[color:var(--surface)] p-6 rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)]">
                   <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-4">
@@ -426,15 +430,15 @@ export default function RoadmapPage() {
               Phase 3 — Days 61–90
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
-              Scale What Works
+              Make Growth Visible
             </h2>
             <p className="text-[color:var(--muted)] text-lg max-w-2xl">
-              Expand the pilots and build reporting that ties activity to revenue.
+              Give leadership real-time insight into what drives firm revenue.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* What I'll Formalize */}
+            {/* What I'll Measure */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -444,18 +448,18 @@ export default function RoadmapPage() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-[color:var(--navy)] text-white flex items-center justify-center">
-                  <FileCheck className="w-5 h-5" />
+                  <BarChart3 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[color:var(--navy)]">What I'll Formalize</h3>
-                  <p className="text-sm text-[color:var(--muted)]">Standards and systems</p>
+                  <h3 className="text-xl font-bold text-[color:var(--navy)]">What I'll Measure</h3>
+                  <p className="text-sm text-[color:var(--muted)]">Metrics and tracking</p>
                 </div>
               </div>
               <ul className="space-y-4">
                 {[
-                  "Set up approval workflows and brand standards",
-                  "Establish monthly reporting",
-                  "Create a plan for rankings and reputation",
+                  "Build a dashboard combining CRM, billing, and relationship data.",
+                  "Track referral volume, cross-practice activity, and attorney engagement.",
+                  "Surface early growth patterns and areas of friction.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-[color:var(--muted)] leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--navy)] mt-2 shrink-0" />
@@ -465,7 +469,7 @@ export default function RoadmapPage() {
               </ul>
             </motion.div>
 
-            {/* What I'll Deliver */}
+            {/* What I'll Present */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -475,18 +479,18 @@ export default function RoadmapPage() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center">
-                  <Package className="w-5 h-5" />
+                  <Eye className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">What I'll Deliver</h3>
-                  <p className="text-sm text-white/80">Concrete outputs</p>
+                  <h3 className="text-xl font-bold text-white">What I'll Present</h3>
+                  <p className="text-sm text-white/80">Leadership communication</p>
                 </div>
               </div>
               <ul className="space-y-4">
                 {[
-                  "Expand the attorney program based on what worked",
-                  "Build a dashboard leadership can actually use",
-                  "Publish the next 6-month plan with budget requests",
+                  "Share dashboard results and findings with the Executive Committee.",
+                  "Highlight quick wins and clear examples of collaboration ROI.",
+                  "Outline the roadmap to scale the system firmwide over the next 180 days.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-white/95 leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-white mt-2 shrink-0" />
@@ -509,13 +513,13 @@ export default function RoadmapPage() {
               <Star className="w-5 h-5 text-teal-600 fill-teal-600" />
               <h3 className="text-xl font-bold text-[color:var(--navy)]">Deliverables</h3>
             </div>
-            <p className="text-[color:var(--muted)] mb-10">Concrete outputs by the end of this phase</p>
+            <p className="text-[color:var(--muted)] mb-10">Presented to leadership at the end of Phase 3</p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: LayoutDashboard, title: "Leadership Dashboard", desc: "Referrals, pipeline, and attorney activity in one view." },
-                { icon: CheckCircle2, title: "90-Day Readout", desc: "What worked, what didn't, what we scale next." },
-                { icon: Calendar, title: "6-Month Roadmap", desc: "Priorities, budget, and hires tied to results." },
+                { icon: LayoutDashboard, title: "Growth Visibility Dashboard", desc: "Real-time view of firm growth — who drives revenue, which relationships convert, and where opportunities emerge." },
+                { icon: FileCheck, title: "Leadership Briefing", desc: "Quarterly presentation summarizing progress, impact, and next-phase recommendations." },
+                { icon: Settings, title: "Governance Model", desc: "Monthly steering process with the COO and Practice Chairs to sustain alignment and accountability." },
               ].map((item, i) => (
                 <div key={i} className="bg-[color:var(--surface)] p-6 rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)]">
                   <div className="w-10 h-10 rounded-xl bg-teal-600/10 text-teal-600 flex items-center justify-center mb-4">
@@ -565,10 +569,10 @@ export default function RoadmapPage() {
                     By Day 90
                   </span>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                    What You'll Have
+                    What Leadership Sees
                   </h2>
                   <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Tangible results that prove the model works
+                    Clear visibility into the people, relationships, and systems that drive firm growth.
                   </p>
                 </motion.div>
               </div>
@@ -578,19 +582,19 @@ export default function RoadmapPage() {
                   {
                     icon: BarChart3,
                     title: "Revenue Reality",
-                    desc: "Know exactly where your work comes from.",
+                    desc: "See exactly where work originates — and which relationships drive the most value.",
                     gradient: "from-[color:var(--teal)] to-teal-500",
                   },
                   {
                     icon: TrendingUp,
                     title: "Cross-Sell Pipeline",
-                    desc: "Active opportunities to expand client relationships.",
+                    desc: "Track active introductions and opportunities across practices in real time.",
                     gradient: "from-blue-500 to-cyan-500",
                   },
                   {
                     icon: Settings,
-                    title: "A Working Engine",
-                    desc: "Attorneys visible, referrals tracked, results measured.",
+                    title: "Working Growth Engine",
+                    desc: "Attorneys visible. Referrals tracked. Results measurable and reportable to leadership.",
                     gradient: "from-teal-600 to-[color:var(--teal)]",
                   },
                 ].map((item, i) => (
@@ -618,18 +622,33 @@ export default function RoadmapPage() {
                   href="/tool"
                   className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full text-sm font-bold border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all min-w-[200px] justify-center"
                 >
-                  Content Engine
+                  See the System
                 </Link>
                 <Link
                   href="/"
                   className="flex items-center gap-2 bg-white text-[color:var(--navy)] px-8 py-4 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors shadow-xl min-w-[200px] justify-center"
                 >
-                  See Full Strategy
+                  Explore the Full Strategy
                 </Link>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Closing Footer */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <p className="text-[color:var(--muted)] text-lg leading-relaxed">
+            UB Greensfelder already has what most firms chase — deep trust and client relationships.
+            This 90-day plan turns that trust into measurable momentum.
+            By Day 90, leadership isn't guessing what drives growth — they're watching it happen in real time.
+          </p>
+        </motion.div>
       </div>
     </div>
   );
