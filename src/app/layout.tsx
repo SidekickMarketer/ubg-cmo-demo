@@ -115,6 +115,15 @@ export default function RootLayout({
         </footer>
         <Analytics />
         <SpeedInsights />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-GWEGNWM7ZD" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GWEGNWM7ZD');
+          `}
+        </Script>
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
