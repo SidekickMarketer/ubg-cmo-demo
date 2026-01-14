@@ -139,16 +139,6 @@ export default function ToolPage() {
     setOutput("");
   };
 
-  const scrollToDemo = () => {
-    const demoSection = document.getElementById("demo-section");
-    if (demoSection) {
-      demoSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
   return (
     <div className="pt-32 pb-24 bg-[color:var(--background)] min-h-screen">
       <div className="px-4 md:px-8 max-w-7xl mx-auto">
@@ -175,15 +165,6 @@ export default function ToolPage() {
               approve.
             </p>
 
-            <motion.button
-              onClick={scrollToDemo}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 px-8 py-4 text-white text-base font-bold bg-[color:var(--navy)] rounded-full transition-all shadow-xl shadow-gray-200 hover:shadow-2xl group"
-            >
-              See how it works
-              <ChevronDownIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-            </motion.button>
           </motion.div>
 
           {/* Why This Matters Card */}
@@ -561,10 +542,10 @@ export default function ToolPage() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                Keep exploring.
+                See the other systems.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one piece. See the rest.
+                This is one piece of the strategy. Explore the rest.
               </p>
             </div>
 

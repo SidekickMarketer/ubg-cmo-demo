@@ -308,7 +308,7 @@ export default function ReferralsPage() {
                   Know exactly where your work comes from.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  This system tracks referral sources, surfaces who drives revenue, and flags relationships that need attention.
+                  Referrals drive most new business, but the data usually lives in people's heads. This makes it visible—so you can nurture what's working and fix what's not.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
