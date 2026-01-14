@@ -494,11 +494,11 @@ export default function ToolPage() {
               {[
                 {
                   title: "Scale",
-                  desc: "More attorneys visible without adding headcount.",
+                  desc: "More attorneys participating without adding headcount.",
                 },
                 {
                   title: "Consistency",
-                  desc: "On-brand content, every time.",
+                  desc: "On-brand content across every practice area.",
                 },
                 {
                   title: "Speed",
@@ -506,7 +506,7 @@ export default function ToolPage() {
                 },
                 {
                   title: "Buy-in",
-                  desc: "5 minutes of attorney time = full participation.",
+                  desc: "Low time commitment drives higher attorney participation.",
                 },
               ].map((benefit, i) => (
                 <motion.div
