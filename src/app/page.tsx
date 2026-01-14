@@ -165,13 +165,13 @@ function StatsSection() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <motion.div variants={itemVariants} className="max-w-3xl">
               <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 block">
-                The Strategic Thesis
+                The Opportunity
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
-                Firms like UB Greensfelder grow through referrals, attorney visibility, and client retention. Not campaigns.
+                Midsize firms are winning on what matters most.
               </h2>
               <p className="text-gray-400 text-lg">
-                This plan is built around those three realities.
+                Value, responsiveness, senior attention.
               </p>
             </motion.div>
 

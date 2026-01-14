@@ -147,12 +147,11 @@ export default function RoadmapPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] mb-6 font-serif">
-              Growth Roadmap
+              90-Day Plan
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-3xl leading-relaxed mb-12">
-              Listen, prove, scale. No firmwide mandates in the first 90 days. Small pilots that
-              prove the model before scaling.
+              Midsize firms win on value, responsiveness, and senior attention. Here's how I'd help UBG deliver on all three.
             </p>
           </motion.div>
 
@@ -165,10 +164,10 @@ export default function RoadmapPage() {
           >
             <div className="relative z-10">
               <span className="text-gray-400 text-xs font-bold tracking-widest uppercase mb-6 block">
-                Why This Approach
+                The Approach
               </span>
               <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                Small wins first, then scale what works.
+                Referrals, attorney visibility, and client retention. Not campaigns.
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
                 No firmwide mandates in the first 90 days. Instead: learn the business, run small pilots,
