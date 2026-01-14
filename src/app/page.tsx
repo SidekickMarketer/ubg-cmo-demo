@@ -168,10 +168,10 @@ function StatsSection() {
                 The Opportunity
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight font-serif">
-                In-house counsel is shifting work to midsize firms.
+                Midsize firms are winning on what matters most.
               </h2>
               <p className="text-gray-400 text-lg">
-                Here's what the data shows.
+                Value, responsiveness, senior attention.
               </p>
             </motion.div>
 
