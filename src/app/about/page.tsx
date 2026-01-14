@@ -12,7 +12,7 @@ export default function AboutPage() {
     },
     {
       company: "RDI Corporation",
-      headline: "Marketing Lead — $100M+ customer experience outsourcer",
+      headline: "Director of Marketing — $100M+ customer experience outsourcer",
       detail: "Recruited to lead a full marketing turnaround. Within 90 days, rebuilt the department around revenue impact — new website, overhauled sales enablement, aligned with client acquisition goals."
     },
     {
