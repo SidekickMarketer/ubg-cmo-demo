@@ -1,9 +1,45 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Download, ChevronDown } from "lucide-react";
 
 export default function AboutPage() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const careerItems = [
+    {
+      company: "Marketing Werks",
+      headline: "$7M NFL partnership for Verizon",
+      detail: "Managed activation across 15 stadiums. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams."
+    },
+    {
+      company: "Uber",
+      headline: "Employee #184",
+      detail: "Helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported hyper-growth."
+    },
+    {
+      company: "Nikki Martinkovic Design Studio",
+      headline: "Co-founded, 650+ brands served",
+      detail: "Built a design business selling original print collections worldwide. Grew from solo operation to seven-person studio serving enterprise clients globally."
+    },
+    {
+      company: "Freshly Baked Company",
+      headline: "$0 to $2.4M in year one",
+      detail: "Founding COO and Head of Growth. Built the B2B pipeline from zero, secured distributor partnerships, and designed compliant marketing infrastructure."
+    },
+    {
+      company: "RDI Corporation",
+      headline: "$100M+ firm, 90-day turnaround",
+      detail: "Recruited to lead a full marketing turnaround. Rebuilt the department around revenue impact — new website, overhauled sales enablement, aligned with client acquisition goals."
+    },
+    {
+      company: "Sidekick Marketer",
+      headline: "AI-driven consultancy, 2x output",
+      detail: "As founder, engineered AI-driven workflows that automated content and reporting. Design growth systems for service businesses combining SEO, automation, and lifecycle ownership."
+    },
+  ];
+
   return (
     <div className="pt-32 pb-24 bg-[color:var(--bg)] min-h-screen">
       <div className="px-4 md:px-8 max-w-7xl mx-auto">
@@ -185,44 +221,43 @@ export default function AboutPage() {
               I've spent my career inside organizations where growth depends on people, credibility, and execution — not advertising.
             </p>
 
-            <div className="space-y-8">
-              {[
-                {
-                  company: "Marketing Werks",
-                  content: <>I managed Verizon's <strong className="text-[color:var(--navy)]">$7M NFL partnership</strong> activation across <strong className="text-[color:var(--navy)]">15 stadiums</strong>. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams to strengthen a complex, multi-year enterprise relationship.</>
-                },
-                {
-                  company: "Uber",
-                  content: <>Where I joined as <strong className="text-[color:var(--navy)]">employee #184</strong>, I helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported the company's hyper-growth.</>
-                },
-                {
-                  company: "Nikki Martinkovic Design Studio",
-                  content: <>Which I co-founded, I built a design business that sold original print collections to more than <strong className="text-[color:var(--navy)]">650 brands</strong> and companies worldwide. We developed repeatable systems for client acquisition, design production, and trend forecasting — growing from a solo operation to a <strong className="text-[color:var(--navy)]">seven-person studio</strong> serving enterprise clients globally.</>
-                },
-                {
-                  company: "Freshly Baked Company",
-                  content: <>A regulated manufacturing startup where I served as founding COO and Head of Growth — overseeing sales, marketing, compliance, and HR. I built the B2B pipeline from zero, secured distributor partnerships, and designed the infrastructure that kept marketing and packaging compliant. Result: <strong className="text-[color:var(--navy)]">$0 to $2.4M</strong> in the first year.</>
-                },
-                {
-                  company: "RDI Corporation",
-                  content: <>A <strong className="text-[color:var(--navy)]">$100M+</strong> customer-experience outsourcing firm where I was recruited to lead a full marketing turnaround. Within <strong className="text-[color:var(--navy)]">90 days</strong>, I rebuilt the department around revenue impact — launching a new website, overhauling sales enablement, and aligning marketing directly with client acquisition and retention goals.</>
-                },
-                {
-                  company: "Sidekick Marketer",
-                  content: <>As founder, I built a new kind of consultancy. I engineered AI-driven workflows that automated content and reporting — <strong className="text-[color:var(--navy)]">doubling output</strong> without additional staff. I design growth systems for local and regional service businesses, combining SEO, automation, and lifecycle ownership to help them dominate their markets.</>
-                },
-              ].map((item, i) => (
+            <div className="space-y-3">
+              {careerItems.map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="border-l-2 border-[color:var(--border)] pl-6 hover:border-[color:var(--teal)] transition-colors"
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                  className="border border-[color:var(--border)] rounded-xl overflow-hidden"
                 >
-                  <p className="text-[color:var(--muted)] leading-relaxed">
-                    <span className="text-[color:var(--navy)] font-bold">At {item.company}</span>, {item.content}
-                  </p>
+                  <button
+                    onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
+                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-[color:var(--bg)] transition-colors"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-[color:var(--navy)] font-bold">{item.company}</span>
+                      <span className="text-[color:var(--teal)] text-sm font-medium">{item.headline}</span>
+                    </div>
+                    <ChevronDown
+                      className={`w-5 h-5 text-[color:var(--muted)] transition-transform ${expandedIndex === i ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {expandedIndex === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-4 text-[color:var(--muted)] leading-relaxed border-t border-[color:var(--border)] pt-4">
+                          {item.detail}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
             </div>
