@@ -1,12 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Download, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 
 export default function AboutPage() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
   const careerItems = [
     {
       company: "Marketing Werks",
@@ -221,7 +218,7 @@ export default function AboutPage() {
               I've spent my career inside organizations where growth depends on people, credibility, and execution — not advertising.
             </p>
 
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {careerItems.map((item, i) => (
                 <motion.div
                   key={i}
@@ -229,35 +226,11 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="border border-[color:var(--border)] rounded-xl overflow-hidden"
+                  className="bg-white border border-[color:var(--border)] rounded-xl p-5 hover:border-[color:var(--teal)]/50 hover:shadow-md transition-all"
                 >
-                  <button
-                    onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-[color:var(--bg)] transition-colors"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="text-[color:var(--navy)] font-bold">{item.company}</span>
-                      <span className="text-[color:var(--teal)] text-sm font-medium">{item.headline}</span>
-                    </div>
-                    <ChevronDown
-                      className={`w-5 h-5 text-[color:var(--muted)] transition-transform ${expandedIndex === i ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {expandedIndex === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-4 text-[color:var(--muted)] leading-relaxed border-t border-[color:var(--border)] pt-4">
-                          {item.detail}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className="text-[color:var(--navy)] font-bold mb-1">{item.company}</div>
+                  <div className="text-[color:var(--teal)] text-sm font-semibold mb-3">{item.headline}</div>
+                  <p className="text-[color:var(--muted)] text-sm leading-relaxed">{item.detail}</p>
                 </motion.div>
               ))}
             </div>
