@@ -20,7 +20,20 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: "CMO Vision for UB Greensfelder | Kyle Naughtrip",
-  description: "A strategic marketing vision for UB Greensfelder LLP - demonstrating AI-powered thought leadership, data-driven strategy, and modern legal marketing excellence.",
+  description: "A strategic marketing vision for UB Greensfelder LLP. 90-day roadmap, referral intelligence system, and content engine.",
+  metadataBase: new URL("https://ubg-cmo-demo.vercel.app"),
+  openGraph: {
+    title: "CMO Vision for UB Greensfelder",
+    description: "A strategic marketing vision for UB Greensfelder LLP. 90-day roadmap, referral intelligence system, and content engine.",
+    siteName: "Kyle Naughtrip | CMO Application",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CMO Vision for UB Greensfelder",
+    description: "A strategic marketing vision for UB Greensfelder LLP. 90-day roadmap, referral intelligence system, and content engine.",
+  },
 };
 
 export default function RootLayout({
