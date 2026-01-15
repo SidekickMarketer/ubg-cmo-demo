@@ -172,7 +172,7 @@ export default function RoadmapPage() {
                   The Approach
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                  Referrals, visibility, and client retention — not campaigns.
+                  Referrals, visibility, and client retention. Not campaigns.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
                   The first 90 days focus on clarity, not complexity. Understand how the firm actually wins work, build small pilots that prove results, then scale what works. By Day 90, leadership has visibility into where growth originates, which relationships drive revenue, and how attorneys build visibility without adding effort.
@@ -206,7 +206,7 @@ export default function RoadmapPage() {
         <div id="phase-1" className="mb-32 scroll-mt-48">
           <div className="mb-12">
             <span className="text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase mb-3 block">
-              Phase 1 — Days 1–30
+              Phase 1: Days 1–30
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
               Learn How the Firm Actually Gets Hired
@@ -238,7 +238,7 @@ export default function RoadmapPage() {
                 {[
                   "Meet key stakeholders across leadership and practices.",
                   "Understand how business development and client intake really work today.",
-                  "Review what data exists — and what partners and staff actually use.",
+                  "Review what data exists, and what partners and staff actually use.",
                   "Identify friction points that slow attorneys or BD down.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-[color:var(--muted)] leading-relaxed">
@@ -299,7 +299,7 @@ export default function RoadmapPage() {
               {[
                 { icon: FileText, title: "Revenue Brief", desc: "Where work originates, where risk sits, and where growth potential exists." },
                 { icon: Map, title: "Referral Map", desc: "Who sends work, who owns each relationship, and which practices benefit." },
-                { icon: Zap, title: "Quick Win Plan", desc: "A small pilot proving immediate traction — measurable, credible, and leadership-visible." },
+                { icon: Zap, title: "Quick Win Plan", desc: "A small pilot proving immediate traction. Measurable, credible, and visible to leadership." },
               ].map((item, i) => (
                 <div key={i} className="bg-[color:var(--surface)] p-6 rounded-2xl border border-[color:var(--border)] shadow-[var(--shadow-soft)]">
                   <div className="w-10 h-10 rounded-xl bg-[color:var(--teal)]/10 text-[color:var(--teal)] flex items-center justify-center mb-4">
@@ -317,7 +317,7 @@ export default function RoadmapPage() {
         <div id="phase-2" className="mb-32 scroll-mt-48">
           <div className="mb-12">
             <span className="text-blue-600 text-xs font-bold tracking-widest uppercase mb-3 block">
-              Phase 2 — Days 31–60
+              Phase 2: Days 31–60
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
               Build the Engines
@@ -347,9 +347,9 @@ export default function RoadmapPage() {
               </div>
               <ul className="space-y-4">
                 {[
-                  "Referral Engine — Structure and track relationships with referrers, without incentives.",
-                  "Cross-Sell Engine — Identify top clients with needs across multiple practices.",
-                  "Visibility Engine — Help attorneys stay visible with minimal time investment through AI-assisted drafting and marketing support.",
+                  "Referral Engine: Structure and track relationships with referrers, without incentives.",
+                  "Cross-Sell Engine: Identify top clients with needs across multiple practices.",
+                  "Visibility Engine: Help attorneys stay visible with minimal time investment through AI-assisted drafting and marketing support.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-[color:var(--muted)] leading-relaxed">
                     <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--navy)] mt-2 shrink-0" />
@@ -427,7 +427,7 @@ export default function RoadmapPage() {
         <div id="phase-3" className="mb-32 scroll-mt-48">
           <div className="mb-12">
             <span className="text-teal-600 text-xs font-bold tracking-widest uppercase mb-3 block">
-              Phase 3 — Days 61–90
+              Phase 3: Days 61–90
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--navy)] mb-4 font-display">
               Make Growth Visible
@@ -517,7 +517,7 @@ export default function RoadmapPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: LayoutDashboard, title: "Growth Visibility Dashboard", desc: "Real-time view of firm growth — who drives revenue, which relationships convert, and where opportunities emerge." },
+                { icon: LayoutDashboard, title: "Growth Visibility Dashboard", desc: "Real-time view of firm growth. Who drives revenue, which relationships convert, and where opportunities emerge." },
                 { icon: FileCheck, title: "Leadership Briefing", desc: "Quarterly presentation summarizing progress, impact, and next-phase recommendations." },
                 { icon: Settings, title: "Governance Model", desc: "Monthly steering process with the COO and Practice Chairs to sustain alignment and accountability." },
               ].map((item, i) => (
@@ -582,7 +582,7 @@ export default function RoadmapPage() {
                   {
                     icon: BarChart3,
                     title: "Revenue Reality",
-                    desc: "See exactly where work originates — and which relationships drive the most value.",
+                    desc: "See exactly where work originates. Know which relationships drive the most value.",
                     gradient: "from-[color:var(--teal)] to-teal-500",
                   },
                   {
@@ -632,7 +632,7 @@ export default function RoadmapPage() {
                 </Link>
               </div>
               <p className="text-sm text-gray-500 text-center pt-6">
-                Each system connects — referrals, visibility, and growth run on the same rhythm.
+                Each system connects. Referrals, visibility, and growth run on the same rhythm.
               </p>
             </div>
           </div>
@@ -647,9 +647,9 @@ export default function RoadmapPage() {
           className="text-center max-w-3xl mx-auto"
         >
           <p className="text-[color:var(--muted)] text-lg leading-relaxed">
-            UB Greensfelder already has what most firms chase — deep trust and client relationships.
+            UB Greensfelder already has what most firms chase: deep trust and client relationships.
             This 90-day plan turns that trust into measurable momentum.
-            By Day 90, leadership isn't guessing what drives growth — they're watching it happen in real time.
+            By Day 90, leadership isn't guessing what drives growth. They're watching it happen in real time.
           </p>
         </motion.div>
       </div>

@@ -7,33 +7,33 @@ export default function AboutPage() {
   const careerItems = [
     {
       company: "Sidekick Marketer",
-      headline: "Founder — AI-powered growth consultancy",
-      detail: "Engineered AI-driven workflows that automated content and reporting — doubling output. Design growth systems for service businesses combining SEO, automation, and lifecycle ownership."
+      headline: "Founder",
+      detail: "I built an AI-powered growth consultancy. Automated content and reporting workflows doubled our output. Now I design growth systems for service businesses using SEO, automation, and lifecycle marketing."
     },
     {
       company: "RDI Corporation",
-      headline: "Director of Marketing — $100M+ customer experience outsourcer",
-      detail: "Recruited to lead a full marketing turnaround. Within 90 days, rebuilt the department around revenue impact — new website, overhauled sales enablement, aligned with client acquisition goals."
+      headline: "Director of Marketing",
+      detail: "Recruited to turn around marketing at this $100M+ customer experience outsourcer. Within 90 days I rebuilt the department around revenue: new website, better sales enablement, tighter alignment with client acquisition."
     },
     {
       company: "Freshly Baked Company",
-      headline: "Founding COO — $0 to $2.4M in year one",
-      detail: "Regulated cannabis manufacturing startup. Built the B2B pipeline from zero, secured distributor partnerships, and designed compliant marketing infrastructure."
+      headline: "Founding COO",
+      detail: "Regulated cannabis manufacturing startup. I built the B2B pipeline from zero, landed distributor partnerships, and created compliant marketing infrastructure. We hit $2.4M in year one."
     },
     {
       company: "Nikki Martinkovic Design Studio",
-      headline: "Co-founder — 650+ brands served globally",
-      detail: "Built a design business selling original print collections worldwide. Grew from solo operation to seven-person studio serving enterprise clients."
+      headline: "Co-founder",
+      detail: "Built a design business selling original print collections to 650+ brands worldwide. Grew from just me to a seven-person studio serving enterprise clients."
     },
     {
       company: "Uber",
-      headline: "Employee #184 — NY/NJ/CT market launches",
-      detail: "Helped launch and scale new markets across New York, New Jersey, and Connecticut — building repeatable systems that supported hyper-growth."
+      headline: "Employee #184",
+      detail: "Helped launch and scale markets across New York, New Jersey, and Connecticut. Built the repeatable systems that supported hyper-growth."
     },
     {
       company: "Marketing Werks",
-      headline: "Account Manager — $7M Verizon NFL partnership",
-      detail: "Managed activation across 15 stadiums. Growth came through renewals, upsells, and account expansion — coordinating across procurement, legal, and brand teams."
+      headline: "Account Manager",
+      detail: "Managed Verizon's $7M NFL partnership activation across 15 stadiums. Growth came through renewals, upsells, and account expansion by working across procurement, legal, and brand teams."
     },
   ];
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </h1>
 
               <p className="text-xl text-[color:var(--navy)] font-semibold leading-relaxed max-w-lg">
-                I turn a firm's existing strengths — relationships, reputation, and expertise — into a unified growth engine that scales.
+                I turn a firm's existing strengths into a unified growth engine that scales. Relationships, reputation, expertise: they're already there. I make them work harder.
               </p>
             </motion.div>
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
                       Especially midsize, multi-office firms like UB Greensfelder, where senior attention and reputation are the product.
                     </p>
                     <p>
-                      I have spent more than 15 years operating inside organizations where growth depends on relationships, credibility, and execution — not just marketing activity.
+                      I've spent 15+ years inside organizations where growth depends on relationships, credibility, and execution. Not just marketing activity.
                     </p>
                     <p>
                       Across startups, enterprise partnerships, and professional services, the pattern has been consistent: identify what already drives revenue, build systems around it, and make it repeatable.
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   Revenue focus.
                 </h3>
                 <p className="text-[color:var(--muted)] leading-relaxed">
-                  I focus on the economics that move firms — referrals, cross-sell, retention, and reputation — and turn them into measurable growth.
+                  I focus on the economics that actually move firms: referrals, cross-sell, retention, reputation. Then I turn them into measurable growth.
                 </p>
               </div>
               <div>
@@ -179,7 +179,7 @@ export default function AboutPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
                 {[
-                  { title: "Growth strategy", desc: "How the firm grows — not just how it markets." },
+                  { title: "Growth strategy", desc: "How the firm actually grows, not just how it markets." },
                   { title: "Business development", desc: "How referrals and cross-sell become systematic instead of accidental." },
                   { title: "Content systems", desc: "How partners stay visible and trusted without wasting time." },
                   { title: "Reporting", desc: "How leadership sees what is actually driving revenue." },
@@ -215,7 +215,7 @@ export default function AboutPage() {
               Where this operating model comes from
             </h2>
             <p className="text-lg text-[color:var(--muted)] mb-12 max-w-3xl">
-              I've spent my career inside organizations where growth depends on people, credibility, and execution — not advertising.
+              I've spent my career inside organizations where growth depends on people, credibility, and execution. Not advertising.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -178,10 +178,10 @@ export default function ToolPage() {
                   The Challenge
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                  Attorneys have expertise worth sharing — but no time to write about it.
+                  Attorneys have expertise worth sharing. They just don't have time to write about it.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  This system removes the bottleneck. Five minutes of attorney time, marketing handles the rest. Attorneys stay visible without getting buried in content production — and the firm gains a consistent presence across practices.
+                  This system removes the bottleneck. Five minutes of attorney time, marketing handles the rest. Attorneys stay visible without getting buried in content production. The firm gains a consistent presence across practices.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -338,7 +338,7 @@ export default function ToolPage() {
                 <p className="text-center text-xs text-[color:var(--muted)] mt-4">
                   <span className="inline-flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Live system — generates real content
+                    Live system. Generates real content.
                   </span>
                 </p>
               </div>
@@ -542,7 +542,7 @@ export default function ToolPage() {
                 See the Other Systems.
               </h2>
               <p className="text-gray-400 text-lg">
-                Each system connects — referrals, visibility, and growth all run on the same operating rhythm.
+                Each system connects. Referrals, visibility, and growth all run on the same operating rhythm.
               </p>
             </div>
 

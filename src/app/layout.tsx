@@ -51,7 +51,7 @@ export default function RootLayout({
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-[color:var(--muted)] max-w-sm leading-relaxed">
-                  A strategic marketing vision for UB Greensfelder LLP — demonstrating AI-powered thought leadership, data-driven strategy, and modern legal marketing excellence.
+                  A strategic marketing vision for UB Greensfelder LLP. AI-powered thought leadership, data-driven strategy, and modern legal marketing.
                 </p>
               </div>
 

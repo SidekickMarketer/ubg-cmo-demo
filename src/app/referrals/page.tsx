@@ -266,7 +266,7 @@ export default function ReferralsPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-[color:var(--muted)] max-w-xl leading-relaxed">
-              Track referral sources, surface cross-sell opportunities, and map attorney networks — all connected to firm revenue.
+              Track referral sources, surface cross-sell opportunities, and map attorney networks. All connected to firm revenue.
             </p>
 
             {/* Tab Navigation */}
@@ -307,7 +307,7 @@ export default function ReferralsPage() {
                   Know exactly where your work comes from.
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  Referrals drive most new business, but the data usually lives in people's heads. This dashboard makes it visible — so leadership can see which relationships create growth, where new opportunities exist, and how cross-practice referrals actually move revenue.
+                  Referrals drive most new business, but the data usually lives in people's heads. This dashboard makes it visible. Leadership can see which relationships create growth, where new opportunities exist, and how cross-practice referrals actually move revenue.
                 </p>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
@@ -394,7 +394,7 @@ export default function ReferralsPage() {
                 className="text-center mb-12"
               >
                 <p className="text-[color:var(--muted)] text-lg italic max-w-2xl mx-auto">
-                  These insights make relationship networks measurable — turning firm trust into firm intelligence.
+                  These insights make relationship networks measurable. Firm trust becomes firm intelligence.
                 </p>
               </motion.div>
 
@@ -654,11 +654,11 @@ export default function ReferralsPage() {
                   <ul className="space-y-3 text-sm text-amber-700">
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
-                      L. Park has high receive rate but low send rate — opportunity to reciprocate
+                      L. Park has high receive rate but low send rate. Opportunity to reciprocate.
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
-                      Media/event referrals underutilized — consider speaker expansion
+                      Media/event referrals underutilized. Consider speaker expansion.
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0" />
@@ -687,7 +687,7 @@ export default function ReferralsPage() {
                 See the Other Systems.
               </h2>
               <p className="text-gray-400 text-lg">
-                This is one layer of the 90-Day Operating Plan — the visibility layer. Explore how it connects with the firm's Content Engine and Growth Framework.
+                This is one layer of the 90-Day Operating Plan. Explore how it connects with the firm's Content Engine and Growth Framework.
               </p>
             </div>
 
@@ -709,7 +709,7 @@ export default function ReferralsPage() {
             </div>
 
             <p className="text-sm text-gray-500 pt-4 border-t border-white/10">
-              Each system connects — referrals, visibility, and growth run on the same rhythm.
+              Each system connects. Referrals, visibility, and growth run on the same rhythm.
             </p>
           </div>
         </motion.div>

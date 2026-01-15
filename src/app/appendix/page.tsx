@@ -154,7 +154,7 @@ export default function AppendixPage() {
               stat="95%"
               claim="Responsiveness and value are top selection factors"
               source="BTI Consulting; Leopard Solutions 2025 Corporate Counsel Survey"
-              context="95% of corporate counsel cite responsiveness and value delivery as the top factors in selecting outside counsel. It's not about brand name or firm prestige—it's about results and the quality of service delivered."
+              context="95% of corporate counsel cite responsiveness and value delivery as the top factors in selecting outside counsel. Not brand name or firm prestige. Results and service quality are what matter."
             />
 
             <CitationCard
@@ -214,7 +214,7 @@ export default function AppendixPage() {
                 title="LinkedIn outpaces other platforms"
                 publisher="Greentarget/Zeughauser Group"
                 year="2025"
-                description="66% of decision-makers find LinkedIn valuable—more than 2x any other social platform. Individual attorney profiles are checked for background and connections."
+                description="66% of decision-makers find LinkedIn valuable. That's more than 2x any other social platform. Individual attorney profiles are checked for background and connections."
               />
               <SourceCard
                 index={4}
@@ -249,7 +249,7 @@ export default function AppendixPage() {
                 title="Relationships are sticky"
                 publisher="BTI Consulting Group"
                 year="2025"
-                description="Two-thirds of companies choose firms based on long-standing relationships. Incumbents usually get the first call—but loyalty is increasingly conditional."
+                description="Two-thirds of companies choose firms based on long-standing relationships. Incumbents usually get the first call, but loyalty is increasingly conditional."
               />
               <SourceCard
                 index={2}

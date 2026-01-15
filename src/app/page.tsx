@@ -392,7 +392,7 @@ function ProjectsSection() {
           number="3"
           category="Visibility System"
           title="Content Engine"
-          description="Solves the attorney content bottleneck. Attorneys review, marketing publishes—without adding to their workload."
+          description="Solves the attorney content bottleneck. Attorneys review, marketing publishes. No extra work for them."
           variant="light"
           linkText="See how it works"
           href="/tool"
@@ -403,7 +403,7 @@ function ProjectsSection() {
           number="4"
           category="Context"
           title="Why Kyle"
-          description="Blends agency speed with in-house judgment — 15 years of building marketing that drives revenue."
+          description="15 years of building marketing that drives revenue. Agency speed, in-house judgment."
           variant="light"
           linkText="See my background"
           href="/about"
@@ -483,7 +483,7 @@ function Footer() {
     <footer className="px-4 md:px-8 pb-12 max-w-7xl mx-auto">
       <div className="text-center">
         <p className="text-sm text-[color:var(--muted)]">
-          A strategic growth vision for UB Greensfelder LLP — integrating relationships, visibility, and modern legal marketing.
+          A strategic growth vision for UB Greensfelder LLP. Relationships, visibility, and modern legal marketing.
         </p>
       </div>
     </footer>
