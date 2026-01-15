@@ -58,7 +58,7 @@ function Hero() {
   };
 
   return (
-    <section className="pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
+    <section className="pt-32 pb-24 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Content */}
         <div className="space-y-8">
@@ -247,7 +247,9 @@ function StatsSection() {
 
         {/* Footer Note */}
         <motion.div variants={itemVariants} className="mt-10 text-xs text-gray-500">
-          Data sources: Above the Law (Nov 2025), BTI Consulting, Leopard Solutions (2025 Corporate Counsel Survey), Thomson Reuters Legal Market Insights.
+          <Link href="/appendix" className="hover:text-gray-300 transition-colors underline underline-offset-2">
+            Data sources: Above the Law, BTI Consulting, Leopard Solutions, Thomson Reuters
+          </Link>
         </motion.div>
       </motion.div>
     </section>

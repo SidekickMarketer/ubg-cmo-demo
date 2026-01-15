@@ -258,7 +258,7 @@ export default function ReferralsPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--teal)]/10 text-[color:var(--teal)] text-xs font-bold tracking-widest uppercase border border-[color:var(--teal)]/20 mb-6">
               <TrendingUpIcon className="w-3 h-3" />
-              AI Dashboard
+              Referral System
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[color:var(--navy)] leading-[1.1] tracking-tight font-display">
@@ -365,6 +365,9 @@ export default function ReferralsPage() {
                   </h2>
                   <p className="text-sm text-[color:var(--muted)]">
                     Ranked by referral volume over the past 12 months. This snapshot reveals which relationships drive the most work and where new opportunities may exist.
+                  </p>
+                  <p className="text-xs text-[color:var(--muted)]/70 mt-2 italic">
+                    Demo data reflective of typical firm patterns
                   </p>
                 </div>
 
