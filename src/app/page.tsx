@@ -420,11 +420,8 @@ function FinalCTA() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between relative z-10">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold font-display">
-              If this direction resonates, I'd welcome a conversation.
+              Let's talk.
             </h2>
-            <p className="mt-3 text-base text-white/70 leading-relaxed">
-              Reach out directly or keep exploring.
-            </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row shrink-0">
             <motion.a
@@ -464,21 +461,6 @@ function FinalCTA() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Footer
-───────────────────────────────────────────────────────────── */
-function Footer() {
-  return (
-    <footer className="px-4 md:px-8 pb-12 max-w-7xl mx-auto">
-      <div className="text-center">
-        <p className="text-sm text-[color:var(--muted)]">
-          A strategic growth vision for UB Greensfelder LLP. Relationships, visibility, and modern legal marketing.
-        </p>
-      </div>
-    </footer>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────────
    Main Page
 ───────────────────────────────────────────────────────────── */
 export default function HomePage() {
@@ -488,7 +470,6 @@ export default function HomePage() {
       <StatsSection />
       <ProjectsSection />
       <FinalCTA />
-      <Footer />
     </div>
   );
 }

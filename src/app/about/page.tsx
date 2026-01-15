@@ -255,12 +255,9 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="bg-[color:var(--surface)] rounded-3xl p-12 md:p-16 shadow-[var(--shadow-soft)] border border-[color:var(--border)] text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--navy)] mb-4 font-display">
+            <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--navy)] mb-10 font-display">
               Let's talk.
             </h2>
-            <p className="text-lg text-[color:var(--muted)] mb-10 max-w-xl mx-auto">
-              If this direction resonates, I'd welcome a conversation.
-            </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
