@@ -569,10 +569,10 @@ export default function RoadmapPage() {
                     By Day 90
                   </span>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-display">
-                    What Leadership Sees
+                    This Is Running
                   </h2>
                   <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Clear visibility into the people, relationships, and systems that drive firm growth.
+                    Three engines. One rhythm. Measurable results.
                   </p>
                 </motion.div>
               </div>
