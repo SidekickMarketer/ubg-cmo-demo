@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
    CountUp – animates a number from 0 to target when in view
@@ -50,13 +50,6 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
    Hero Section
 ───────────────────────────────────────────────────────────── */
 function Hero() {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects-section");
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
     <section className="pt-32 pb-24 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -98,13 +91,6 @@ function Hero() {
               </motion.button>
             </Link>
 
-            <button
-              onClick={scrollToProjects}
-              className="flex items-center gap-2 text-[color:var(--muted)] hover:text-[color:var(--navy)] transition-colors text-base font-medium group"
-            >
-              Or explore the systems
-              <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-            </button>
           </motion.div>
         </div>
 

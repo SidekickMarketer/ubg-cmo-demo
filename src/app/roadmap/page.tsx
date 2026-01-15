@@ -638,20 +638,6 @@ export default function RoadmapPage() {
           </div>
         </div>
 
-        {/* Closing Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <p className="text-[color:var(--muted)] text-lg leading-relaxed">
-            UB Greensfelder already has what most firms chase: deep trust and client relationships.
-            This 90-day plan turns that trust into measurable momentum.
-            By Day 90, leadership isn't guessing what drives growth. They're watching it happen in real time.
-          </p>
-        </motion.div>
       </div>
     </div>
   );
