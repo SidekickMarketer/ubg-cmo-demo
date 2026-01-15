@@ -63,7 +63,7 @@ export default function RootLayout({
                   <a href="/roadmap" className="block text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors">90-Day Plan</a>
                   <a href="/referrals" className="block text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors">Referral Intelligence</a>
                   <a href="/tool" className="block text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors">Content Engine</a>
-                  <a href="/about" className="block text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors">About Kyle</a>
+                  <a href="/about" className="block text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors">Why Kyle</a>
                   <a href="/appendix" className="block text-sm text-[color:var(--navy)] hover:text-[color:var(--teal)] transition-colors">Sources & Citations</a>
                 </nav>
               </div>
