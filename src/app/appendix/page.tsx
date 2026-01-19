@@ -151,10 +151,10 @@ export default function AppendixPage() {
 
             <CitationCard
               index={1}
-              stat="95%"
-              claim="Responsiveness and value are top selection factors"
-              source="BTI Consulting; Leopard Solutions 2025 Corporate Counsel Survey"
-              context="95% of corporate counsel cite responsiveness and value delivery as the top factors in selecting outside counsel. Not brand name or firm prestige. Results and service quality are what matter."
+              stat="98%"
+              claim="Value delivery is the top selection factor"
+              source="Leopard Solutions 2025 Corporate Counsel Survey"
+              context="98% of corporate counsel cite value delivery as important when selecting outside counsel, with responsiveness ranking as the top-valued trait. Not brand name or firm prestige. Results and service quality are what matter."
             />
 
             <CitationCard
@@ -425,7 +425,7 @@ export default function AppendixPage() {
                 },
                 {
                   title: "Leopard Solutions: Corporate Counsel Preferences",
-                  desc: "Survey on outside counsel selection factors (source of 95% responsiveness/value statistic, with BTI Consulting)",
+                  desc: "Survey on outside counsel selection factors (source of 98% value delivery statistic)",
                   url: "https://www.leopardsolutions.com/corporate-counsel-dish-on-outside-counsel-preferences-and-the-landscape-favors-agile-midsize-firms/",
                 },
                 {

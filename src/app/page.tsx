@@ -205,11 +205,11 @@ function StatsSection() {
               Client Priorities
             </h3>
             <div className="text-5xl md:text-6xl font-semibold text-white mb-4 tracking-tighter tabular-nums">
-              <CountUp to={95} suffix="%" />
+              <CountUp to={98} suffix="%" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-              of corporate counsel cite responsiveness and value as top factors when choosing outside counsel.
-              <span className="block text-xs text-gray-500 mt-2">Sources: BTI Consulting; Leopard Solutions, 2025</span>
+              of corporate counsel cite value delivery as important when selecting outside counsel.
+              <span className="block text-xs text-gray-500 mt-2">Source: Leopard Solutions, 2025</span>
             </p>
           </motion.div>
 
