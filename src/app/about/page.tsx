@@ -7,33 +7,33 @@ export default function AboutPage() {
   const careerItems = [
     {
       company: "Sidekick Marketer",
-      headline: "Founder",
-      detail: "I built an AI-powered growth consultancy. Automated content and reporting workflows doubled our output. Now I design growth systems for service businesses using SEO, automation, and lifecycle marketing."
+      headline: "Founder & Principal",
+      detail: "Founded a growth consultancy that designs and operates revenue systems for service-based companies. I partner with owners and leadership teams to improve pipeline quality, sales performance, and revenue predictability."
     },
     {
       company: "RDI Corporation",
       headline: "Director of Marketing",
-      detail: "Recruited to turn around marketing at this $100M+ customer experience outsourcer. Within 90 days I rebuilt the department around revenue: new website, better sales enablement, tighter alignment with client acquisition."
+      detail: "Recruited to rebuild marketing for a $100M+ B2B professional services company. Reorganized an eight-person team, overhauled the website, and built sales enablement tools that helped close enterprise contracts."
+    },
+    {
+      company: "Nikki Martinkovic Design Studio",
+      headline: "Co-Founder & Head of BD",
+      detail: "Co-founded and scaled a design studio to $8.5M in sales and 650+ retail and enterprise clients. Built and led a team of 7 employees and 15 contractors across production, design, and delivery."
     },
     {
       company: "Freshly Baked Company",
       headline: "Founding COO",
-      detail: "Regulated cannabis manufacturing startup. I built the B2B pipeline from zero, landed distributor partnerships, and created compliant marketing infrastructure. We hit $2.4M in year one."
-    },
-    {
-      company: "Nikki Martinkovic Design Studio",
-      headline: "Co-founder",
-      detail: "Built a design business selling original print collections to 650+ brands worldwide. Grew from just me to a seven-person studio serving enterprise clients."
+      detail: "Founding COO of a regulated manufacturing startup. Grew revenue from $0 to $2.4M in year one by building the B2B sales engine and landing distributor partnerships."
     },
     {
       company: "Uber",
-      headline: "Employee #184",
-      detail: "Helped launch and scale markets across New York, New Jersey, and Connecticut. Built the repeatable systems that supported hyper-growth."
+      headline: "Head of Experiential Marketing",
+      detail: "Employee #184. Directed East Coast experiential marketing during hyper-growth. Managed a 200-person field team and built scalable playbooks across NY, NJ, and CT markets."
     },
     {
       company: "Marketing Werks",
       headline: "Account Manager",
-      detail: "Managed Verizon's $7M NFL partnership activation across 15 stadiums. Growth came through renewals, upsells, and account expansion by working across procurement, legal, and brand teams."
+      detail: "Managed Verizon's $7M NFL sponsorship across 15 stadiums. Renewed a $1.5M sponsorship and generated $264K in incremental revenue through fan engagement programs."
     },
   ];
 
