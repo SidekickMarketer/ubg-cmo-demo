@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   title: "CMO Vision for UB Greensfelder | Kyle Naughtrip",
   description: "A strategic marketing vision for UB Greensfelder LLP. 90-day roadmap, referral intelligence system, and content engine.",
   metadataBase: new URL("https://ubg-cmo-demo.vercel.app"),
+  robots: {
+    index: false,
+    follow: false,
+  },
   openGraph: {
     title: "CMO Vision for UB Greensfelder",
     description: "A strategic marketing vision for UB Greensfelder LLP. 90-day roadmap, referral intelligence system, and content engine.",
